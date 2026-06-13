@@ -1,32 +1,14 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
 export default function Lakeside3DBackground() {
   const containerRef = useRef<HTMLDivElement>(null);
   const mouseRef = useRef({ x: 0, y: 0, targetX: 0, targetY: 0 });
-  const [isMobile, setIsMobile] = useState(true); // Default to true for SSR safety
 
   useEffect(() => {
-    // Detect mobile device or small screen width
-    const checkMobile = () => {
-      const mobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
-      );
-      setIsMobile(window.innerWidth < 1024 || mobileUA);
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-
-    return () => {
-      window.removeEventListener("resize", checkMobile);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (isMobile || !containerRef.current) return;
+    if (!containerRef.current) return;
 
     const container = containerRef.current;
     const width = container.clientWidth;
@@ -242,21 +224,7 @@ export default function Lakeside3DBackground() {
         container.removeChild(renderer.domElement);
       }
     };
-  }, [isMobile]);
-
-  // Mobile fallback: render a static background image instead of WebGL
-  if (isMobile) {
-    return (
-      <div 
-        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-80 pointer-events-none z-0 bg-[#030a16]"
-        style={{
-          backgroundImage: "url('/images/resort_background_hd_widescreen_v6.webp')",
-          maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%)",
-          WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%)"
-        }}
-      />
-    );
-  }
+  }, []);
 
   return (
     <div 

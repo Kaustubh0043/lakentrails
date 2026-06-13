@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Calendar, Users, Phone, Mail, User, ShieldCheck, ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, Calendar, Users, Phone, Mail, User, ShieldCheck, ChevronDown, ChevronLeft, ChevronRight, Minus, Plus } from "lucide-react";
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -22,8 +22,31 @@ export default function BookingModal({ isOpen, onClose, defaultExperience = "day
     notes: "",
   });
 
+  const [bookingStep, setBookingStep] = useState(1);
+  const [guestCounts, setGuestCounts] = useState({
+    adults: 2,
+    childrenAbove5: 0,
+    childrenBelow5: 0,
+    infants: 0,
+    pets: 0,
+    isLargeEvent: false,
+  });
+  const [isGuestDropdownOpen, setIsGuestDropdownOpen] = useState(false);
+  const guestSelectorRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     if (isOpen) {
+      setBookingStep(1);
+      setGuestCounts({
+        adults: 2,
+        childrenAbove5: 0,
+        childrenBelow5: 0,
+        infants: 0,
+        pets: 0,
+        isLargeEvent: false,
+      });
+      setIsGuestDropdownOpen(false);
+      document.body.style.overflow = "hidden";
       // Map general experiences to the three actual package options
       let mappedExp = defaultExperience;
       if (["camping", "stay-package", "pool-party", "wedding", "corporate"].includes(defaultExperience)) {
@@ -34,8 +57,84 @@ export default function BookingModal({ isOpen, onClose, defaultExperience = "day
         mappedExp = "day-outing";
       }
       setFormData((prev) => ({ ...prev, experience: mappedExp }));
+    } else {
+      document.body.style.overflow = "";
     }
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [defaultExperience, isOpen]);
+
+  // Click outside to close guest selector popover
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (guestSelectorRef.current && !guestSelectorRef.current.contains(event.target as Node)) {
+        setIsGuestDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Sync total guests to formData (only count adults and children > 5y as paying guests)
+  useEffect(() => {
+    if (guestCounts.isLargeEvent) {
+      setFormData((prev) => ({ ...prev, guests: "event" }));
+    } else {
+      const totalPayingGuests = guestCounts.adults + guestCounts.childrenAbove5;
+      setFormData((prev) => ({ ...prev, guests: totalPayingGuests.toString() }));
+    }
+  }, [guestCounts]);
+
+  const getGuestsSummary = () => {
+    if (guestCounts.isLargeEvent) return "Large Event (50+ guests)";
+    
+    const totalPayingGuests = guestCounts.adults + guestCounts.childrenAbove5;
+    const totalFreeGuests = guestCounts.childrenBelow5 + guestCounts.infants;
+    const totalGuests = totalPayingGuests + totalFreeGuests;
+    
+    let summary = `${totalGuests} guest${totalGuests > 1 ? "s" : ""}`;
+    if (guestCounts.pets > 0) {
+      summary += `, ${guestCounts.pets} pet${guestCounts.pets > 1 ? "s" : ""}`;
+    }
+    return summary;
+  };
+
+  const getDetailedGuestBreakdown = () => {
+    if (guestCounts.isLargeEvent) return "Large Event (50+)";
+    
+    const parts = [`${guestCounts.adults} Adults`];
+    if (guestCounts.childrenAbove5 > 0) {
+      parts.push(`${guestCounts.childrenAbove5} Children (6-12y)`);
+    }
+    if (guestCounts.childrenBelow5 > 0) {
+      parts.push(`${guestCounts.childrenBelow5} Children (2-5y)`);
+    }
+    if (guestCounts.infants > 0) {
+      parts.push(`${guestCounts.infants} Infants`);
+    }
+    if (guestCounts.pets > 0) {
+      parts.push(`${guestCounts.pets} Pets`);
+    }
+    return parts.join(", ");
+  };
+
+  const updateGuestCount = (type: "adults" | "childrenAbove5" | "childrenBelow5" | "infants" | "pets", delta: number) => {
+    setGuestCounts((prev) => {
+      const val = prev[type];
+      const newVal = val + delta;
+      
+      // Validation limits
+      if (type === "adults" && newVal < 1) return prev;
+      if (type !== "adults" && newVal < 0) return prev;
+      
+      return {
+        ...prev,
+        [type]: newVal,
+        isLargeEvent: false, // Turn off large event mode if they start manual adjustments
+      };
+    });
+  };
 
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [tempCheckIn, setTempCheckIn] = useState<Date | null>(null);
@@ -295,6 +394,8 @@ export default function BookingModal({ isOpen, onClose, defaultExperience = "day
   const handleWhatsAppSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const pricing = calculatePricing();
+    const guestDetails = getDetailedGuestBreakdown();
+
     const text = `*New Booking Enquiry for LakeNtrails*
 -------------------------------
 *Name:* ${formData.name}
@@ -303,7 +404,7 @@ export default function BookingModal({ isOpen, onClose, defaultExperience = "day
 *Check-in:* ${formData.checkIn ? formatDateDisplay(formData.checkIn) : "N/A"}
 *Check-out:* ${formData.checkOut ? formatDateDisplay(formData.checkOut) : "N/A"}
 *Nights:* ${pricing.isStay ? pricing.nights : "1 (Day Trip)"}
-*Guests:* ${formData.guests === "event" ? "Event (50+)" : formData.guests}
+*Guests:* ${guestDetails}
 *Experience:* ${pricing.packageName}
 -------------------------------
 *Price Breakdown:*
@@ -323,6 +424,8 @@ _Submitted via website booking request._`;
   const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const pricing = calculatePricing();
+    const guestDetails = getDetailedGuestBreakdown();
+
     const subject = `Booking Inquiry: ${formData.name} - ${pricing.packageName}`;
     const body = `Hi LakeNtrails Team,
 
@@ -333,7 +436,7 @@ Email: ${formData.email}
 Phone: ${formData.phone}
 Check-in Date: ${formData.checkIn ? formatDateDisplay(formData.checkIn) : "N/A"}
 Check-out Date: ${formData.checkOut ? formatDateDisplay(formData.checkOut) : "N/A"}
-Number of Guests: ${formData.guests === "event" ? "Event (50+)" : formData.guests}
+Number of Guests: ${guestDetails}
 Preferred Experience: ${pricing.packageName}
 
 Price Details:
@@ -370,35 +473,39 @@ ${formData.name}`;
 
           {/* Modal Container */}
           <motion.div
-            className="w-full max-w-2xl lg:max-w-4xl glass-panel-dark rounded-2xl overflow-hidden relative z-10 border border-sand/20"
+            className="w-full max-w-2xl lg:max-w-4xl glass-panel-dark rounded-2xl relative z-10 border border-sand/20 max-h-[92vh] flex flex-col overflow-hidden"
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
           >
             {/* Header Glowing Accent */}
-            <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-emerald-light via-sunset to-luxury-teal" />
+            <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-emerald-light via-sunset to-luxury-teal z-20" />
 
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 text-sand/60 hover:text-sunset transition-colors duration-300 p-2 z-10"
+              className="absolute top-4 right-4 text-sand/60 hover:text-sunset transition-colors duration-300 p-2 z-30"
               aria-label="Close booking modal"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="p-6 md:p-8">
+            {/* Fixed Header */}
+            <div className="p-6 pb-2 md:p-8 md:pb-4 flex-shrink-0">
               <h2 className="text-2xl md:text-3xl font-serif font-light text-[#fcfbf7] mb-2 tracking-wide uppercase">
                 Begin Your <span className="text-sunset">Lakeside Escape</span>
               </h2>
-              <p className="text-xs text-sand/60 font-sans tracking-wider uppercase mb-6 border-b border-sand/5 pb-2">
+              <p className="text-xs text-sand/60 font-sans tracking-wider uppercase border-b border-sand/10 pb-4">
                 Reserve your custom luxury experience at LakeNtrails
               </p>
+            </div>
 
-              <form onSubmit={(e) => e.preventDefault()} className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 font-sans items-start text-left">
+            {/* Scrollable Body Container */}
+            <div data-lenis-prevent className="p-4 pt-0 md:p-8 md:pt-0 overflow-y-auto flex-1 pr-2 md:pr-4">
+              <form onSubmit={(e) => e.preventDefault()} className="grid grid-cols-12 gap-3 sm:gap-6 md:gap-8 font-sans items-start text-left">
                 {/* Left Column: Input Fields & Submit buttons */}
-                <div className="lg:col-span-7 space-y-4">
+                <div className={`col-span-12 lg:col-span-7 space-y-4 ${bookingStep === 1 ? "block" : "hidden lg:block"}`}>
                   {/* Name, Email, Phone Grid */}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div className="relative">
@@ -463,22 +570,203 @@ ${formData.name}`;
                         {formData.checkOut ? formatDateDisplay(formData.checkOut) : <span className="text-sand/20">Select date</span>}
                       </button>
                     </div>
-                    <div className="relative">
+                    <div className="relative" ref={guestSelectorRef}>
                       <span className="absolute left-3 top-1 text-[9px] text-sand/40 uppercase tracking-widest">Guests</span>
-                      <Users className="absolute left-3 top-5 w-4 h-4 text-sand/40" />
-                      <select
-                        name="guests"
-                        value={formData.guests}
-                        onChange={handleChange}
-                        className="w-full pl-10 pr-10 pt-5 pb-2 bg-[#030f26]/30 border border-sand/15 rounded-lg text-sm text-white focus:outline-none focus:border-sunset focus:ring-1 focus:ring-sunset transition-colors appearance-none cursor-pointer"
+                      <Users className="absolute left-3 top-5.5 w-4 h-4 text-sand/40 pointer-events-none" />
+                      <button
+                        type="button"
+                        onClick={() => setIsGuestDropdownOpen(!isGuestDropdownOpen)}
+                        className="w-full pl-10 pr-10 pt-5 pb-2.5 bg-[#030f26]/30 border border-sand/15 rounded-lg text-sm text-white focus:outline-none focus:border-sunset focus:ring-1 focus:ring-sunset transition-all text-left min-h-[48px] cursor-pointer hover:border-sunset/50 flex items-center justify-between"
                       >
-                        <option value="1" className="bg-[#030a16]">1 Guest</option>
-                        <option value="2" className="bg-[#030a16]">2 Guests</option>
-                        <option value="4" className="bg-[#030a16]">4 Guests</option>
-                        <option value="6" className="bg-[#030a16]">6+ Guests</option>
-                        <option value="event" className="bg-[#030a16]">Large Event (50+)</option>
-                      </select>
+                        <span className="truncate">{getGuestsSummary()}</span>
+                      </button>
                       <ChevronDown className="absolute right-3 top-5.5 w-4 h-4 text-sand/50 pointer-events-none" />
+
+                      {/* Guest Selector Popover (Airbnb style) */}
+                      <AnimatePresence>
+                        {isGuestDropdownOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 10 }}
+                            transition={{ duration: 0.15 }}
+                            className="absolute right-0 left-0 mt-2 bg-[#080e1a]/95 backdrop-blur-xl border border-sand/20 rounded-xl p-4 shadow-2xl z-[999] space-y-4"
+                          >
+                            {/* Adults Row */}
+                            <div className="flex items-center justify-between pb-3 border-b border-sand/5">
+                              <div>
+                                <h5 className="text-xs font-sans font-medium text-white">Adults</h5>
+                                <p className="text-[9px] text-sand/40">Age 13+</p>
+                              </div>
+                              <div className="flex items-center gap-3">
+                                <button
+                                  type="button"
+                                  onClick={() => updateGuestCount("adults", -1)}
+                                  disabled={guestCounts.adults <= 1 || guestCounts.isLargeEvent}
+                                  className="w-6 h-6 rounded-full border border-sand/20 flex items-center justify-center text-white hover:border-sunset disabled:opacity-25 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                                >
+                                  <Minus className="w-3.5 h-3.5" />
+                                </button>
+                                <span className="text-xs text-white font-medium w-4 text-center">
+                                  {guestCounts.isLargeEvent ? "-" : guestCounts.adults}
+                                </span>
+                                <button
+                                  type="button"
+                                  onClick={() => updateGuestCount("adults", 1)}
+                                  disabled={guestCounts.isLargeEvent}
+                                  className="w-6 h-6 rounded-full border border-sand/20 flex items-center justify-center text-white hover:border-sunset disabled:opacity-25 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                                >
+                                  <Plus className="w-3.5 h-3.5" />
+                                </button>
+                              </div>
+                            </div>
+
+                            {/* Children (Ages 6-12) Row */}
+                            <div className="flex items-center justify-between pb-3 border-b border-sand/5">
+                              <div>
+                                <h5 className="text-xs font-sans font-medium text-white">Children</h5>
+                                <p className="text-[9px] text-sand/40">Ages 6-12 (Charged)</p>
+                              </div>
+                              <div className="flex items-center gap-3">
+                                <button
+                                  type="button"
+                                  onClick={() => updateGuestCount("childrenAbove5", -1)}
+                                  disabled={guestCounts.childrenAbove5 <= 0 || guestCounts.isLargeEvent}
+                                  className="w-6 h-6 rounded-full border border-sand/20 flex items-center justify-center text-white hover:border-sunset disabled:opacity-25 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                                >
+                                  <Minus className="w-3.5 h-3.5" />
+                                </button>
+                                <span className="text-xs text-white font-medium w-4 text-center">
+                                  {guestCounts.isLargeEvent ? "-" : guestCounts.childrenAbove5}
+                                </span>
+                                <button
+                                  type="button"
+                                  onClick={() => updateGuestCount("childrenAbove5", 1)}
+                                  disabled={guestCounts.isLargeEvent}
+                                  className="w-6 h-6 rounded-full border border-sand/20 flex items-center justify-center text-white hover:border-sunset disabled:opacity-25 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                                >
+                                  <Plus className="w-3.5 h-3.5" />
+                                </button>
+                              </div>
+                            </div>
+
+                            {/* Children (Ages 2-5) Row */}
+                            <div className="flex items-center justify-between pb-3 border-b border-sand/5">
+                              <div>
+                                <h5 className="text-xs font-sans font-medium text-white">Children</h5>
+                                <p className="text-[9px] text-sand/40">Ages 2-5 (Free stay)</p>
+                              </div>
+                              <div className="flex items-center gap-3">
+                                <button
+                                  type="button"
+                                  onClick={() => updateGuestCount("childrenBelow5", -1)}
+                                  disabled={guestCounts.childrenBelow5 <= 0 || guestCounts.isLargeEvent}
+                                  className="w-6 h-6 rounded-full border border-sand/20 flex items-center justify-center text-white hover:border-sunset disabled:opacity-25 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                                >
+                                  <Minus className="w-3.5 h-3.5" />
+                                </button>
+                                <span className="text-xs text-white font-medium w-4 text-center">
+                                  {guestCounts.isLargeEvent ? "-" : guestCounts.childrenBelow5}
+                                </span>
+                                <button
+                                  type="button"
+                                  onClick={() => updateGuestCount("childrenBelow5", 1)}
+                                  disabled={guestCounts.isLargeEvent}
+                                  className="w-6 h-6 rounded-full border border-sand/20 flex items-center justify-center text-white hover:border-sunset disabled:opacity-25 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                                >
+                                  <Plus className="w-3.5 h-3.5" />
+                                </button>
+                              </div>
+                            </div>
+
+                            {/* Infants Row */}
+                            <div className="flex items-center justify-between pb-3 border-b border-sand/5">
+                              <div>
+                                <h5 className="text-xs font-sans font-medium text-white">Infants</h5>
+                                <p className="text-[9px] text-sand/40">Under 2</p>
+                              </div>
+                              <div className="flex items-center gap-3">
+                                <button
+                                  type="button"
+                                  onClick={() => updateGuestCount("infants", -1)}
+                                  disabled={guestCounts.infants <= 0 || guestCounts.isLargeEvent}
+                                  className="w-6 h-6 rounded-full border border-sand/20 flex items-center justify-center text-white hover:border-sunset disabled:opacity-25 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                                >
+                                  <Minus className="w-3.5 h-3.5" />
+                                </button>
+                                <span className="text-xs text-white font-medium w-4 text-center">
+                                  {guestCounts.isLargeEvent ? "-" : guestCounts.infants}
+                                </span>
+                                <button
+                                  type="button"
+                                  onClick={() => updateGuestCount("infants", 1)}
+                                  disabled={guestCounts.isLargeEvent}
+                                  className="w-6 h-6 rounded-full border border-sand/20 flex items-center justify-center text-white hover:border-sunset disabled:opacity-25 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                                >
+                                  <Plus className="w-3.5 h-3.5" />
+                                </button>
+                              </div>
+                            </div>
+
+                            {/* Pets Row */}
+                            <div className="flex items-center justify-between pb-3 border-b border-sand/5">
+                              <div>
+                                <h5 className="text-xs font-sans font-medium text-white">Pets</h5>
+                                <p className="text-[9px] text-sand/40">Bringing service animal?</p>
+                              </div>
+                              <div className="flex items-center gap-3">
+                                <button
+                                  type="button"
+                                  onClick={() => updateGuestCount("pets", -1)}
+                                  disabled={guestCounts.pets <= 0 || guestCounts.isLargeEvent}
+                                  className="w-6 h-6 rounded-full border border-sand/20 flex items-center justify-center text-white hover:border-sunset disabled:opacity-25 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                                >
+                                  <Minus className="w-3.5 h-3.5" />
+                                </button>
+                                <span className="text-xs text-white font-medium w-4 text-center">
+                                  {guestCounts.isLargeEvent ? "-" : guestCounts.pets}
+                                </span>
+                                <button
+                                  type="button"
+                                  onClick={() => updateGuestCount("pets", 1)}
+                                  disabled={guestCounts.isLargeEvent}
+                                  className="w-6 h-6 rounded-full border border-sand/20 flex items-center justify-center text-white hover:border-sunset disabled:opacity-25 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                                >
+                                  <Plus className="w-3.5 h-3.5" />
+                                </button>
+                              </div>
+                            </div>
+
+                            {/* Dropdown Footer: Large Event & Close Button */}
+                            <div className="flex items-center justify-between pt-2 border-t border-sand/10">
+                              <div className="flex items-center gap-2">
+                                <input
+                                  type="checkbox"
+                                  id="isLargeEvent"
+                                  checked={guestCounts.isLargeEvent}
+                                  onChange={(e) => {
+                                    setGuestCounts((prev) => ({
+                                      ...prev,
+                                      isLargeEvent: e.target.checked,
+                                    }));
+                                  }}
+                                  className="w-4 h-4 accent-sunset rounded border-sand/15 bg-[#030f26] cursor-pointer"
+                                />
+                                <label htmlFor="isLargeEvent" className="text-[10px] text-sand/60 cursor-pointer select-none">
+                                  Large Event (50+)
+                                </label>
+                              </div>
+                              <button
+                                type="button"
+                                onClick={() => setIsGuestDropdownOpen(false)}
+                                className="px-3 py-1.5 bg-sunset hover:bg-[#fd5e53] text-white text-[10px] font-sans uppercase tracking-widest font-semibold rounded-lg transition-all cursor-pointer"
+                              >
+                                Close
+                              </button>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
                   </div>
 
@@ -512,15 +800,15 @@ ${formData.name}`;
                     />
                   </div>
 
-                  {/* Submit Buttons */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                  {/* Submit Buttons (Desktop Only) */}
+                  <div className="hidden lg:grid grid-cols-2 gap-4 pt-2">
                     <button
                       type="submit"
                       onClick={handleWhatsAppSubmit}
                       className="w-full py-4 rounded-lg bg-emerald-700 hover:bg-emerald-600 text-white font-medium text-sm transition-all duration-300 tracking-wider flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-emerald-900/30"
                     >
                       <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                        <path d="M17.472 14.382c-.022-.08-.117-.146-.217-.196-.051-.026-.704-.347-.813-.388-.11-.039-.189-.059-.267.06-.079.117-.308.388-.378.47-.07.08-.139.09-.258.04-.12-.06-.505-.185-.96-.59-.355-.316-.595-.706-.665-.826-.07-.12-.008-.184.053-.244.054-.054.12-.139.18-.208.058-.07.079-.117.118-.198.04-.08.02-.149-.01-.208-.03-.06-.266-.639-.364-.877-.1-.237-.201-.205-.276-.205l-.235-.004c-.08 0-.211.03-.321.149-.11.12-.421.412-.421.1006 0 .594.432 1.168.492 1.25.06.08 2.062 3.148 4.99 4.417.697.302 1.24.482 1.66.617.7.224 1.338.193 1.843.118.563-.084 1.733-.708 1.977-1.393.243-.684.243-1.27.17-1.393-.07-.12-.19-.19-.31-.25zM12.01 20c-1.63 0-3.17-.46-4.51-1.33l-.32-.21-3.35.88.9-3.27-.22-.36C3.65 14.38 3.17 12.73 3.17 11c0-4.88 3.97-8.83 8.84-8.83 2.37 0 4.6 1.92 6.27 3.59A8.77 8.77 0 0 1 20.85 11c0 4.88-3.97 8.83-8.84 8.83zm0-18C6.48 2 2 6.48 2 12c0 2.08.64 4.02 1.75 5.64L2 22l4.52-1.19A9.94 9.94 0 0 0 12.01 22c5.52 0 10-4.48 10-10 0-2.67-1.04-5.18-2.93-7.07A9.9 9.9 0 0 0 12.01 2z" />
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.458L0 24zm11.951-3.52c1.747 0 3.39-.462 4.81-1.272l.344-.204 3.58.94-.956-3.486.223-.356c.887-1.413 1.355-3.048 1.355-4.726C21.36 6.843 17.17 2.65 12 2.65S2.64 6.843 2.64 12c0 1.678.468 3.313 1.355 4.726l.223.356-.956 3.486 3.58-.94.344.204c1.42.81 3.063 1.272 4.81 1.272zm5.72-6.52c-.272-.136-1.614-.796-1.863-.887-.25-.09-.43-.136-.612.137-.18.272-.7.886-.856 1.068-.158.182-.317.205-.59.07-.272-.136-1.15-.424-2.19-1.355-.81-.72-1.357-1.614-1.516-1.886-.158-.273-.017-.42.12-.556.122-.122.272-.318.408-.477.136-.159.18-.272.272-.454.09-.182.045-.34-.022-.477-.068-.136-.613-1.477-.84-2.023-.22-.53-.443-.455-.612-.464-.16-.008-.34-.01-.52-.01-.18 0-.477.068-.727.34-.25.272-.953.932-.953 2.273s.977 2.636 1.113 2.818c.136.182 1.92 2.932 4.653 4.114.65.28 1.157.447 1.553.573.655.208 1.25.178 1.72.108.523-.078 1.614-.66 1.84-1.295.228-.636.228-1.182.16-1.295-.068-.113-.25-.18-.522-.318z" />
                       </svg>
                       Send to WhatsApp
                     </button>
@@ -535,14 +823,48 @@ ${formData.name}`;
                     </button>
                   </div>
 
-                  <div className="flex items-center gap-2 justify-center text-[10px] text-sand/40 pt-2 border-t border-sand/10">
+                  {/* Continue Button (Mobile Only) */}
+                  <div className="lg:hidden pt-2">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const nameInput = document.getElementsByName("name")[0] as HTMLInputElement;
+                        const emailInput = document.getElementsByName("email")[0] as HTMLInputElement;
+                        const phoneInput = document.getElementsByName("phone")[0] as HTMLInputElement;
+
+                        if (!formData.name || !formData.email || !formData.phone || !formData.checkIn) {
+                          if (nameInput && !formData.name) nameInput.reportValidity();
+                          else if (emailInput && !formData.email) emailInput.reportValidity();
+                          else if (phoneInput && !formData.phone) phoneInput.reportValidity();
+                          else alert("Please select Check-in and Check-out dates.");
+                          return;
+                        }
+                        setBookingStep(2);
+                      }}
+                      className="w-full py-4 rounded-lg bg-sunset hover:bg-[#fd5e53] text-white font-semibold text-sm transition-all duration-300 tracking-widest flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-sunset/30 uppercase"
+                    >
+                      Continue to Review
+                    </button>
+                  </div>
+
+                  <div className="hidden lg:flex items-center gap-2 justify-center text-[10px] text-sand/40 pt-2 border-t border-sand/10">
                     <ShieldCheck className="w-4.5 h-4.5 text-emerald-500" />
                     <span>Direct booking links secure direct contact with resort management.</span>
                   </div>
                 </div>
 
                 {/* Right Column: Pricing Summary Card & Policy */}
-                <div className="lg:col-span-5 space-y-4">
+                <div className={`col-span-12 lg:col-span-5 space-y-4 ${bookingStep === 2 ? "block" : "hidden lg:block"}`}>
+                  {/* Back Button (Mobile Only) */}
+                  <button
+                    type="button"
+                    onClick={() => setBookingStep(1)}
+                    className="flex items-center gap-1.5 text-xs text-sand/65 hover:text-sunset transition-colors lg:hidden mb-2 cursor-pointer"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                    Back to Details
+                  </button>
+
                   {(() => {
                     const pricing = calculatePricing();
                     return (
@@ -620,6 +942,7 @@ ${formData.name}`;
                           <h5 className="text-[9px] uppercase tracking-wider text-sunset font-semibold">Resort Policies</h5>
                           <p className="text-sand/50">• Free cancellation up to 7 days before check-in.</p>
                           <p className="text-sand/50">• Early check-in / late check-out is subject to availability.</p>
+                          <p className="text-sand/50">• Children above 5 years old will be charged as a ticket of per person.</p>
                           <button
                             type="button"
                             onClick={() => setIsPolicyOpen(true)}
@@ -631,6 +954,34 @@ ${formData.name}`;
                       </div>
                     );
                   })()}
+
+                  {/* Submit Buttons (Mobile Only) */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 lg:hidden">
+                    <button
+                      type="submit"
+                      onClick={handleWhatsAppSubmit}
+                      className="w-full py-4 rounded-lg bg-emerald-700 hover:bg-emerald-600 text-white font-medium text-sm transition-all duration-300 tracking-wider flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-emerald-900/30"
+                    >
+                      <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.458L0 24zm11.951-3.52c1.747 0 3.39-.462 4.81-1.272l.344-.204 3.58.94-.956-3.486.223-.356c.887-1.413 1.355-3.048 1.355-4.726C21.36 6.843 17.17 2.65 12 2.65S2.64 6.843 2.64 12c0 1.678.468 3.313 1.355 4.726l.223.356-.956 3.486 3.58-.94.344.204c1.42.81 3.063 1.272 4.81 1.272zm5.72-6.52c-.272-.136-1.614-.796-1.863-.887-.25-.09-.43-.136-.612.137-.18.272-.7.886-.856 1.068-.158.182-.317.205-.59.07-.272-.136-1.15-.424-2.19-1.355-.81-.72-1.357-1.614-1.516-1.886-.158-.273-.017-.42.12-.556.122-.122.272-.318.408-.477.136-.159.18-.272.272-.454.09-.182.045-.34-.022-.477-.068-.136-.613-1.477-.84-2.023-.22-.53-.443-.455-.612-.464-.16-.008-.34-.01-.52-.01-.18 0-.477.068-.727.34-.25.272-.953.932-.953 2.273s.977 2.636 1.113 2.818c.136.182 1.92 2.932 4.653 4.114.65.28 1.157.447 1.553.573.655.208 1.25.178 1.72.108.523-.078 1.614-.66 1.84-1.295.228-.636.228-1.182.16-1.295-.068-.113-.25-.18-.522-.318z" />
+                      </svg>
+                      Send to WhatsApp
+                    </button>
+
+                    <button
+                      type="submit"
+                      onClick={handleEmailSubmit}
+                      className="w-full py-4 rounded-lg bg-sunset hover:bg-[#fd5e53] text-white font-medium text-sm transition-all duration-300 tracking-wider flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-sunset/30"
+                    >
+                      <Mail className="w-5 h-5" />
+                      Send via Email
+                    </button>
+                  </div>
+
+                  <div className="flex items-center gap-2 justify-center text-[10px] text-sand/40 pt-2 border-t border-sand/10 lg:hidden">
+                    <ShieldCheck className="w-4.5 h-4.5 text-emerald-500" />
+                    <span>Direct booking links secure direct contact with resort management.</span>
+                  </div>
                 </div>
               </form>
             </div>
@@ -761,6 +1112,11 @@ ${formData.name}`;
                     <div>
                       <h4 className="text-[10px] uppercase tracking-widest text-sunset font-semibold mb-1">Pet Policy</h4>
                       <p>LakeNtrails is pet-friendly! Please inform us in advance if you are traveling with pets. Guests are responsible for cleaning up after their pets and ensuring they do not disturb other guests.</p>
+                    </div>
+                     <div>
+                      <h4 className="text-[10px] uppercase tracking-widest text-sunset font-semibold mb-1">Child Policy</h4>
+                      <p>• Children above 5 years old will be charged as a full ticket per person.</p>
+                      <p>• Children aged 2 to 5 years old stay free.</p>
                     </div>
                     <div>
                       <h4 className="text-[10px] uppercase tracking-widest text-sunset font-semibold mb-1">General Rules</h4>

@@ -1,19 +1,76 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown, Compass, Calendar, Image as ImageIcon } from "lucide-react";
-import Lakeside3DBackground from "./Lakeside3DBackground";
+import dynamic from "next/dynamic";
+
+// Dynamically import Three.js background to optimize load time on mobile devices
+const Lakeside3DBackground = dynamic(() => import("./Lakeside3DBackground"), {
+  ssr: false,
+});
 
 interface HeroProps {
   onOpenBooking: () => void;
 }
 
 export default function Hero({ onOpenBooking }: HeroProps) {
+  const [mounted, setMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    const checkMobile = () => {
+      const mobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      );
+      setIsMobile(window.innerWidth < 1024 || mobileUA);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
     <section className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-[#030a16]">
-      {/* Real-time 3D WebGL Lakeside Background */}
-      <Lakeside3DBackground />
+      {/* Real-time 3D WebGL Lakeside Background for Desktop, Video/Image background for Mobile */}
+      {mounted && !isMobile ? (
+        <Lakeside3DBackground />
+      ) : (
+        <div 
+          className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0 bg-[#030a16]"
+          style={{
+            maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%)",
+            WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%)"
+          }}
+        >
+          {mounted ? (
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover opacity-60"
+            >
+              <source src="/images/IMG_8361.MOV" type="video/quicktime" />
+              <source src="/images/IMG_8361.MOV" type="video/mp4" />
+              <img 
+                src="/images/resort_background_hd_widescreen_v6.webp" 
+                className="w-full h-full object-cover opacity-80" 
+                alt="Resort background fallback" 
+              />
+            </video>
+          ) : (
+            <div 
+              className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-80"
+              style={{
+                backgroundImage: "url('/images/resort_background_hd_widescreen_v6.webp')",
+              }}
+            />
+          )}
+        </div>
+      )}
 
       {/* Luxury Dark Radial Vignette & Gradient Overlays */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#030a16]/60 via-transparent to-[#030a16] z-[1] pointer-events-none" />
