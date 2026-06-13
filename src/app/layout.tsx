@@ -36,10 +36,25 @@ export const metadata: Metadata = {
     title: "LakeNtrails | Luxury Lakeside Tropical Escape",
     description:
       "Your lakeside escape begins here. Immerse yourself in a luxurious tropical Bali vibe with dynamic nightlife, kayaking, pool parties, and stargazing.",
-    url: "https://lakentrails.com",
+    url: "https://lakentrails.in",
     siteName: "LakeNtrails",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "https://lakentrails.in/images/img2_hd.png",
+        width: 1200,
+        height: 630,
+        alt: "LakeNtrails Luxury Lakeside Escape",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "LakeNtrails | Luxury Lakeside Tropical Escape",
+    description:
+      "Your lakeside escape begins here. Immerse yourself in a luxurious tropical Bali vibe with dynamic nightlife, kayaking, pool parties, and stargazing.",
+    images: ["https://lakentrails.in/images/img2_hd.png"],
   },
 };
 
