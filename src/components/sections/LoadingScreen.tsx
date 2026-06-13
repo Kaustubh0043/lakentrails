@@ -1,0 +1,157 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+export default function LoadingScreen({ onComplete }: { onComplete: () => void }) {
+  const [progress, setProgress] = useState(0);
+  const [isFinished, setIsFinished] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    
+    const timer = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(timer);
+          setTimeout(() => {
+            setIsFinished(true);
+            setTimeout(onComplete, 800); // Let exit animations play
+          }, 500);
+          return 100;
+        }
+        // Increment progress by randomized amounts for realism
+        const increment = Math.floor(Math.random() * 12) + 3;
+        return Math.min(prev + increment, 100);
+      });
+    }, 70);
+
+    return () => clearInterval(timer);
+  }, [onComplete]);
+
+  // Prevent hydration mismatch by returning null during server prerendering
+  if (!mounted) return null;
+
+  return (
+    <AnimatePresence>
+      {!isFinished && (
+        <motion.div
+          className="fixed inset-0 bg-[#030a16] z-[9999] flex flex-col items-center justify-center overflow-hidden"
+          initial={{ opacity: 1 }}
+          exit={{ opacity: 0, y: "-100%" }}
+          transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] as const }}
+        >
+          {/* Animated Water Ripples Background */}
+          <div className="absolute inset-0 opacity-15 pointer-events-none">
+            <span className="absolute w-[400px] h-[400px] rounded-full border border-sand/30 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-ripple" style={{ animationDelay: '0s' }} />
+            <span className="absolute w-[600px] h-[600px] rounded-full border border-sand/20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-ripple" style={{ animationDelay: '1s' }} />
+            <span className="absolute w-[800px] h-[800px] rounded-full border border-sand/10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-ripple" style={{ animationDelay: '2s' }} />
+          </div>
+
+          {/* Tropical Particle Effects */}
+          <div className="absolute inset-0 pointer-events-none">
+            {[...Array(15)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute w-1.5 h-1.5 rounded-full bg-sunset opacity-60"
+                style={{
+                  top: `${Math.random() * 100}%`,
+                  left: `${Math.random() * 100}%`,
+                }}
+                animate={{
+                  y: [0, -100, 0],
+                  x: [0, Math.random() * 50 - 25, 0],
+                  scale: [1, 1.5, 1],
+                  opacity: [0.2, 0.8, 0.2],
+                }}
+                transition={{
+                  duration: 6 + Math.random() * 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+            ))}
+          </div>
+
+          <div className="relative z-10 flex flex-col items-center max-w-xs text-center">
+            {/* Minimalist Tropical Luxury Wave + Trail Logo */}
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="w-24 h-24 mb-6 text-sand flex items-center justify-center"
+            >
+              <svg
+                viewBox="0 0 100 100"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-full h-full drop-shadow-[0_0_15px_rgba(255,107,53,0.4)]"
+              >
+                {/* Wave Path */}
+                <path
+                  d="M15 65 C 25 55, 35 55, 45 65 C 55 75, 65 75, 75 65 C 85 55, 90 58, 95 62"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M20 73 C 30 65, 40 65, 50 73 C 60 81, 70 81, 80 73"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeOpacity="0.5"
+                  strokeLinecap="round"
+                />
+                {/* Tree / Trail Triangle Concept */}
+                <path
+                  d="M50 20 L75 60 H25 L50 20 Z"
+                  stroke="#ff6b35"
+                  strokeWidth="2"
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                />
+                <circle cx="50" cy="15" r="3" fill="#ff6b35" className="animate-pulse" />
+              </svg>
+            </motion.div>
+
+            {/* Glowing Hotel Branding */}
+            <motion.h1
+              initial={{ letterSpacing: "0.2em", opacity: 0 }}
+              animate={{ letterSpacing: "0.5em", opacity: 1 }}
+              transition={{ duration: 1.2, delay: 0.2 }}
+              className="text-[#fcfbf7] font-serif text-2xl font-light uppercase tracking-[0.5em] mb-2 text-glow-sunset"
+            >
+              LAKENTRAILS
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.6 }}
+              transition={{ duration: 1, delay: 0.6 }}
+              className="text-[10px] uppercase font-sans tracking-[0.25em] text-sand/80 mb-8"
+            >
+              Lakeside Tropical Escape
+            </motion.p>
+
+            {/* Premium Loading Progress Bar */}
+            <div className="w-48 h-[1px] bg-white/10 rounded-full overflow-hidden relative mb-4">
+              <motion.div
+                className="h-full bg-gradient-to-r from-sunset to-sunset-orange shadow-[0_0_8px_rgba(255,107,53,0.8)]"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
+
+            <motion.span
+              key={progress}
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-xs font-mono tracking-widest text-sunset font-light"
+            >
+              {progress}%
+            </motion.span>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
