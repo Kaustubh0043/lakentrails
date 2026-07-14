@@ -393,6 +393,7 @@ export default function Gallery() {
                 <img
                   src={item.src}
                   alt={item.title}
+                  loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
                 />
 

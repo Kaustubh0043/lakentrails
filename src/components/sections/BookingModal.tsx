@@ -924,6 +924,7 @@ ${formData.name}`;
                           <img
                             src={pricing.isStay ? "/images/IMG_8399.jpeg" : "/images/img3.jpeg"}
                             alt={pricing.packageName}
+                            loading="lazy"
                             className="w-16 h-16 rounded-lg object-cover border border-sand/10 flex-shrink-0"
                           />
                           <div className="flex flex-col justify-center min-w-0">

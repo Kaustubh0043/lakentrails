@@ -47,6 +47,7 @@ export default function Packages({ onOpenBooking }: PackagesProps) {
           <img 
             src="/images/logo.png" 
             alt="Lake N Trails Logo" 
+            loading="lazy"
             className="w-32 h-32 md:w-40 md:h-40 object-contain drop-shadow-[0_0_15px_rgba(255,107,53,0.15)]"
           />
         </div>

@@ -99,6 +99,7 @@ export default function PoolParty({ onOpenBooking }: PoolPartyProps) {
             <img 
               src="/images/img3.jpeg"
               alt="Lakeside Infinity Swimming Pool"
+              loading="lazy"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-purple-950/20 group-hover:bg-purple-950/10 transition-colors duration-500 z-[1]" />
