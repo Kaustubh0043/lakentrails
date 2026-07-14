@@ -47,12 +47,10 @@ export default function BookingModal({ isOpen, onClose, defaultExperience = "day
       });
       setIsGuestDropdownOpen(false);
       document.body.style.overflow = "hidden";
-      // Map general experiences to the three actual package options
+      // Map general experiences to the two actual package options
       let mappedExp = defaultExperience;
-      if (["camping", "stay-package", "pool-party", "wedding", "corporate"].includes(defaultExperience)) {
-        mappedExp = "stay-glamp";
-      } else if (defaultExperience === "stay-tent") {
-        mappedExp = "stay-tent";
+      if (["camping", "stay-package", "stay-glamp", "stay-tent", "pool-party", "wedding", "corporate"].includes(defaultExperience)) {
+        mappedExp = "stay-package";
       } else {
         mappedExp = "day-outing";
       }
@@ -105,10 +103,10 @@ export default function BookingModal({ isOpen, onClose, defaultExperience = "day
     
     const parts = [`${guestCounts.adults} Adults`];
     if (guestCounts.childrenAbove5 > 0) {
-      parts.push(`${guestCounts.childrenAbove5} Children (6-12y)`);
+      parts.push(`${guestCounts.childrenAbove5} Children (5-12y)`);
     }
     if (guestCounts.childrenBelow5 > 0) {
-      parts.push(`${guestCounts.childrenBelow5} Children (2-5y)`);
+      parts.push(`${guestCounts.childrenBelow5} Children (<5y)`);
     }
     if (guestCounts.infants > 0) {
       parts.push(`${guestCounts.infants} Infants`);
@@ -354,35 +352,60 @@ export default function BookingModal({ isOpen, onClose, defaultExperience = "day
   };
 
   const calculatePricing = () => {
-    const guestsNum = formData.guests === "event" ? 50 : (parseInt(formData.guests) || 1);
-    let rate = 1600;
-    let packageName = "Day Outing Package";
+    const adults = guestCounts.isLargeEvent ? 50 : guestCounts.adults;
+    const children = guestCounts.isLargeEvent ? 0 : guestCounts.childrenAbove5;
+    
+    let isWeekendDay = true; // Default to weekend
+    if (formData.checkIn) {
+      const date = new Date(formData.checkIn);
+      const day = date.getDay(); // 0 = Sunday, 5 = Friday, 6 = Saturday
+      isWeekendDay = (day === 0 || day === 5 || day === 6);
+    }
+
+    let adultRate = 0;
+    let childRate = 0;
+    let packageName = "";
     let isStay = false;
 
-    if (formData.experience === "stay-glamp") {
-      rate = 2800;
-      packageName = "Ultimate Stay Package (Glamping Dome)";
+    if (formData.experience.startsWith("stay") || formData.experience === "camping") {
       isStay = true;
-    } else if (formData.experience === "stay-tent") {
-      rate = 2200;
-      packageName = "Ultimate Stay Package (Luxury Tent)";
-      isStay = true;
+      packageName = "Ultimate Stay Package";
+      if (isWeekendDay) {
+        adultRate = 2800;
+        childRate = 1400;
+      } else {
+        adultRate = 2200;
+        childRate = 1100;
+      }
+    } else {
+      // Day Outing Package
+      packageName = "Day Outing Package";
+      if (isWeekendDay) {
+        adultRate = 1600;
+        childRate = 800;
+      } else {
+        adultRate = 1300;
+        childRate = 700;
+      }
     }
 
     const nights = isStay ? getNumberOfNights() : 1;
-    const subtotal = rate * guestsNum * nights;
+    const subtotal = (adultRate * adults + childRate * children) * nights;
     const taxes = Math.round(subtotal * 0.05); // 5% GST
     const total = subtotal + taxes;
 
     return {
       packageName,
-      rate,
-      guestsNum,
+      rate: adultRate,
+      adultRate,
+      childRate,
+      guestsNum: adults + children,
       nights,
       subtotal,
       taxes,
       total,
-      isStay
+      isStay,
+      isWeekend: isWeekendDay
     };
   };
 
@@ -396,6 +419,20 @@ export default function BookingModal({ isOpen, onClose, defaultExperience = "day
     const pricing = calculatePricing();
     const guestDetails = getDetailedGuestBreakdown();
 
+    let rateDetailsText = "";
+    if (guestCounts.isLargeEvent) {
+      rateDetailsText = `• Event Rate: Custom Quote Requested`;
+    } else {
+      const parts = [];
+      if (guestCounts.adults > 0) {
+        parts.push(`Adults: ${guestCounts.adults} x ₹${pricing.adultRate}/night`);
+      }
+      if (guestCounts.childrenAbove5 > 0) {
+        parts.push(`Kids (5-12): ${guestCounts.childrenAbove5} x ₹${pricing.childRate}/night`);
+      }
+      rateDetailsText = `• Rates (${pricing.isWeekend ? "Weekend" : "Weekday"}):\n  ${parts.join("\n  ")}`;
+    }
+
     const text = `*New Booking Enquiry for LakeNtrails*
 -------------------------------
 *Name:* ${formData.name}
@@ -408,7 +445,7 @@ export default function BookingModal({ isOpen, onClose, defaultExperience = "day
 *Experience:* ${pricing.packageName}
 -------------------------------
 *Price Breakdown:*
-• Rate: ₹${pricing.rate.toLocaleString()} / person / night
+${rateDetailsText}
 • Subtotal: ₹${pricing.subtotal.toLocaleString()}
 • Taxes (5% GST): ₹${pricing.taxes.toLocaleString()}
 • *Total Estimated:* ₹${pricing.total.toLocaleString()}
@@ -426,6 +463,20 @@ _Submitted via website booking request._`;
     const pricing = calculatePricing();
     const guestDetails = getDetailedGuestBreakdown();
 
+    let rateDetailsText = "";
+    if (guestCounts.isLargeEvent) {
+      rateDetailsText = `• Event Rate: Custom Quote Requested`;
+    } else {
+      const parts = [];
+      if (guestCounts.adults > 0) {
+        parts.push(`Adults: ${guestCounts.adults} x Rs. ${pricing.adultRate}/night`);
+      }
+      if (guestCounts.childrenAbove5 > 0) {
+        parts.push(`Kids (5-12): ${guestCounts.childrenAbove5} x Rs. ${pricing.childRate}/night`);
+      }
+      rateDetailsText = `• Rates (${pricing.isWeekend ? "Weekend" : "Weekday"}):\n  ${parts.join("\n  ")}`;
+    }
+
     const subject = `Booking Inquiry: ${formData.name} - ${pricing.packageName}`;
     const body = `Hi LakeNtrails Team,
 
@@ -440,7 +491,7 @@ Number of Guests: ${guestDetails}
 Preferred Experience: ${pricing.packageName}
 
 Price Details:
-• Rate: Rs. ${pricing.rate.toLocaleString()} / person / night
+${rateDetailsText}
 • Subtotal: Rs. ${pricing.subtotal.toLocaleString()}
 • Taxes (5% GST): Rs. ${pricing.taxes.toLocaleString()}
 • Total Estimated: Rs. ${pricing.total.toLocaleString()}
@@ -621,11 +672,11 @@ ${formData.name}`;
                               </div>
                             </div>
 
-                            {/* Children (Ages 6-12) Row */}
+                            {/* Children (Ages 5-12) Row */}
                             <div className="flex items-center justify-between pb-3 border-b border-sand/5">
                               <div>
                                 <h5 className="text-xs font-sans font-medium text-white">Children</h5>
-                                <p className="text-[9px] text-sand/40">Ages 6-12 (Charged)</p>
+                                <p className="text-[9px] text-sand/40">Ages 5-12 (Charged)</p>
                               </div>
                               <div className="flex items-center gap-3">
                                 <button
@@ -650,11 +701,11 @@ ${formData.name}`;
                               </div>
                             </div>
 
-                            {/* Children (Ages 2-5) Row */}
+                            {/* Children (Under 5) Row */}
                             <div className="flex items-center justify-between pb-3 border-b border-sand/5">
                               <div>
                                 <h5 className="text-xs font-sans font-medium text-white">Children</h5>
-                                <p className="text-[9px] text-sand/40">Ages 2-5 (Free stay)</p>
+                                <p className="text-[9px] text-sand/40">Under 5 (Free)</p>
                               </div>
                               <div className="flex items-center gap-3">
                                 <button
@@ -780,9 +831,8 @@ ${formData.name}`;
                         onChange={handleChange}
                         className="w-full pl-4 pr-10 py-3 bg-[#030f26]/30 border border-sand/15 rounded-lg text-sm text-white focus:outline-none focus:border-sunset focus:ring-1 focus:ring-sunset transition-colors appearance-none cursor-pointer"
                       >
-                        <option value="day-outing" className="bg-[#030a16]">Day Outing Package (₹1,600 / Person)</option>
-                        <option value="stay-glamp" className="bg-[#030a16]">Ultimate Stay Package - Glamping Dome (₹2,800 / Person)</option>
-                        <option value="stay-tent" className="bg-[#030a16]">Ultimate Stay Package - Luxury Tent (₹2,200 / Person)</option>
+                        <option value="day-outing" className="bg-[#030a16]">Day Outing Package (₹1,300 Weekday / ₹1,600 Weekend)</option>
+                        <option value="stay-package" className="bg-[#030a16]">Ultimate Stay Package (₹2,200 Weekday / ₹2,800 Weekend)</option>
                       </select>
                       <ChevronDown className="absolute right-3 top-3.5 w-4 h-4 text-sand/50 pointer-events-none" />
                     </div>
@@ -914,15 +964,42 @@ ${formData.name}`;
 
                         {/* Price Details */}
                         <div className="space-y-2 text-[11px] font-sans">
-                          <h5 className="text-[9px] uppercase tracking-wider text-sunset font-semibold">Price Breakdown</h5>
+                          <h5 className="text-[9px] uppercase tracking-wider text-sunset font-semibold">
+                            Price Breakdown ({pricing.isWeekend ? "Weekend Rates" : "Weekday Rates"})
+                          </h5>
                           
-                          <div className="flex justify-between">
-                            <span className="text-sand/50">
-                              ₹{pricing.rate.toLocaleString()} x {pricing.guestsNum} Guest{pricing.guestsNum > 1 ? "s" : ""}
-                              {pricing.isStay ? ` x ${pricing.nights} Night${pricing.nights > 1 ? "s" : ""}` : ""}
-                            </span>
-                            <span className="text-white font-medium">₹{pricing.subtotal.toLocaleString()}</span>
-                          </div>
+                          {guestCounts.adults > 0 && (
+                            <div className="flex justify-between">
+                              <span className="text-sand/50">
+                                Adults: ₹{pricing.adultRate.toLocaleString()} x {guestCounts.adults}
+                                {pricing.isStay ? ` x ${pricing.nights} Night${pricing.nights > 1 ? "s" : ""}` : ""}
+                              </span>
+                              <span className="text-white font-medium">
+                                ₹{(pricing.adultRate * guestCounts.adults * pricing.nights).toLocaleString()}
+                              </span>
+                            </div>
+                          )}
+
+                          {guestCounts.childrenAbove5 > 0 && (
+                            <div className="flex justify-between">
+                              <span className="text-sand/50">
+                                Kids (5-12y): ₹{pricing.childRate.toLocaleString()} x {guestCounts.childrenAbove5}
+                                {pricing.isStay ? ` x ${pricing.nights} Night${pricing.nights > 1 ? "s" : ""}` : ""}
+                              </span>
+                              <span className="text-white font-medium">
+                                ₹{(pricing.childRate * guestCounts.childrenAbove5 * pricing.nights).toLocaleString()}
+                              </span>
+                            </div>
+                          )}
+
+                          {(guestCounts.childrenBelow5 > 0 || guestCounts.infants > 0) && (
+                            <div className="flex justify-between">
+                              <span className="text-sand/50">
+                                Free Guests ({guestCounts.childrenBelow5 > 0 ? `${guestCounts.childrenBelow5} Kids <5y` : ""}{guestCounts.childrenBelow5 > 0 && guestCounts.infants > 0 ? ", " : ""}{guestCounts.infants > 0 ? `${guestCounts.infants} Infants` : ""})
+                              </span>
+                              <span className="text-emerald-400 font-medium">Free</span>
+                            </div>
+                          )}
 
                           <div className="flex justify-between">
                             <span className="text-sand/50">Taxes (5% GST)</span>
@@ -942,7 +1019,8 @@ ${formData.name}`;
                           <h5 className="text-[9px] uppercase tracking-wider text-sunset font-semibold">Resort Policies</h5>
                           <p className="text-sand/50">• Free cancellation up to 7 days before check-in.</p>
                           <p className="text-sand/50">• Early check-in / late check-out is subject to availability.</p>
-                          <p className="text-sand/50">• Children above 5 years old will be charged as a ticket of per person.</p>
+                          <p className="text-sand/50">• Children aged 5–12 years are charged at child rates (approx half-price).</p>
+                          <p className="text-sand/50">• Charges are different during long weekends & holidays.</p>
                           <button
                             type="button"
                             onClick={() => setIsPolicyOpen(true)}
@@ -1114,9 +1192,10 @@ ${formData.name}`;
                       <p>LakeNtrails is pet-friendly! Please inform us in advance if you are traveling with pets. Guests are responsible for cleaning up after their pets and ensuring they do not disturb other guests.</p>
                     </div>
                      <div>
-                      <h4 className="text-[10px] uppercase tracking-widest text-sunset font-semibold mb-1">Child Policy</h4>
-                      <p>• Children above 5 years old will be charged as a full ticket per person.</p>
-                      <p>• Children aged 2 to 5 years old stay free.</p>
+                      <h4 className="text-[10px] uppercase tracking-widest text-sunset font-semibold mb-1">Child Policy & Holidays</h4>
+                      <p>• Children aged 5 to 12 years old will be charged at child rates (₹1400 on weekends / ₹1100 on weekdays for stay; ₹800 on weekends / ₹700 on weekdays for day out).</p>
+                      <p>• Children under 5 years old stay free.</p>
+                      <p>• Charges are different during long weekends & gazetted holidays.</p>
                     </div>
                     <div>
                       <h4 className="text-[10px] uppercase tracking-widest text-sunset font-semibold mb-1">General Rules</h4>

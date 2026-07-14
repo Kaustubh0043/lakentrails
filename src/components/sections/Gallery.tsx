@@ -299,37 +299,11 @@ export default function Gallery() {
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[400px]",
     },
-    {
-      src: "/images/IMG_8360.MOV",
-      title: "Gentle Ripples of Adoshi Lake",
-      category: "Lakeside View",
-      type: "video",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]",
-    },
-    {
-      src: "/images/IMG_8361.MOV",
-      title: "Peaceful Morning from the Pool Deck",
-      category: "Swimming Pool Vibe",
-      type: "video",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]",
-    },
-    {
-      src: "/images/IMG_8394.MOV",
-      title: "Golden Hour Glow Drone Movement",
-      category: "Sunset Experience",
-      type: "video",
-      colSpan: "md:col-span-2",
-      rowSpan: "h-[300px] md:h-[350px]",
-    },
   ];
 
   // Filtering Categories list
   const categories = [
     "All",
-    "Photos",
-    "Videos",
     "Glamping Dome",
     "Swimming Pool Vibe",
     "Lakeside View",
@@ -342,22 +316,10 @@ export default function Gallery() {
   // Apply filters
   const filteredItems = galleryItems.filter((item) => {
     if (activeCategory === "All") return true;
-    if (activeCategory === "Photos") return item.type === "image";
-    if (activeCategory === "Videos") return item.type === "video";
     return item.category === activeCategory;
   });
 
   const displayedItems = filteredItems.slice(0, visibleCount);
-
-  // Play on hover handlers
-  const handleMouseEnterVideo = (e: React.MouseEvent<HTMLVideoElement>) => {
-    e.currentTarget.play().catch(() => {});
-  };
-
-  const handleMouseLeaveVideo = (e: React.MouseEvent<HTMLVideoElement>) => {
-    e.currentTarget.pause();
-    e.currentTarget.currentTime = 0;
-  };
 
   // Navigation handlers for Lightbox
   const handleNext = (e: React.MouseEvent) => {
@@ -428,32 +390,11 @@ export default function Gallery() {
                 onClick={() => setActiveIdx(idx)}
               >
                 {/* Media Element */}
-                {item.type === "video" ? (
-                  <div className="absolute inset-0 bg-[#030a16] overflow-hidden">
-                    <video
-                      muted
-                      loop
-                      playsInline
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
-                      src={item.src}
-                      onMouseEnter={handleMouseEnterVideo}
-                      onMouseLeave={handleMouseLeaveVideo}
-                      preload="metadata"
-                    />
-                    {/* Glowing Play Indicator Overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center z-[2] pointer-events-none">
-                      <div className="w-12 h-12 rounded-full glass-panel border border-white/20 bg-[#030a16]/40 flex items-center justify-center text-white shadow-xl group-hover:bg-sunset group-hover:border-sunset group-hover:scale-110 transition-all duration-500 pointer-events-auto">
-                        <Play className="w-4 h-4 fill-white text-white ml-0.5" />
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <img
-                    src={item.src}
-                    alt={item.title}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
-                  />
-                )}
+                <img
+                  src={item.src}
+                  alt={item.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
+                />
 
                 {/* Overlays */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#030a16]/90 via-[#030a16]/30 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500 z-[1] pointer-events-none" />
@@ -513,21 +454,11 @@ export default function Gallery() {
               transition={{ type: "spring", damping: 30 }}
             >
               {/* Media viewer */}
-              {filteredItems[activeIdx].type === "video" ? (
-                <video
-                  src={filteredItems[activeIdx].src}
-                  controls
-                  autoPlay
-                  loop
-                  className="w-full h-full object-contain max-h-[80vh] rounded-2xl shadow-2xl"
-                />
-              ) : (
-                <img
-                  src={filteredItems[activeIdx].src}
-                  alt={filteredItems[activeIdx].title}
-                  className="w-full h-full object-contain max-h-[80vh] rounded-2xl shadow-2xl"
-                />
-              )}
+              <img
+                src={filteredItems[activeIdx].src}
+                alt={filteredItems[activeIdx].title}
+                className="w-full h-full object-contain max-h-[80vh] rounded-2xl shadow-2xl"
+              />
 
               {/* Top Banner Info */}
               <div className="absolute top-4 left-4 z-20 text-left glass-panel py-2.5 px-4 rounded-xl border border-sand/15 bg-black/40 backdrop-blur-sm">
