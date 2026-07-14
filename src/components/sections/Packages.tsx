@@ -88,22 +88,38 @@ export default function Packages({ onOpenBooking }: PackagesProps) {
                     Day Outing Package
                   </h3>
                 </div>
-                <div className="text-right flex flex-col items-end whitespace-nowrap">
-                  <div className="text-xl md:text-2xl font-sans font-semibold text-pink-400">
-                    ₹1,600 <span className="text-xs text-sand/50 font-normal">/ Weekend</span>
+                <div className="text-right">
+                  <div className="text-2xl md:text-3xl font-sans font-semibold text-pink-400">
+                    ₹1,300<span className="text-xs text-sand/50 font-normal"> / Person</span>
                   </div>
-                  <div className="text-base md:text-lg font-sans font-medium text-pink-300/95">
-                    ₹1,300 <span className="text-xs text-sand/50 font-normal">/ Weekday</span>
+                  <div className="text-[8px] md:text-[9px] text-sand/40 uppercase tracking-widest font-medium mt-0.5">
+                    Weekday Starting Rate
                   </div>
-                  <div className="text-[9px] text-sand/45 uppercase tracking-widest mt-1">per person</div>
                 </div>
               </div>
 
-              <div className="text-[11px] text-sand/65 space-y-1.5 mb-8 border-l-2 border-pink-500/40 pl-4 leading-normal">
-                <p>• <span className="text-pink-400 font-medium">Weekend (Fri–Sun)</span>: Adult ₹1,600 | 5–12 yrs ₹800 | Under 5 Free</p>
-                <p>• <span className="text-pink-400 font-medium">Weekdays (Mon–Fri)</span>: Adult ₹1,300 | 5–12 yrs ₹700 | Under 5 Free</p>
-                <p className="text-[9px] text-sand/40 italic">* Note: Rates differ during long weekends & holidays.</p>
+              {/* Pricing Breakdown Grid */}
+              <div className="grid grid-cols-2 gap-4 bg-[#030f26]/40 border border-sand/10 rounded-xl p-4 mb-6 text-xs text-sand/80">
+                <div className="border-r border-sand/10 pr-2">
+                  <span className="text-[10px] uppercase tracking-wider text-pink-400 font-semibold block mb-1">Weekdays</span>
+                  <div className="space-y-1">
+                    <div className="flex justify-between"><span>Adult:</span><span className="text-white font-medium">₹1,300</span></div>
+                    <div className="flex justify-between"><span>5–12 yrs:</span><span className="text-white font-medium">₹700</span></div>
+                    <div className="flex justify-between"><span>Under 5:</span><span className="text-emerald-400 font-medium">Free</span></div>
+                  </div>
+                </div>
+                <div className="pl-2">
+                  <span className="text-[10px] uppercase tracking-wider text-pink-400 font-semibold block mb-1">Weekends</span>
+                  <div className="space-y-1">
+                    <div className="flex justify-between"><span>Adult:</span><span className="text-white font-medium">₹1,600</span></div>
+                    <div className="flex justify-between"><span>5–12 yrs:</span><span className="text-white font-medium">₹800</span></div>
+                    <div className="flex justify-between"><span>Under 5:</span><span className="text-emerald-400 font-medium">Free</span></div>
+                  </div>
+                </div>
               </div>
+              <p className="text-[9px] text-sand/40 italic mt-[-10px] mb-8 pl-1">
+                * Note: Rates differ during long weekends & holidays.
+              </p>
 
               {/* Inclusions List */}
               <div className="space-y-5">
@@ -171,22 +187,38 @@ export default function Packages({ onOpenBooking }: PackagesProps) {
                     Ultimate Stay Package
                   </h3>
                 </div>
-                <div className="text-right flex flex-col items-end whitespace-nowrap">
-                  <div className="text-xl md:text-2xl font-sans font-semibold text-blue-400">
-                    ₹2,800 <span className="text-xs text-sand/50 font-normal">/ Weekend</span>
+                <div className="text-right">
+                  <div className="text-2xl md:text-3xl font-sans font-semibold text-blue-400">
+                    ₹2,200<span className="text-xs text-sand/50 font-normal"> / Person</span>
                   </div>
-                  <div className="text-base md:text-lg font-sans font-medium text-blue-300/95">
-                    ₹2,200 <span className="text-xs text-sand/50 font-normal">/ Weekday</span>
+                  <div className="text-[8px] md:text-[9px] text-sand/40 uppercase tracking-widest font-medium mt-0.5">
+                    Weekday Starting Rate
                   </div>
-                  <div className="text-[9px] text-sand/45 uppercase tracking-widest mt-1">per person</div>
                 </div>
               </div>
 
-              <div className="text-[11px] text-sand/65 space-y-1.5 mb-8 border-l-2 border-blue-500/40 pl-4 leading-normal">
-                <p>• <span className="text-blue-400 font-medium">Weekend Cost</span>: Adult ₹2,800 | 5–12 yrs ₹1,400 | Under 5 Free</p>
-                <p>• <span className="text-blue-400 font-medium">Weekdays Cost</span>: Adult ₹2,200 | 5–12 yrs ₹1,100 | Under 5 Free</p>
-                <p className="text-[9px] text-sand/40 italic">* Note: Rates differ during long weekends & holidays.</p>
+              {/* Pricing Breakdown Grid */}
+              <div className="grid grid-cols-2 gap-4 bg-[#030f26]/40 border border-sand/10 rounded-xl p-4 mb-6 text-xs text-sand/80">
+                <div className="border-r border-sand/10 pr-2">
+                  <span className="text-[10px] uppercase tracking-wider text-blue-400 font-semibold block mb-1">Weekdays</span>
+                  <div className="space-y-1">
+                    <div className="flex justify-between"><span>Adult:</span><span className="text-white font-medium">₹2,200</span></div>
+                    <div className="flex justify-between"><span>5–12 yrs:</span><span className="text-white font-medium">₹1,100</span></div>
+                    <div className="flex justify-between"><span>Under 5:</span><span className="text-emerald-400 font-medium">Free</span></div>
+                  </div>
+                </div>
+                <div className="pl-2">
+                  <span className="text-[10px] uppercase tracking-wider text-blue-400 font-semibold block mb-1">Weekends</span>
+                  <div className="space-y-1">
+                    <div className="flex justify-between"><span>Adult:</span><span className="text-white font-medium">₹2,800</span></div>
+                    <div className="flex justify-between"><span>5–12 yrs:</span><span className="text-white font-medium">₹1,400</span></div>
+                    <div className="flex justify-between"><span>Under 5:</span><span className="text-emerald-400 font-medium">Free</span></div>
+                  </div>
+                </div>
               </div>
+              <p className="text-[9px] text-sand/40 italic mt-[-10px] mb-8 pl-1">
+                * Note: Rates differ during long weekends & holidays.
+              </p>
 
               {/* Inclusions List */}
               <div className="space-y-5">
