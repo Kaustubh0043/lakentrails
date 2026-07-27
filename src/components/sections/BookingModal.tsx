@@ -542,13 +542,15 @@ ${formData.name}`;
             <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-emerald-light via-sunset to-luxury-teal z-20" />
 
             {/* Close Button */}
-            <button
-              onClick={onClose}
-              className="absolute top-4 right-4 text-sand/60 hover:text-sunset transition-colors duration-300 p-2 z-30"
-              aria-label="Close booking modal"
-            >
-              <X className="w-5 h-5" />
-            </button>
+            {!isCalendarOpen && !isPolicyOpen && (
+              <button
+                onClick={onClose}
+                className="absolute top-4 right-4 text-sand/60 hover:text-sunset transition-colors duration-300 p-2 z-30"
+                aria-label="Close booking modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            )}
 
             {/* Fixed Header */}
             <div className="p-6 pb-2 md:p-8 md:pb-4 flex-shrink-0">
