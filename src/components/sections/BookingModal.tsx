@@ -833,10 +833,15 @@ ${formData.name}`;
                         onChange={handleChange}
                         className="w-full pl-4 pr-10 py-3 bg-[#030f26]/30 border border-sand/15 rounded-lg text-sm text-white focus:outline-none focus:border-sunset focus:ring-1 focus:ring-sunset transition-colors appearance-none cursor-pointer"
                       >
-                        <option value="day-outing" className="bg-[#030a16]">Day Outing Package (₹1,300 Weekday / ₹1,600 Weekend)</option>
-                        <option value="stay-package" className="bg-[#030a16]">Ultimate Stay Package (₹2,200 Weekday / ₹2,800 Weekend)</option>
+                        <option value="day-outing" className="bg-[#030a16]">Day Outing Package</option>
+                        <option value="stay-package" className="bg-[#030a16]">Ultimate Stay Package</option>
                       </select>
                       <ChevronDown className="absolute right-3 top-3.5 w-4 h-4 text-sand/50 pointer-events-none" />
+                    </div>
+                    <div className="text-[10px] text-sand/50 font-sans mt-1.5 pl-1 italic">
+                      {formData.experience === "day-outing"
+                        ? "* Tariff: ₹1,300 Weekday / ₹1,600 Weekend per person"
+                        : "* Tariff: ₹2,200 Weekday / ₹2,800 Weekend per person"}
                     </div>
                   </div>
 
