@@ -649,7 +649,7 @@ ${formData.name}`;
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 10 }}
                             transition={{ duration: 0.15 }}
-                            className="absolute right-0 left-0 mt-2 bg-[#080e1a]/95 backdrop-blur-xl border border-sand/20 rounded-xl p-4 shadow-2xl z-[999] space-y-4"
+                            className="absolute right-0 left-0 sm:left-auto mt-2 sm:w-[300px] bg-[#080e1a]/95 backdrop-blur-xl border border-sand/20 rounded-xl p-4 shadow-2xl z-[999] space-y-4 text-left"
                           >
                             {/* Adults Row */}
                             <div className="flex items-center justify-between pb-3 border-b border-sand/5">
