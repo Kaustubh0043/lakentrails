@@ -390,7 +390,8 @@ export default function BookingModal({ isOpen, onClose, defaultExperience = "day
     }
 
     const nights = isStay ? getNumberOfNights() : 1;
-    const subtotal = (adultRate * adults + childRate * children) * nights;
+    const petCharge = guestCounts.pets > 0 ? 400 : 0;
+    const subtotal = (adultRate * adults + childRate * children) * nights + petCharge;
     const taxes = Math.round(subtotal * 0.05); // 5% GST
     const total = subtotal + taxes;
 
@@ -405,7 +406,8 @@ export default function BookingModal({ isOpen, onClose, defaultExperience = "day
       taxes,
       total,
       isStay,
-      isWeekend: isWeekendDay
+      isWeekend: isWeekendDay,
+      petCharge
     };
   };
 
@@ -429,6 +431,9 @@ export default function BookingModal({ isOpen, onClose, defaultExperience = "day
       }
       if (guestCounts.childrenAbove5 > 0) {
         parts.push(`Kids (5-12): ${guestCounts.childrenAbove5} x ₹${pricing.childRate}/night`);
+      }
+      if (pricing.petCharge > 0) {
+        parts.push(`Pet Stay Charge: ₹${pricing.petCharge}`);
       }
       rateDetailsText = `• Rates (${pricing.isWeekend ? "Weekend" : "Weekday"}):\n  ${parts.join("\n  ")}`;
     }
@@ -473,6 +478,9 @@ _Submitted via website booking request._`;
       }
       if (guestCounts.childrenAbove5 > 0) {
         parts.push(`Kids (5-12): ${guestCounts.childrenAbove5} x Rs. ${pricing.childRate}/night`);
+      }
+      if (pricing.petCharge > 0) {
+        parts.push(`Pet Stay Charge: Rs. ${pricing.petCharge}`);
       }
       rateDetailsText = `• Rates (${pricing.isWeekend ? "Weekend" : "Weekday"}):\n  ${parts.join("\n  ")}`;
     }
@@ -762,29 +770,23 @@ ${formData.name}`;
                             {/* Pets Row */}
                             <div className="flex items-center justify-between pb-3 border-b border-sand/5">
                               <div>
-                                <h5 className="text-xs font-sans font-medium text-white">Pets</h5>
-                                <p className="text-[9px] text-sand/40">Bringing service animal?</p>
+                                <h5 className="text-xs font-sans font-medium text-white">Bringing a Pet?</h5>
+                                <p className="text-[9px] text-sand/40">Pet stay charge applies (+ ₹400)</p>
                               </div>
-                              <div className="flex items-center gap-3">
-                                <button
-                                  type="button"
-                                  onClick={() => updateGuestCount("pets", -1)}
-                                  disabled={guestCounts.pets <= 0 || guestCounts.isLargeEvent}
-                                  className="w-6 h-6 rounded-full border border-sand/20 flex items-center justify-center text-white hover:border-sunset disabled:opacity-25 disabled:cursor-not-allowed transition-colors cursor-pointer"
-                                >
-                                  <Minus className="w-3.5 h-3.5" />
-                                </button>
-                                <span className="text-xs text-white font-medium w-4 text-center">
-                                  {guestCounts.isLargeEvent ? "-" : guestCounts.pets}
-                                </span>
-                                <button
-                                  type="button"
-                                  onClick={() => updateGuestCount("pets", 1)}
+                              <div className="flex items-center">
+                                <input
+                                  type="checkbox"
+                                  id="pet-checkbox"
+                                  checked={guestCounts.pets > 0}
+                                  onChange={(e) => {
+                                    setGuestCounts((prev) => ({
+                                      ...prev,
+                                      pets: e.target.checked ? 1 : 0
+                                    }));
+                                  }}
                                   disabled={guestCounts.isLargeEvent}
-                                  className="w-6 h-6 rounded-full border border-sand/20 flex items-center justify-center text-white hover:border-sunset disabled:opacity-25 disabled:cursor-not-allowed transition-colors cursor-pointer"
-                                >
-                                  <Plus className="w-3.5 h-3.5" />
-                                </button>
+                                  className="w-4 h-4 rounded border-sand/20 text-sunset focus:ring-sunset bg-[#030f26]/30 cursor-pointer accent-sunset"
+                                />
                               </div>
                             </div>
 
@@ -999,6 +1001,13 @@ ${formData.name}`;
                                 Free Guests ({guestCounts.childrenBelow5 > 0 ? `${guestCounts.childrenBelow5} Kids <5y` : ""}{guestCounts.childrenBelow5 > 0 && guestCounts.infants > 0 ? ", " : ""}{guestCounts.infants > 0 ? `${guestCounts.infants} Infants` : ""})
                               </span>
                               <span className="text-emerald-400 font-medium">Free</span>
+                            </div>
+                          )}
+
+                          {pricing.petCharge > 0 && (
+                            <div className="flex justify-between">
+                              <span className="text-sand/50">Pet Stay Charge</span>
+                              <span className="text-white font-medium">₹{pricing.petCharge.toLocaleString()}</span>
                             </div>
                           )}
 
