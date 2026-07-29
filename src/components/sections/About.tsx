@@ -139,7 +139,7 @@ export default function About() {
             {/* Visual background image with zoom hover */}
             <div 
               className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"
-              style={{ backgroundImage: "url('/images/lakesideview.jpeg')" }}
+              style={{ backgroundImage: "url('/images/20260726_142353.jpg.jpeg')" }}
             />
             {/* Matte gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#030a16] via-transparent to-transparent opacity-60 z-[1]" />

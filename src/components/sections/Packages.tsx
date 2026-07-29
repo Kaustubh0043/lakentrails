@@ -106,7 +106,7 @@ export default function Packages({ onOpenBooking }: PackagesProps) {
                   <div className="space-y-1">
                     <div className="flex justify-between"><span>Adult:</span><span className="text-white font-medium">₹1,300</span></div>
                     <div className="flex justify-between"><span>5–12 yrs:</span><span className="text-white font-medium">₹700</span></div>
-                    <div className="flex justify-between"><span>Under 5:</span><span className="text-emerald-400 font-medium">Free</span></div>
+                    <div className="flex justify-between"><span>Under 5:</span><span className="text-emerald-400 font-medium">Complimentary</span></div>
                   </div>
                 </div>
                 <div className="pl-2">
@@ -114,7 +114,7 @@ export default function Packages({ onOpenBooking }: PackagesProps) {
                   <div className="space-y-1">
                     <div className="flex justify-between"><span>Adult:</span><span className="text-white font-medium">₹1,600</span></div>
                     <div className="flex justify-between"><span>5–12 yrs:</span><span className="text-white font-medium">₹800</span></div>
-                    <div className="flex justify-between"><span>Under 5:</span><span className="text-emerald-400 font-medium">Free</span></div>
+                    <div className="flex justify-between"><span>Under 5:</span><span className="text-emerald-400 font-medium">Complimentary</span></div>
                   </div>
                 </div>
               </div>
@@ -205,7 +205,7 @@ export default function Packages({ onOpenBooking }: PackagesProps) {
                   <div className="space-y-1">
                     <div className="flex justify-between"><span>Adult:</span><span className="text-white font-medium">₹2,200</span></div>
                     <div className="flex justify-between"><span>5–12 yrs:</span><span className="text-white font-medium">₹1,100</span></div>
-                    <div className="flex justify-between"><span>Under 5:</span><span className="text-emerald-400 font-medium">Free</span></div>
+                    <div className="flex justify-between"><span>Under 5:</span><span className="text-emerald-400 font-medium">Complimentary</span></div>
                   </div>
                 </div>
                 <div className="pl-2">
@@ -213,7 +213,7 @@ export default function Packages({ onOpenBooking }: PackagesProps) {
                   <div className="space-y-1">
                     <div className="flex justify-between"><span>Adult:</span><span className="text-white font-medium">₹2,800</span></div>
                     <div className="flex justify-between"><span>5–12 yrs:</span><span className="text-white font-medium">₹1,400</span></div>
-                    <div className="flex justify-between"><span>Under 5:</span><span className="text-emerald-400 font-medium">Free</span></div>
+                    <div className="flex justify-between"><span>Under 5:</span><span className="text-emerald-400 font-medium">Complimentary</span></div>
                   </div>
                 </div>
               </div>

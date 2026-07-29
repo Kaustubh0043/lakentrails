@@ -29,6 +29,7 @@ export default function Experiences({ onOpenBooking }: ExperiencesProps) {
     { id: "dining", label: "Lakeside Dining", icon: "🍽️" },
     { id: "weddings", label: "Weddings & lawns", icon: "💍" },
     { id: "sunset", label: "Sunset Vibe", icon: "🌅" },
+    { id: "riders", label: "Riders Special", icon: "🏍️" },
   ];
 
   const experienceData: Record<string, {
@@ -185,6 +186,34 @@ export default function Experiences({ onOpenBooking }: ExperiencesProps) {
           icon: <Sparkles className="w-4.5 h-4.5" />,
           label: "Visual Shoots",
           desc: "Ideal lighting and reflections for premium photography and couples' shots."
+        }
+      ]
+    },
+    riders: {
+      category: "Complimentary Rider Special",
+      title: "Breakfast Ride for",
+      titleAccent: "Passionate Riders",
+      description: "Gear up for a scenic morning cruise along the winding roads to Adoshi Dam. Every weekend, we host a special Complimentary Breakfast Ride for riding groups and solo motor enthusiasts. Park your bikes in our dedicated secure spaces, stretch out on our lakeside lawns, and enjoy a piping-hot, hearty complimentary breakfast with fellow riders overlooking the calm reservoir.",
+      image: "/images/IMG_6645.jpg", // Converted rider image!
+      imageLabel: "Lakeside Riding Destination",
+      imageDesc: "Connect with the community, park along the scenic lawns, and recharge with a hearty breakfast.",
+      ctaLabel: "Register for Ride",
+      bookingCode: "day-outing",
+      highlights: [
+        {
+          icon: <Award className="w-4.5 h-4.5" />,
+          label: "Dedicated Rider Parking",
+          desc: "Secure, paved parking spots right next to the lawns for your precious machines."
+        },
+        {
+          icon: <Utensils className="w-4.5 h-4.5" />,
+          label: "Hot Breakfast Buffet",
+          desc: "Unlimited tea, coffee, hot regional specialties, and breakfast favorites."
+        },
+        {
+          icon: <Compass className="w-4.5 h-4.5" />,
+          label: "Scenic Riding Routes",
+          desc: "Winding, picturesque approach roads perfect for a morning weekend cruise."
         }
       ]
     }

@@ -20,508 +20,212 @@ export default function Gallery() {
 
   const galleryItems: GalleryItem[] = [
     {
-      src: "/images/DVP_9208.JPG",
-      title: "Premium Shoreline Lounger Deck (1)",
-      category: "Lakeside View",
+      src: "/images/DVP_9210.JPG",
+      title: "Scenic Waterfront Glamping Dome",
+      category: "Glamping Dome",
       type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[300px]",
+      colSpan: "md:col-span-2",
+      rowSpan: "h-[300px] md:h-[400px]",
     },
     {
-      src: "/images/DVP_9209.JPG",
-      title: "Romantic Dinner Setup by the Water (2)",
+      src: "/images/DVP_9230.JPG",
+      title: "Cozy Geodesic Dome Suite Interior",
       category: "Glamping Dome",
       type: "image",
       colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]",
-    },
-    {
-      src: "/images/DVP_9210.JPG",
-      title: "Lakeside Glamping Dome View (3)",
-      category: "Resort Lifestyle",
-      type: "image",
-      colSpan: "md:col-span-2",
       rowSpan: "h-[300px] md:h-[400px]",
     },
     {
-      src: "/images/DVP_9212.JPG",
-      title: "Infinity Pool overlooking Adoshi Lake (4)",
-      category: "Swimming Pool Vibe",
+      src: "/images/DVP_9256.JPG",
+      title: "Dome Suite Bathroom & Amenities",
+      category: "Glamping Dome",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[300px]",
     },
     {
-      src: "/images/DVP_9213.JPG",
-      title: "Starlit Event & Gathering Space (5)",
-      category: "Sunset Experience",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]",
-    },
-    {
-      src: "/images/DVP_9214.JPG",
-      title: "Serene Lake & Sahyadri Peaks (6)",
-      category: "Dining & BBQ",
-      type: "image",
-      colSpan: "md:col-span-2",
-      rowSpan: "h-[300px] md:h-[400px]",
-    },
-    {
-      src: "/images/DVP_9215.JPG",
-      title: "Inside our Luxury Geodesic Dome (7)",
-      category: "Destination Weddings",
-      type: "image",
+      src: "/images/20260715_181522.mp4",
+      title: "Geodesic Dome Stay Vibe Tour",
+      category: "Glamping Dome",
+      type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[300px]",
     },
     {
       src: "/images/DVP_9216.JPG",
-      title: "Lush Greenery Surrounding the Retreat (8)",
-      category: "Lakeside View",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]",
-    },
-    {
-      src: "/images/DVP_9217.JPG",
-      title: "Reflecting Pool & Lakeside Palms (9)",
-      category: "Glamping Dome",
-      type: "image",
-      colSpan: "md:col-span-2",
-      rowSpan: "h-[300px] md:h-[400px]",
-    },
-    {
-      src: "/images/DVP_9218.JPG",
-      title: "Lakeside Gatherings on Lawn (10)",
-      category: "Resort Lifestyle",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[300px]",
-    },
-    {
-      src: "/images/DVP_9219.JPG",
-      title: "Cozy Canopy Lounge & Sitout (11)",
+      title: "Lakeside Infinity Swimming Pool",
       category: "Swimming Pool Vibe",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]",
-    },
-    {
-      src: "/images/DVP_9220.JPG",
-      title: "Panoramic Palms & Waterfront Steps (12)",
-      category: "Sunset Experience",
-      type: "image",
-      colSpan: "md:col-span-2",
-      rowSpan: "h-[300px] md:h-[400px]",
-    },
-    {
-      src: "/images/DVP_9221.JPG",
-      title: "Gateway Steps from Reservoir (13)",
-      category: "Dining & BBQ",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[300px]",
-    },
-    {
-      src: "/images/DVP_9222.JPG",
-      title: "Stunning Overlook of Adoshi Reservoir (14)",
-      category: "Destination Weddings",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]",
-    },
-    {
-      src: "/images/DVP_9223.JPG",
-      title: "Sunset Skies over Mountain Ridges (15)",
-      category: "Lakeside View",
-      type: "image",
-      colSpan: "md:col-span-2",
-      rowSpan: "h-[300px] md:h-[400px]",
-    },
-    {
-      src: "/images/DVP_9224.JPG",
-      title: "Infinity Pool Shimmering in the Sun (16)",
-      category: "Glamping Dome",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[300px]",
-    },
-    {
-      src: "/images/DVP_9226.JPG",
-      title: "Lakeside Sunset Palms Silhouette (17)",
-      category: "Resort Lifestyle",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]",
-    },
-    {
-      src: "/images/DVP_9227.JPG",
-      title: "Dazzling Sunset Paint on the Sky (18)",
-      category: "Swimming Pool Vibe",
-      type: "image",
-      colSpan: "md:col-span-2",
-      rowSpan: "h-[300px] md:h-[400px]",
-    },
-    {
-      src: "/images/DVP_9228.JPG",
-      title: "Tropical Hammocks & Gardens (19)",
-      category: "Sunset Experience",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[300px]",
-    },
-    {
-      src: "/images/DVP_9229.JPG",
-      title: "Luxury Geodesic Dome Silhouette (20)",
-      category: "Dining & BBQ",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]",
-    },
-    {
-      src: "/images/DVP_9230.JPG",
-      title: "Luxury Dining Under the Palm Canopy (21)",
-      category: "Destination Weddings",
-      type: "image",
-      colSpan: "md:col-span-2",
-      rowSpan: "h-[300px] md:h-[400px]",
-    },
-    {
-      src: "/images/DVP_9231.JPG",
-      title: "Sunrise Reflections over Swimming Pool (22)",
-      category: "Lakeside View",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[300px]",
-    },
-    {
-      src: "/images/DVP_9232.JPG",
-      title: "Kayaks Ready on the Shore (23)",
-      category: "Glamping Dome",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]",
-    },
-    {
-      src: "/images/DVP_9233.JPG",
-      title: "Fairytale Wedding Setup by the Water (24)",
-      category: "Resort Lifestyle",
-      type: "image",
-      colSpan: "md:col-span-2",
-      rowSpan: "h-[300px] md:h-[400px]",
-    },
-    {
-      src: "/images/DVP_9234.JPG",
-      title: "Lakeside Reception Ceremony Setup (25)",
-      category: "Swimming Pool Vibe",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[300px]",
-    },
-    {
-      src: "/images/DVP_9235.JPG",
-      title: "Warm Firepit Sparkles & Glamping (26)",
-      category: "Sunset Experience",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]",
-    },
-    {
-      src: "/images/DVP_9236.JPG",
-      title: "Exquisite Geodesic Dome Suite Interior (27)",
-      category: "Dining & BBQ",
-      type: "image",
-      colSpan: "md:col-span-2",
-      rowSpan: "h-[300px] md:h-[400px]",
-    },
-    {
-      src: "/images/DVP_9237.JPG",
-      title: "Fresh Grilled Tandoor Lakeside Plating (28)",
-      category: "Destination Weddings",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[300px]",
     },
     {
       src: "/images/DVP_9243.JPG",
-      title: "Resort Pathway in Lush Green Surroundings (29)",
-      category: "Lakeside View",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]",
-    },
-    {
-      src: "/images/DVP_9245.JPG",
-      title: "Sunset High Tea overlooking the Waters (30)",
-      category: "Glamping Dome",
-      type: "image",
-      colSpan: "md:col-span-2",
-      rowSpan: "h-[300px] md:h-[400px]",
-    },
-    {
-      src: "/images/DVP_9246.JPG",
-      title: "Relaxing Deck Loungers by the Infinity Pool (31)",
-      category: "Resort Lifestyle",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[300px]",
-    },
-    {
-      src: "/images/DVP_9247.JPG",
-      title: "Elegant Floral Canopy Detail (32)",
+      title: "Reflections on the Infinity Pool",
       category: "Swimming Pool Vibe",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]",
-    },
-    {
-      src: "/images/DVP_9248.JPG",
-      title: "Lakeside Kayaks & Jetty Platform (33)",
-      category: "Sunset Experience",
-      type: "image",
-      colSpan: "md:col-span-2",
-      rowSpan: "h-[300px] md:h-[400px]",
-    },
-    {
-      src: "/images/DVP_9249.JPG",
-      title: "Artisanal Woodfired Clay Oven Pizzas (34)",
-      category: "Dining & BBQ",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[300px]",
-    },
-    {
-      src: "/images/DVP_9250.JPG",
-      title: "Premium Shoreline Lounger Deck (35)",
-      category: "Destination Weddings",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]",
-    },
-    {
-      src: "/images/DVP_9252.JPG",
-      title: "Romantic Dinner Setup by the Water (36)",
-      category: "Lakeside View",
-      type: "image",
-      colSpan: "md:col-span-2",
-      rowSpan: "h-[300px] md:h-[400px]",
-    },
-    {
-      src: "/images/DVP_9253.JPG",
-      title: "Lakeside Glamping Dome View (37)",
-      category: "Glamping Dome",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[300px]",
-    },
-    {
-      src: "/images/DVP_9254.JPG",
-      title: "Infinity Pool overlooking Adoshi Lake (38)",
-      category: "Resort Lifestyle",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]",
-    },
-    {
-      src: "/images/DVP_9255.JPG",
-      title: "Starlit Event & Gathering Space (39)",
-      category: "Swimming Pool Vibe",
-      type: "image",
-      colSpan: "md:col-span-2",
-      rowSpan: "h-[300px] md:h-[400px]",
-    },
-    {
-      src: "/images/DVP_9256.JPG",
-      title: "Serene Lake & Sahyadri Peaks (40)",
-      category: "Sunset Experience",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[300px]",
-    },
-    {
-      src: "/images/DVP_9257.JPG",
-      title: "Inside our Luxury Geodesic Dome (41)",
-      category: "Dining & BBQ",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]",
-    },
-    {
-      src: "/images/DVP_9258.JPG",
-      title: "Lush Greenery Surrounding the Retreat (42)",
-      category: "Destination Weddings",
-      type: "image",
-      colSpan: "md:col-span-2",
-      rowSpan: "h-[300px] md:h-[400px]",
-    },
-    {
-      src: "/images/DVP_9260.JPG",
-      title: "Reflecting Pool & Lakeside Palms (43)",
-      category: "Lakeside View",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[300px]",
-    },
-    {
-      src: "/images/DVP_9261.JPG",
-      title: "Lakeside Gatherings on Lawn (44)",
-      category: "Glamping Dome",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]",
-    },
-    {
-      src: "/images/DVP_9262.JPG",
-      title: "Cozy Canopy Lounge & Sitout (45)",
-      category: "Resort Lifestyle",
-      type: "image",
-      colSpan: "md:col-span-2",
-      rowSpan: "h-[300px] md:h-[400px]",
-    },
-    {
-      src: "/images/DVP_9263.JPG",
-      title: "Panoramic Palms & Waterfront Steps (46)",
-      category: "Swimming Pool Vibe",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[300px]",
-    },
-    {
-      src: "/images/DVP_9264.JPG",
-      title: "Gateway Steps from Reservoir (47)",
-      category: "Sunset Experience",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]",
-    },
-    {
-      src: "/images/DVP_9265.JPG",
-      title: "Stunning Overlook of Adoshi Reservoir (48)",
-      category: "Dining & BBQ",
-      type: "image",
-      colSpan: "md:col-span-2",
-      rowSpan: "h-[300px] md:h-[400px]",
-    },
-    {
-      src: "/images/DVP_9266.JPG",
-      title: "Sunset Skies over Mountain Ridges (49)",
-      category: "Destination Weddings",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[300px]",
-    },
-    {
-      src: "/images/DVP_9267.JPG",
-      title: "Infinity Pool Shimmering in the Sun (50)",
-      category: "Lakeside View",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]",
     },
     {
       src: "/images/DVP_9268.JPG",
-      title: "Lakeside Sunset Palms Silhouette (51)",
-      category: "Glamping Dome",
-      type: "image",
-      colSpan: "md:col-span-2",
-      rowSpan: "h-[300px] md:h-[400px]",
-    },
-    {
-      src: "/images/DVP_9269.JPG",
-      title: "Dazzling Sunset Paint on the Sky (52)",
-      category: "Resort Lifestyle",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[300px]",
-    },
-    {
-      src: "/images/DVP_9270.JPG",
-      title: "Tropical Hammocks & Gardens (53)",
+      title: "Infinity Pool Shimmering in the Sun",
       category: "Swimming Pool Vibe",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]",
     },
     {
-      src: "/images/DVP_9271.JPG",
-      title: "Luxury Geodesic Dome Silhouette (54)",
-      category: "Sunset Experience",
-      type: "image",
-      colSpan: "md:col-span-2",
-      rowSpan: "h-[300px] md:h-[400px]",
-    },
-    {
-      src: "/images/DVP_9272.JPG",
-      title: "Luxury Dining Under the Palm Canopy (55)",
-      category: "Dining & BBQ",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[300px]",
-    },
-    {
-      src: "/images/DVP_9273.JPG",
-      title: "Sunrise Reflections over Swimming Pool (56)",
-      category: "Destination Weddings",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]",
-    },
-    {
-      src: "/images/DVP_9274.JPG",
-      title: "Kayaks Ready on the Shore (57)",
+      src: "/images/DVP_9208.JPG",
+      title: "Luxury Shoreline Lounge Deck",
       category: "Lakeside View",
       type: "image",
       colSpan: "md:col-span-2",
       rowSpan: "h-[300px] md:h-[400px]",
     },
     {
-      src: "/images/DVP_9276.JPG",
-      title: "Fairytale Wedding Setup by the Water (58)",
-      category: "Glamping Dome",
+      src: "/images/DVP_9233.JPG",
+      title: "Gateway Steps to Adoshi Reservoir",
+      category: "Lakeside View",
+      type: "image",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[400px]",
+    },
+    {
+      src: "/images/DVP_9260.JPG",
+      title: "Adoshi Dam Waterfront Panorama",
+      category: "Lakeside View",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[300px]",
     },
     {
-      src: "/images/DVP_9277.JPG",
-      title: "Lakeside Reception Ceremony Setup (59)",
-      category: "Resort Lifestyle",
+      src: "/images/VID-20260726-WA0041.mp4",
+      title: "Lakeside Sunset & Breeze Vibe",
+      category: "Lakeside View",
+      type: "video",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[300px]",
+    },
+    {
+      src: "/images/DVP_9220.JPG",
+      title: "Dazzling Sunset Skies over Reservoir",
+      category: "Sunset Experience",
+      type: "image",
+      colSpan: "md:col-span-2",
+      rowSpan: "h-[300px] md:h-[350px]",
+    },
+    {
+      src: "/images/DVP_9246.JPG",
+      title: "Crimson Dusk over Sahyadri Peaks",
+      category: "Sunset Experience",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]",
     },
     {
-      src: "/images/DVP_9278.JPG",
-      title: "Warm Firepit Sparkles & Glamping (60)",
-      category: "Swimming Pool Vibe",
-      type: "image",
-      colSpan: "md:col-span-2",
-      rowSpan: "h-[300px] md:h-[400px]",
-    },
-    {
-      src: "/images/DVP_9279.JPG",
-      title: "Exquisite Geodesic Dome Suite Interior (61)",
+      src: "/images/DVP_9272.JPG",
+      title: "Sunset High Tea on the Lawn",
       category: "Sunset Experience",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[300px]",
     },
     {
-      src: "/images/DVP_9280.JPG",
-      title: "Fresh Grilled Tandoor Lakeside Plating (62)",
+      src: "/images/DVP_9223.JPG",
+      title: "Premium Lakeside Canopy Dining",
       category: "Dining & BBQ",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]",
     },
     {
-      src: "/images/DVP_9281.JPG",
-      title: "Resort Pathway in Lush Green Surroundings (63)",
+      src: "/images/DVP_9249.JPG",
+      title: "Rustic Woodfired Clay Pizza Oven",
+      category: "Dining & BBQ",
+      type: "image",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]",
+    },
+    {
+      src: "/images/DVP_9276.JPG",
+      title: "Lakeside Barbecue Grill Platter",
+      category: "Dining & BBQ",
+      type: "image",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]",
+    },
+    {
+      src: "/images/DVP_9226.JPG",
+      title: "Shoreline Wedding Ceremony Lawn",
       category: "Destination Weddings",
       type: "image",
       colSpan: "md:col-span-2",
       rowSpan: "h-[300px] md:h-[400px]",
+    },
+    {
+      src: "/images/DVP_9253.JPG",
+      title: "Elegant Shoreline Reception Arch",
+      category: "Destination Weddings",
+      type: "image",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[400px]",
+    },
+    {
+      src: "/images/DVP_9279.JPG",
+      title: "Lawn Reception Canopy Lighting",
+      category: "Destination Weddings",
+      type: "image",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[300px]",
+    },
+    {
+      src: "/images/DVP_9213.JPG",
+      title: "Lush Shoreline Palm Gardens",
+      category: "Resort Lifestyle",
+      type: "image",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]",
+    },
+    {
+      src: "/images/DVP_9237.JPG",
+      title: "Sitout Under the Palms",
+      category: "Resort Lifestyle",
+      type: "image",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]",
+    },
+    {
+      src: "/images/DVP_9264.JPG",
+      title: "Tropical Hammocks Under Palm Canopy",
+      category: "Resort Lifestyle",
+      type: "image",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]",
+    },
+    {
+      src: "/images/20260726_141031.jpg.jpeg",
+      title: "Playful Resort Pets on Lawns",
+      category: "Resort Lifestyle",
+      type: "image",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[300px]",
+    },
+    {
+      src: "/images/20260726_142353.jpg.jpeg",
+      title: "Lakeside Celebration with Furry Friends",
+      category: "Resort Lifestyle",
+      type: "image",
+      colSpan: "md:col-span-2",
+      rowSpan: "h-[300px] md:h-[400px]",
+    },
+    {
+      src: "/images/20260719_105948.mp4",
+      title: "Waterfront Fun & Resort Lawns Tour",
+      category: "Resort Lifestyle",
+      type: "video",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[300px]",
     },
   ];
 
@@ -614,12 +318,28 @@ export default function Gallery() {
                 onClick={() => setActiveIdx(idx)}
               >
                 {/* Media Element */}
-                <img
-                  src={item.src}
-                  alt={item.title}
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
-                />
+                {item.src.toLowerCase().endsWith(".mp4") || item.src.toLowerCase().endsWith(".mov") ? (
+                  <div className="absolute inset-0 w-full h-full">
+                    <video
+                      src={item.src}
+                      muted
+                      playsInline
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center z-[3]">
+                      <div className="w-12 h-12 rounded-full bg-sunset/80 backdrop-blur-sm flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-all duration-300">
+                        <Play className="w-5 h-5 fill-current ml-0.5" />
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <img
+                    src={item.src}
+                    alt={item.title}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
+                  />
+                )}
 
                 {/* Overlays */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#030a16]/90 via-[#030a16]/30 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500 z-[1] pointer-events-none" />
@@ -679,11 +399,20 @@ export default function Gallery() {
               transition={{ type: "spring", damping: 30 }}
             >
               {/* Media viewer */}
-              <img
-                src={filteredItems[activeIdx].src}
-                alt={filteredItems[activeIdx].title}
-                className="w-full h-full object-contain max-h-[80vh] rounded-2xl shadow-2xl"
-              />
+              {filteredItems[activeIdx].src.toLowerCase().endsWith(".mp4") || filteredItems[activeIdx].src.toLowerCase().endsWith(".mov") ? (
+                <video
+                  src={filteredItems[activeIdx].src}
+                  controls
+                  autoPlay
+                  className="w-full h-full object-contain max-h-[80vh] rounded-2xl shadow-2xl bg-black"
+                />
+              ) : (
+                <img
+                  src={filteredItems[activeIdx].src}
+                  alt={filteredItems[activeIdx].title}
+                  className="w-full h-full object-contain max-h-[80vh] rounded-2xl shadow-2xl"
+                />
+              )}
 
               {/* Top Banner Info */}
               <div className="absolute top-4 left-4 z-20 text-left glass-panel py-2.5 px-4 rounded-xl border border-sand/15 bg-black/40 backdrop-blur-sm">

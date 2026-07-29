@@ -390,7 +390,7 @@ export default function BookingModal({ isOpen, onClose, defaultExperience = "day
     }
 
     const nights = isStay ? getNumberOfNights() : 1;
-    const petCharge = guestCounts.pets > 0 ? 400 : 0;
+    const petCharge = guestCounts.pets > 0 ? (isStay ? 400 : 200) : 0;
     const subtotal = (adultRate * adults + childRate * children) * nights + petCharge;
     const taxes = Math.round(subtotal * 0.05); // 5% GST
     const total = subtotal + taxes;
@@ -433,7 +433,7 @@ export default function BookingModal({ isOpen, onClose, defaultExperience = "day
         parts.push(`Kids (5-12): ${guestCounts.childrenAbove5} x ₹${pricing.childRate}/night`);
       }
       if (pricing.petCharge > 0) {
-        parts.push(`Pet Stay Charge: ₹${pricing.petCharge}`);
+        parts.push(`${pricing.isStay ? "Pet Stay Charge" : "Pet Charge"}: ₹${pricing.petCharge}`);
       }
       rateDetailsText = `• Rates (${pricing.isWeekend ? "Weekend" : "Weekday"}):\n  ${parts.join("\n  ")}`;
     }
@@ -480,7 +480,7 @@ _Submitted via website booking request._`;
         parts.push(`Kids (5-12): ${guestCounts.childrenAbove5} x Rs. ${pricing.childRate}/night`);
       }
       if (pricing.petCharge > 0) {
-        parts.push(`Pet Stay Charge: Rs. ${pricing.petCharge}`);
+        parts.push(`${pricing.isStay ? "Pet Stay Charge" : "Pet Charge"}: Rs. ${pricing.petCharge}`);
       }
       rateDetailsText = `• Rates (${pricing.isWeekend ? "Weekend" : "Weekday"}):\n  ${parts.join("\n  ")}`;
     }
@@ -715,7 +715,7 @@ ${formData.name}`;
                             <div className="flex items-center justify-between pb-3 border-b border-sand/5">
                               <div>
                                 <h5 className="text-xs font-sans font-medium text-white">Children</h5>
-                                <p className="text-[9px] text-sand/40">Under 5 (Free)</p>
+                                <p className="text-[9px] text-sand/40">Under 5 (Complimentary)</p>
                               </div>
                               <div className="flex items-center gap-3">
                                 <button
@@ -773,7 +773,11 @@ ${formData.name}`;
                             <div className="flex items-center justify-between pb-3 border-b border-sand/5">
                               <div>
                                 <h5 className="text-xs font-sans font-medium text-white">Bringing a Pet?</h5>
-                                <p className="text-[9px] text-sand/40">Pet stay charge applies (+ ₹400)</p>
+                                <p className="text-[9px] text-sand/40">
+                                  {formData.experience.startsWith("stay") || formData.experience === "camping"
+                                    ? "Pet stay charge applies (+ ₹400)"
+                                    : "Pet charge applies (+ ₹200)"}
+                                </p>
                               </div>
                               <div className="flex items-center">
                                 <input
@@ -1005,15 +1009,15 @@ ${formData.name}`;
                           {(guestCounts.childrenBelow5 > 0 || guestCounts.infants > 0) && (
                             <div className="flex justify-between">
                               <span className="text-sand/50">
-                                Free Guests ({guestCounts.childrenBelow5 > 0 ? `${guestCounts.childrenBelow5} Kids <5y` : ""}{guestCounts.childrenBelow5 > 0 && guestCounts.infants > 0 ? ", " : ""}{guestCounts.infants > 0 ? `${guestCounts.infants} Infants` : ""})
+                                Complimentary Guests ({guestCounts.childrenBelow5 > 0 ? `${guestCounts.childrenBelow5} Kids <5y` : ""}{guestCounts.childrenBelow5 > 0 && guestCounts.infants > 0 ? ", " : ""}{guestCounts.infants > 0 ? `${guestCounts.infants} Infants` : ""})
                               </span>
-                              <span className="text-emerald-400 font-medium">Free</span>
+                              <span className="text-emerald-400 font-medium">Complimentary</span>
                             </div>
                           )}
 
                           {pricing.petCharge > 0 && (
                             <div className="flex justify-between">
-                              <span className="text-sand/50">Pet Stay Charge</span>
+                              <span className="text-sand/50">{pricing.isStay ? "Pet Stay Charge" : "Pet Charge"}</span>
                               <span className="text-white font-medium">₹{pricing.petCharge.toLocaleString()}</span>
                             </div>
                           )}
@@ -1034,7 +1038,7 @@ ${formData.name}`;
                         {/* Policy Brief */}
                         <div className="space-y-1.5 text-[10px] font-sans leading-relaxed">
                           <h5 className="text-[9px] uppercase tracking-wider text-sunset font-semibold">Resort Policies</h5>
-                          <p className="text-sand/50">• Free cancellation up to 7 days before check-in.</p>
+                          <p className="text-sand/50">• Complimentary cancellation up to 7 days before check-in.</p>
                           <p className="text-sand/50">• Early check-in / late check-out is subject to availability.</p>
                           <p className="text-sand/50">• Children aged 5–12 years are charged at child rates (approx half-price).</p>
                           <p className="text-sand/50">• Charges are different during long weekends & holidays.</p>
@@ -1200,7 +1204,7 @@ ${formData.name}`;
                     </div>
                     <div>
                       <h4 className="text-[10px] uppercase tracking-widest text-sunset font-semibold mb-1">Cancellation & Refunds</h4>
-                      <p>• 100% refund for cancellations made 7 days or more prior to the scheduled check-in date.</p>
+                      <p>• Complimentary cancellation up to 7 days or more prior to the scheduled check-in date.</p>
                       <p>• 50% refund for cancellations made between 7 days and 48 hours prior to arrival.</p>
                       <p>• No refund or credit will be issued for cancellations made within 48 hours of check-in, or in case of a no-show.</p>
                     </div>
@@ -1211,7 +1215,7 @@ ${formData.name}`;
                      <div>
                       <h4 className="text-[10px] uppercase tracking-widest text-sunset font-semibold mb-1">Child Policy & Holidays</h4>
                       <p>• Children aged 5 to 12 years old will be charged at child rates (₹1400 on weekends / ₹1100 on weekdays for stay; ₹800 on weekends / ₹700 on weekdays for day out).</p>
-                      <p>• Children under 5 years old stay free.</p>
+                      <p>• Children under 5 years old stay complimentary.</p>
                       <p>• Charges are different during long weekends & gazetted holidays.</p>
                     </div>
                     <div>
