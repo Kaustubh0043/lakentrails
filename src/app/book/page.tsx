@@ -70,6 +70,7 @@ function BookingContent() {
   const [hoveredDate, setHoveredDate] = useState<Date | null>(null);
   const [currentMonthOffset, setCurrentMonthOffset] = useState(0);
   const [isAmenitiesModalOpen, setIsAmenitiesModalOpen] = useState(false);
+  const [isPoliciesModalOpen, setIsPoliciesModalOpen] = useState(false);
   const [isAgreedToTerms, setIsAgreedToTerms] = useState(false);
 
   const guestSelectorRef = useRef<HTMLDivElement>(null);
@@ -445,9 +446,20 @@ ${formData.name}`;
     for (let d = 1; d <= daysInMonth; d++) days.push(new Date(year, month, d));
 
     const baseToday = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"];
 
     return (
-      <div className="w-full animate-fade-in">
+      <div className="w-full animate-fade-in space-y-2">
+        {/* Days of week header */}
+        <div className="grid grid-cols-7 gap-0.5 text-center border-b border-sand/5 pb-1">
+          {daysOfWeek.map((day, idx) => (
+            <span key={idx} className="text-[10px] text-sand/40 font-medium font-sans w-full">
+              {day}
+            </span>
+          ))}
+        </div>
+        
+        {/* Days Grid */}
         <div className="grid grid-cols-7 gap-y-1 gap-x-0">
           {days.map((date, idx) => {
             if (!date) return <div key={`empty-${idx}`} className="aspect-square w-full h-full" />;
@@ -565,6 +577,63 @@ ${formData.name}`;
     }
   ];
 
+  const detailedPolicies = [
+    {
+      category: "Check-in & Stay Policies",
+      items: [
+        "Standard check-in time is 3:00 PM, and check-out is 11:00 AM next day.",
+        "Early check-in or late check-out is strictly subject to slot availability and prior authorization.",
+        "Guests are requested to submit valid Government ID proof (Aadhaar, Passport, or Driving License) upon arrival.",
+        "The glamping dome or tent allocation is decided based on reservations; custom rearrangements require prior notice."
+      ]
+    },
+    {
+      category: "Cancellation & Refund Terms",
+      items: [
+        "100% refund for cancellations made at least 7 days before the scheduled check-in date.",
+        "No refunds or date modifications are allowed for cancellations made within 7 days of scheduled arrival.",
+        "Peak holiday seasons, long weekends, and festival bookings are non-refundable and non-transferable.",
+        "In case of extreme weather alerts or natural lockdowns, bookings may be rescheduled to future open dates."
+      ]
+    },
+    {
+      category: "Kitchen & Dining Guidelines",
+      items: [
+        "Lake N Trails features strictly separate Vegetarian and Non-Vegetarian kitchens, utensils, and cooktops.",
+        "Absolutely NO Palm Oil is used in any kitchen preparations; we use premium high-grade sunflower/coconut oils.",
+        "High Tea and snacks are served between 4:30 PM - 5:30 PM, and morning breakfast is served from 8:30 AM - 10:00 AM.",
+        "Dinner ordering timings: à la carte dinner choices must be submitted to the service desk by 8:00 PM."
+      ]
+    },
+    {
+      category: "Lake Activities & Pool Safety",
+      items: [
+        "Wearing life jackets is 100% mandatory for kayaking, boating, or any shoreline water sports, regardless of swimming ability.",
+        "Infinity pool hours are strictly 4:00 PM - 9:00 PM. No swimming is allowed outside these hours for safety reasons.",
+        "Strictly no glassware, drinks, or food items are allowed inside or on the edge of the infinity pool.",
+        "Children must be accompanied by an adult guardian at all times in the pool area and lakefront zones."
+      ]
+    },
+    {
+      category: "Pet Guidelines (Pet-Friendly Oasis)",
+      items: [
+        "Pets are welcome at our dedicated Pet-Friendly Oasis lawns and glamping tents.",
+        "Pet stay surcharge applies: ₹400 for overnight stays, ₹200 for day outing package guests.",
+        "Pet owners are solely responsible for clean-up and safety. Pets must be supervised near common dining zones.",
+        "Special fresh pet meals (unseasoned boiled chicken/veg broth) can be prepared by our kitchens upon prior request."
+      ]
+    },
+    {
+      category: "House Rules & Code of Conduct",
+      items: [
+        "As Lake N Trails is located in an eco-sensitive lakeside valley, loud music is restricted after 10:00 PM.",
+        "Eco-friendly waste management rules apply. Littering the lake or forest floor is strictly prohibited.",
+        "Lakeside campfires are lit and managed exclusively by our staff between 7:30 PM - 10:30 PM (weather permitting).",
+        "Smoking is permitted only in designated outdoor sitout spaces, and is strictly banned inside the glamping tents/domes."
+      ]
+    }
+  ];
+
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-10 md:py-16 relative z-10 text-[#fcfbf7]">
       
@@ -606,9 +675,9 @@ ${formData.name}`;
           <form onSubmit={handleProceed} className="bg-[#030f26]/40 border border-sand/15 rounded-2xl p-6 md:p-10 space-y-6 text-left shadow-2xl">
             
             {/* Name, Email, Phone Group */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="relative">
-                <User className="absolute left-3 top-4.5 w-4 h-4 text-sand/40" />
+                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-sand/40" />
                 <input
                   type="text"
                   name="name"
@@ -620,19 +689,7 @@ ${formData.name}`;
                 />
               </div>
               <div className="relative">
-                <Mail className="absolute left-3 top-4.5 w-4 h-4 text-sand/40" />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email Address"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full pl-10 pr-4 py-4 bg-[#030f26]/30 border border-sand/15 rounded-lg text-sm text-white focus:outline-none focus:border-sunset focus:ring-1 focus:ring-sunset transition-colors placeholder:text-sand/30"
-                />
-              </div>
-              <div className="relative">
-                <Phone className="absolute left-3 top-4.5 w-4 h-4 text-sand/40" />
+                <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-sand/40" />
                 <input
                   type="tel"
                   name="phone"
@@ -643,109 +700,131 @@ ${formData.name}`;
                   className="w-full pl-10 pr-4 py-4 bg-[#030f26]/30 border border-sand/15 rounded-lg text-sm text-white focus:outline-none focus:border-sunset focus:ring-1 focus:ring-sunset transition-colors placeholder:text-sand/30"
                 />
               </div>
+              <div className="relative md:col-span-2">
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-sand/40" />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full pl-10 pr-4 py-4 bg-[#030f26]/30 border border-sand/15 rounded-lg text-sm text-white focus:outline-none focus:border-sunset focus:ring-1 focus:ring-sunset transition-colors placeholder:text-sand/30"
+                />
+              </div>
             </div>
 
             {/* Dates & Guests Row */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               
               {/* Date Input */}
-              <div className="relative">
-                <button
-                  type="button"
-                  onClick={() => setIsCalendarOpen(!isCalendarOpen)}
-                  className="w-full pl-10 pr-4 pt-5 pb-2.5 bg-[#030f26]/30 border border-sand/15 rounded-lg text-left text-white focus:outline-none focus:border-sunset focus:ring-1 focus:ring-sunset transition-colors relative cursor-pointer"
-                >
-                  <Calendar className="absolute left-3 top-4.5 w-4 h-4 text-sand/40" />
-                  <span className="absolute left-10 top-1.5 text-[9px] uppercase tracking-widest text-sand/40">Dates</span>
-                  <span className="text-xs">
-                    {formData.checkIn ? formatDateDisplay(formData.checkIn) : "Select dates"}
-                    {formData.checkOut ? ` — ${formatDateDisplay(formData.checkOut)}` : ""}
-                  </span>
-                </button>
-
-                {/* Calendar Dropdown Card */}
-                <AnimatePresence>
-                  {isCalendarOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      className="absolute left-0 mt-2 w-full md:w-[600px] bg-[#080e1a]/95 backdrop-blur-xl border border-sand/20 rounded-2xl p-5 shadow-2xl z-[99] flex flex-col gap-5"
-                    >
-                      {/* Unified calendar navigation header - VISIBLE and complete on mobile */}
-                      <div className="flex justify-between items-center px-1 border-b border-sand/5 pb-3 w-full">
-                        <button
-                          type="button"
-                          onClick={() => setCurrentMonthOffset((p) => p - 1)}
-                          className="w-7 h-7 rounded-full border border-sand/15 flex items-center justify-center text-white hover:border-sunset cursor-pointer"
-                        >
-                          <ChevronLeft className="w-4 h-4" />
-                        </button>
-                        
-                        <div className="flex gap-16 md:gap-32">
-                          <span className="text-xs font-serif text-white tracking-widest uppercase font-semibold">
-                            {getMonthName(currentMonthOffset)}
-                          </span>
-                          <span className="text-xs font-serif text-white tracking-widest uppercase font-semibold hidden md:block">
-                            {getMonthName(currentMonthOffset + 1)}
-                          </span>
+              <div className="space-y-1">
+                <label className="block text-[10px] uppercase tracking-widest text-sand/50 font-bold pl-0.5">Select Dates</label>
+                <div className="relative">
+                  <button
+                    type="button"
+                    onClick={() => setIsCalendarOpen(!isCalendarOpen)}
+                    className="w-full pl-10 pr-4 py-4 bg-[#030f26]/30 border border-sand/15 rounded-lg text-left text-white focus:outline-none focus:border-sunset focus:ring-1 focus:ring-sunset transition-all cursor-pointer flex items-center h-14"
+                  >
+                    <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-sand/40" />
+                    <span className="text-xs">
+                      {formData.checkIn ? (
+                        <>
+                          <span className="text-white font-medium">{formatDateDisplay(formData.checkIn)}</span>
+                          {formData.checkOut && <> to <span className="text-white font-medium">{formatDateDisplay(formData.checkOut)}</span></>}
+                        </>
+                      ) : (
+                        <span className="text-sand/30">Check-in — Check-out</span>
+                      )}
+                    </span>
+                  </button>
+ 
+                  {/* Calendar Dropdown Card */}
+                  <AnimatePresence>
+                    {isCalendarOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        className="absolute left-0 mt-2 w-full md:w-[600px] bg-[#080e1a]/95 backdrop-blur-xl border border-sand/20 rounded-2xl p-5 shadow-2xl z-[99] flex flex-col gap-5"
+                      >
+                        {/* Unified calendar navigation header - VISIBLE and complete on mobile */}
+                        <div className="flex justify-between items-center px-1 border-b border-sand/5 pb-3 w-full">
+                          <button
+                            type="button"
+                            onClick={() => setCurrentMonthOffset((p) => p - 1)}
+                            className="w-7 h-7 rounded-full border border-sand/15 flex items-center justify-center text-white hover:border-sunset cursor-pointer"
+                          >
+                            <ChevronLeft className="w-4 h-4" />
+                          </button>
+                          
+                          <div className="flex gap-16 md:gap-32">
+                            <span className="text-xs font-serif text-white tracking-widest uppercase font-semibold">
+                              {getMonthName(currentMonthOffset)}
+                            </span>
+                            <span className="text-xs font-serif text-white tracking-widest uppercase font-semibold hidden md:block">
+                              {getMonthName(currentMonthOffset + 1)}
+                            </span>
+                          </div>
+ 
+                          <button
+                            type="button"
+                            onClick={() => setCurrentMonthOffset((p) => p + 1)}
+                            className="w-7 h-7 rounded-full border border-sand/15 flex items-center justify-center text-white hover:border-sunset cursor-pointer"
+                          >
+                            <ChevronRight className="w-4 h-4" />
+                          </button>
                         </div>
-
-                        <button
-                          type="button"
-                          onClick={() => setCurrentMonthOffset((p) => p + 1)}
-                          className="w-7 h-7 rounded-full border border-sand/15 flex items-center justify-center text-white hover:border-sunset cursor-pointer"
-                        >
-                          <ChevronRight className="w-4 h-4" />
-                        </button>
-                      </div>
-
-                      {/* Month blocks */}
-                      <div className="flex flex-col md:flex-row gap-5">
-                        <div className="flex-1">
-                          {renderMonth(currentMonthOffset)}
+ 
+                        {/* Month blocks */}
+                        <div className="flex flex-col md:flex-row gap-5">
+                          <div className="flex-1">
+                            {renderMonth(currentMonthOffset)}
+                          </div>
+                          <div className="flex-1 hidden md:block border-l border-sand/10 pl-5">
+                            {renderMonth(currentMonthOffset + 1)}
+                          </div>
                         </div>
-                        <div className="flex-1 hidden md:block border-l border-sand/10 pl-5">
-                          {renderMonth(currentMonthOffset + 1)}
+ 
+                        {/* Calendar Footer Actions */}
+                        <div className="flex justify-between items-center border-t border-sand/10 pt-3 mt-2">
+                          <button
+                            type="button"
+                            onClick={handleClearDates}
+                            className="text-[10px] uppercase tracking-widest text-sand/40 hover:text-white transition-colors cursor-pointer"
+                          >
+                            Clear
+                          </button>
+                          <button
+                            type="button"
+                            onClick={handleSaveDates}
+                            className="px-4 py-2 bg-sunset text-white text-[10px] uppercase tracking-widest font-semibold rounded-lg hover:bg-[#fd5e53] cursor-pointer"
+                          >
+                            Apply
+                          </button>
                         </div>
-                      </div>
-
-                      {/* Calendar Footer Actions */}
-                      <div className="flex justify-between items-center border-t border-sand/10 pt-3 mt-2">
-                        <button
-                          type="button"
-                          onClick={handleClearDates}
-                          className="text-[10px] uppercase tracking-widest text-sand/40 hover:text-white transition-colors cursor-pointer"
-                        >
-                          Clear
-                        </button>
-                        <button
-                          type="button"
-                          onClick={handleSaveDates}
-                          className="px-4 py-2 bg-sunset text-white text-[10px] uppercase tracking-widest font-semibold rounded-lg hover:bg-[#fd5e53] cursor-pointer"
-                        >
-                          Apply
-                        </button>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               </div>
-
+ 
               {/* Guest Count Input */}
-              <div className="relative" ref={guestSelectorRef}>
-                <button
-                  type="button"
-                  onClick={() => setIsGuestDropdownOpen(!isGuestDropdownOpen)}
-                  className="w-full pl-10 pr-10 pt-5 pb-2.5 bg-[#030f26]/30 border border-sand/15 rounded-lg text-left text-white focus:outline-none focus:border-sunset focus:ring-1 focus:ring-sunset transition-colors relative cursor-pointer"
-                >
-                  <Users className="absolute left-3 top-4.5 w-4 h-4 text-sand/40" />
-                  <span className="absolute left-10 top-1.5 text-[9px] uppercase tracking-widest text-sand/40">Guests</span>
-                  <span className="text-xs truncate block pr-2">
-                    {getGuestsSummary()}
-                  </span>
-                  <ChevronDown className="absolute right-3 top-5 w-4 h-4 text-sand/40" />
-                </button>
+              <div className="space-y-1" ref={guestSelectorRef}>
+                <label className="block text-[10px] uppercase tracking-widest text-sand/50 font-bold pl-0.5">Number of Guests</label>
+                <div className="relative">
+                  <button
+                    type="button"
+                    onClick={() => setIsGuestDropdownOpen(!isGuestDropdownOpen)}
+                    className="w-full pl-10 pr-10 py-4 bg-[#030f26]/30 border border-sand/15 rounded-lg text-left text-white focus:outline-none focus:border-sunset focus:ring-1 focus:ring-sunset transition-all cursor-pointer flex items-center justify-between h-14"
+                  >
+                    <Users className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-sand/40" />
+                    <span className="text-xs text-white">
+                      {getGuestsSummary()}
+                    </span>
+                    <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-sand/40" />
+                  </button>
+                </div>
 
                 {/* Guest Selector popover */}
                 <AnimatePresence>
@@ -932,6 +1011,34 @@ ${formData.name}`;
 
             </div>
 
+            {/* Rates Highlight Box */}
+            <div className="space-y-2">
+              <span className="block text-[10px] uppercase tracking-widest text-sunset font-bold pl-0.5">Rates & Tariffs</span>
+              <div className="bg-sunset/10 border border-sunset/35 rounded-xl p-4.5 flex flex-wrap justify-between items-center gap-4 shadow-md shadow-sunset/5">
+                <div className="flex-1 min-w-[120px]">
+                  <span className="block text-[8px] uppercase tracking-widest text-sand/40 font-bold mb-1">Weekday Rate</span>
+                  <span className="text-xl font-serif text-white font-bold">
+                    {formData.experience === "day-outing" ? "₹1,300" : "₹2,200"}
+                  </span>
+                  <span className="text-[10px] text-sand/50"> / {formData.experience === "day-outing" ? "person" : "night"}</span>
+                </div>
+                <div className="hidden sm:block h-8 border-l border-sand/10" />
+                <div className="flex-1 min-w-[120px]">
+                  <span className="block text-[8px] uppercase tracking-widest text-sand/40 font-bold mb-1">Weekend Rate</span>
+                  <span className="text-xl font-serif text-white font-bold">
+                    {formData.experience === "day-outing" ? "₹1,600" : "₹2,800"}
+                  </span>
+                  <span className="text-[10px] text-sand/50"> / {formData.experience === "day-outing" ? "person" : "night"}</span>
+                </div>
+                <div className="hidden sm:block h-8 border-l border-sand/10" />
+                <div className="flex-1 min-w-[120px]">
+                  <span className="block text-[8px] uppercase tracking-widest text-sunset font-bold mb-1">Kids (5-12y)</span>
+                  <span className="text-xs font-semibold text-white block">Half Price Tariff</span>
+                  <span className="text-[9px] text-sand/40">(Under 5y stay free!)</span>
+                </div>
+              </div>
+            </div>
+
             {/* Experience Select */}
             <div>
               <label className="block text-xs uppercase tracking-widest text-sand/50 mb-2">Select Your Experience</label>
@@ -946,11 +1053,6 @@ ${formData.name}`;
                   <option value="stay-package" className="bg-[#030a16]">Ultimate Stay Package</option>
                 </select>
                 <ChevronDown className="absolute right-3 top-4.5 w-4 h-4 text-sand/50 pointer-events-none" />
-              </div>
-              <div className="text-[10px] text-sand/50 font-sans mt-1.5 pl-1 italic">
-                {formData.experience === "day-outing"
-                  ? "* Tariff: ₹1,300 Weekday / ₹1,600 Weekend per person"
-                  : "* Tariff: ₹2,200 Weekday / ₹2,800 Weekend per person"}
               </div>
             </div>
 
@@ -1080,20 +1182,20 @@ ${formData.name}`;
               </div>
 
               {/* Personal Info summary */}
-              <div className="border-b border-sand/10 pb-6 space-y-3 font-sans text-xs">
+              <div className="border-b border-sand/10 pb-6 space-y-4 font-sans text-xs">
                 <h3 className="text-lg font-serif font-light text-white uppercase tracking-wider">Contact Information</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sand/60">
-                  <div>
-                    <span className="block text-[8px] uppercase tracking-wider text-sand/40 font-bold">Guest Name</span>
-                    <span className="text-white text-sm mt-0.5 block">{formData.name}</span>
+                <div className="space-y-3.5 text-sand/60">
+                  <div className="flex flex-wrap justify-between items-center py-2 border-b border-sand/5">
+                    <span className="text-[9px] uppercase tracking-widest text-sand/40 font-bold">Guest Name</span>
+                    <span className="text-white font-semibold text-sm">{formData.name}</span>
                   </div>
-                  <div>
-                    <span className="block text-[8px] uppercase tracking-wider text-sand/40 font-bold">Email Address</span>
-                    <span className="text-white text-sm mt-0.5 block">{formData.email}</span>
+                  <div className="flex flex-wrap justify-between items-center py-2 border-b border-sand/5">
+                    <span className="text-[9px] uppercase tracking-widest text-sand/40 font-bold">Email Address</span>
+                    <span className="text-white font-semibold text-sm break-all">{formData.email}</span>
                   </div>
-                  <div>
-                    <span className="block text-[8px] uppercase tracking-wider text-sand/40 font-bold">Phone Number</span>
-                    <span className="text-white text-sm mt-0.5 block">{formData.phone}</span>
+                  <div className="flex flex-wrap justify-between items-center py-2 border-b border-sand/5">
+                    <span className="text-[9px] uppercase tracking-widest text-sand/40 font-bold">Phone Number</span>
+                    <span className="text-white font-semibold text-sm">{formData.phone}</span>
                   </div>
                 </div>
                 {formData.notes && (
@@ -1104,11 +1206,11 @@ ${formData.name}`;
                 )}
               </div>
 
-              {/* Razorpay / Payment info note */}
+              {/* Booking Process info note */}
               <div className="border-b border-sand/10 pb-6 space-y-3 font-sans text-xs">
-                <h3 className="text-lg font-serif font-light text-white uppercase tracking-wider">Payment Details</h3>
+                <h3 className="text-lg font-serif font-light text-white uppercase tracking-wider">Booking Process</h3>
                 <p className="text-sand/60 leading-relaxed">
-                  You will be directed to Razorpay to complete the secure payment. Once your request is received, our booking executives will instantly review dates and share the payment gateway link via WhatsApp/Email.
+                  Your enquiry will be sent directly to our reservation desk. Once dates are verified, our booking team will contact you via WhatsApp/Email to confirm slot availability and assist with the booking confirmation.
                 </p>
               </div>
 
@@ -1122,7 +1224,14 @@ ${formData.name}`;
                   className="w-4.5 h-4.5 text-sunset focus:ring-sunset border-sand/20 rounded bg-[#030f26] cursor-pointer accent-sunset mt-0.5"
                 />
                 <label htmlFor="agreeTerms" className="cursor-pointer select-none">
-                  By checking this box, I agree to the <span className="text-white underline font-semibold">booking terms & policies</span>, veg/non-veg kitchen split rules, and mandatory safety guidelines (wearing life jackets during lake sports).
+                  By checking this box, I agree to the{" "}
+                  <span 
+                    onClick={() => setIsPoliciesModalOpen(true)}
+                    className="text-white underline font-semibold cursor-pointer hover:text-sunset transition-colors"
+                  >
+                    booking terms & policies
+                  </span>
+                  , veg/non-veg kitchen split rules, and mandatory safety guidelines (wearing life jackets during lake sports).
                 </label>
               </div>
 
@@ -1131,7 +1240,7 @@ ${formData.name}`;
                 <button
                   type="submit"
                   onClick={handleWhatsAppSubmit}
-                  className="w-full py-4.5 rounded-xl bg-emerald-750 hover:bg-emerald-600 text-white font-sans uppercase tracking-widest font-bold text-xs transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-emerald-950/20"
+                  className="w-full py-4.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-sans uppercase tracking-widest font-bold text-xs transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-emerald-600/25"
                 >
                   Confirm & Pay (WhatsApp)
                 </button>
@@ -1265,7 +1374,7 @@ ${formData.name}`;
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 15 }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="w-full max-w-3xl bg-[#030a16] border border-sand/20 rounded-2xl relative z-10 max-h-[85vh] flex flex-col overflow-hidden text-left"
+              className="w-full max-w-3xl bg-[#030a16] border border-sand/20 rounded-2xl relative z-10 max-h-[92vh] md:max-h-[85vh] flex flex-col overflow-hidden text-left"
             >
               <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-sunset via-orange-500 to-amber-500" />
               <button
@@ -1282,7 +1391,7 @@ ${formData.name}`;
                   Full amenities list & terms as per official brochure
                 </p>
               </div>
-              <div className="p-6 overflow-y-auto flex-1 space-y-8 pr-4">
+              <div className="p-6 overflow-y-auto flex-1 space-y-8 pr-4 scrollbar-thin scrollbar-thumb-sand/20">
                 {detailedAmenities.map((group, groupIdx) => (
                   <div key={groupIdx} className="space-y-3.5">
                     <h4 className="text-xs font-sans font-bold uppercase tracking-wider text-sunset border-b border-sand/5 pb-1">
@@ -1292,6 +1401,63 @@ ${formData.name}`;
                       {group.items.map((item, itemIdx) => (
                         <div key={itemIdx} className="flex gap-2.5 items-start">
                           <Check className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                          <span className="text-xs text-sand/80 font-sans leading-relaxed">
+                            {item}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* Full Detailed Policies Modal */}
+      <AnimatePresence>
+        {isPoliciesModalOpen && (
+          <div className="fixed inset-0 z-[999] flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsPoliciesModalOpen(false)}
+              className="absolute inset-0 bg-black/85 backdrop-blur-md"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 15 }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="w-full max-w-3xl bg-[#030a16] border border-sand/20 rounded-2xl relative z-10 max-h-[92vh] md:max-h-[85vh] flex flex-col overflow-hidden text-left"
+            >
+              <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-sunset via-orange-500 to-amber-500" />
+              <button
+                onClick={() => setIsPoliciesModalOpen(false)}
+                className="absolute top-4 right-4 text-sand/65 hover:text-sunset transition-colors p-2 cursor-pointer z-30"
+              >
+                <X className="w-5 h-5" />
+              </button>
+              <div className="p-6 pb-4 border-b border-sand/10 flex-shrink-0">
+                <h3 className="text-xl md:text-2xl font-serif font-light text-white uppercase tracking-wider">
+                  Resort Terms & <span className="text-sunset italic font-normal">Policies</span>
+                </h3>
+                <p className="text-[10px] text-sand/40 font-sans uppercase tracking-widest mt-1">
+                  Full rules, safety mandates & cancellation guidelines
+                </p>
+              </div>
+              <div className="p-6 overflow-y-auto flex-1 space-y-8 pr-4 scrollbar-thin scrollbar-thumb-sand/20">
+                {detailedPolicies.map((group, groupIdx) => (
+                  <div key={groupIdx} className="space-y-3.5">
+                    <h4 className="text-xs font-sans font-bold uppercase tracking-wider text-sunset border-b border-sand/5 pb-1">
+                      {group.category}
+                    </h4>
+                    <div className="space-y-2.5">
+                      {group.items.map((item, itemIdx) => (
+                        <div key={itemIdx} className="flex gap-2.5 items-start">
+                          <Check className="w-4 h-4 text-sunset flex-shrink-0 mt-0.5" />
                           <span className="text-xs text-sand/80 font-sans leading-relaxed">
                             {item}
                           </span>
