@@ -22,7 +22,7 @@ export default function Gallery() {
     {
       src: "/images/17730da4-4f5c-477d-9ca7-002f57f2f1d0.mp4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -30,7 +30,7 @@ export default function Gallery() {
     {
       src: "/images/20260709_113356.jpg.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -38,7 +38,7 @@ export default function Gallery() {
     {
       src: "/images/20260709_152456.jpg.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -46,7 +46,7 @@ export default function Gallery() {
     {
       src: "/images/20260711_162821.jpg.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -54,7 +54,7 @@ export default function Gallery() {
     {
       src: "/images/20260711_165639.jpg.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -62,7 +62,7 @@ export default function Gallery() {
     {
       src: "/images/20260711_165641.jpg.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -70,7 +70,7 @@ export default function Gallery() {
     {
       src: "/images/20260711_170221.jpg.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -78,7 +78,7 @@ export default function Gallery() {
     {
       src: "/images/20260711_224443.jpg.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -86,7 +86,7 @@ export default function Gallery() {
     {
       src: "/images/20260712_104430.jpg.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -94,7 +94,7 @@ export default function Gallery() {
     {
       src: "/images/20260712_104550.jpg.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -102,7 +102,7 @@ export default function Gallery() {
     {
       src: "/images/20260712_104825.jpg.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -110,7 +110,7 @@ export default function Gallery() {
     {
       src: "/images/20260712_113010.jpg.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -118,7 +118,7 @@ export default function Gallery() {
     {
       src: "/images/20260712_113043.jpg.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -126,7 +126,7 @@ export default function Gallery() {
     {
       src: "/images/20260712_184521.jpg.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -134,7 +134,7 @@ export default function Gallery() {
     {
       src: "/images/20260715_181522.mp4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -142,7 +142,7 @@ export default function Gallery() {
     {
       src: "/images/20260715_191708.jpg.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -150,7 +150,7 @@ export default function Gallery() {
     {
       src: "/images/20260718_170918.jpg.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -158,7 +158,7 @@ export default function Gallery() {
     {
       src: "/images/20260718_171843.jpg.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -166,7 +166,7 @@ export default function Gallery() {
     {
       src: "/images/20260718_201415.mp4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -174,7 +174,7 @@ export default function Gallery() {
     {
       src: "/images/20260718_201428.mp4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -182,7 +182,7 @@ export default function Gallery() {
     {
       src: "/images/20260719_095540.jpg.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -190,7 +190,7 @@ export default function Gallery() {
     {
       src: "/images/20260719_101718.jpg.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -198,7 +198,7 @@ export default function Gallery() {
     {
       src: "/images/20260719_101814.mp4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -206,7 +206,7 @@ export default function Gallery() {
     {
       src: "/images/20260719_101817.jpg.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -214,7 +214,7 @@ export default function Gallery() {
     {
       src: "/images/20260719_101818.jpg.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -222,7 +222,7 @@ export default function Gallery() {
     {
       src: "/images/20260719_101945.jpg.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -230,7 +230,7 @@ export default function Gallery() {
     {
       src: "/images/20260719_103307.mp4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -238,7 +238,7 @@ export default function Gallery() {
     {
       src: "/images/20260719_103315.mp4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -246,7 +246,7 @@ export default function Gallery() {
     {
       src: "/images/20260719_105948.mp4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -254,7 +254,7 @@ export default function Gallery() {
     {
       src: "/images/20260724_125325.jpg.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -262,31 +262,7 @@ export default function Gallery() {
     {
       src: "/images/20260724_190434.jpg.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
-      src: "/images/20260726_142225.jpg.jpeg",
-      title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
-      src: "/images/20260726_142329.jpg.jpeg",
-      title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
-      src: "/images/20260726_142353.jpg.jpeg",
-      title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -294,7 +270,7 @@ export default function Gallery() {
     {
       src: "/images/301d5aa4-cdce-4c82-9a52-4f70768ef267.mp4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -302,7 +278,7 @@ export default function Gallery() {
     {
       src: "/images/4b677672-ac01-4092-a1f2-c693ee8a3d79.mp4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -310,7 +286,7 @@ export default function Gallery() {
     {
       src: "/images/4ed5b7e3-a393-4c67-8a70-59b3c6618195.mp4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -318,7 +294,7 @@ export default function Gallery() {
     {
       src: "/images/50e59464-69e1-437e-b8e0-1aa5de899833.mp4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -326,7 +302,7 @@ export default function Gallery() {
     {
       src: "/images/67741995-fa17-4561-946f-881cae1b5103.mp4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -334,7 +310,7 @@ export default function Gallery() {
     {
       src: "/images/7301212c-1cdd-42f5-a227-c5106f3d7150.mp4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -342,7 +318,7 @@ export default function Gallery() {
     {
       src: "/images/74b4f508-d37f-4594-993d-27be96a8c741.mp4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -350,7 +326,7 @@ export default function Gallery() {
     {
       src: "/images/75d6a540-a0a2-429b-8792-348d3b26a762.mp4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -358,7 +334,7 @@ export default function Gallery() {
     {
       src: "/images/76f6b24a-0e80-45c5-a1ea-aaf3429e2a26.mp4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -366,7 +342,7 @@ export default function Gallery() {
     {
       src: "/images/78e0da08-3f39-4c80-a863-8244e06719fb.mp4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -374,7 +350,7 @@ export default function Gallery() {
     {
       src: "/images/89fe02c7-ddcb-4da7-81bc-e2042f13fcc6.mp4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -382,7 +358,7 @@ export default function Gallery() {
     {
       src: "/images/9e511a7a-ff9f-4aef-bb8e-835aa7bc85de.mp4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -390,15 +366,47 @@ export default function Gallery() {
     {
       src: "/images/a0e22f31-6046-4a15-ab48-38916feed703.mp4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]"
+    },
+    {
+      src: "/images/Dog birthday celebration/20260726_141031.jpg.jpeg",
+      title: "Dog's Special Birthday Vibe",
+      category: "Dog's Birthday",
+      type: "image",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]"
+    },
+    {
+      src: "/images/Dog birthday celebration/20260726_142225.jpg.jpeg",
+      title: "Dog's Special Birthday Vibe",
+      category: "Dog's Birthday",
+      type: "image",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]"
+    },
+    {
+      src: "/images/Dog birthday celebration/20260726_142329.jpg.jpeg",
+      title: "Dog's Special Birthday Vibe",
+      category: "Dog's Birthday",
+      type: "image",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]"
+    },
+    {
+      src: "/images/Dog birthday celebration/20260726_142353.jpg.jpeg",
+      title: "Dog's Special Birthday Vibe",
+      category: "Dog's Birthday",
+      type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
     },
     {
       src: "/images/DVP_9209.JPG",
       title: "Lake N Trails Capture",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -406,7 +414,7 @@ export default function Gallery() {
     {
       src: "/images/DVP_9215.JPG",
       title: "Lakeside Swimming Pool & Palms",
-      category: "Swimming Pool Vibe",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -414,7 +422,7 @@ export default function Gallery() {
     {
       src: "/images/DVP_9216.JPG",
       title: "Lakeside Swimming Pool & Palms",
-      category: "Swimming Pool Vibe",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -422,7 +430,7 @@ export default function Gallery() {
     {
       src: "/images/DVP_9217.JPG",
       title: "Lakeside Swimming Pool & Palms",
-      category: "Swimming Pool Vibe",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -430,7 +438,7 @@ export default function Gallery() {
     {
       src: "/images/DVP_9218.JPG",
       title: "Lakeside Swimming Pool & Palms",
-      category: "Swimming Pool Vibe",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -438,7 +446,7 @@ export default function Gallery() {
     {
       src: "/images/DVP_9219.JPG",
       title: "Lake N Trails Capture",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -446,7 +454,7 @@ export default function Gallery() {
     {
       src: "/images/DVP_9223.JPG",
       title: "Premium Lakeside Canopy Dinner",
-      category: "Dining & BBQ",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -454,7 +462,7 @@ export default function Gallery() {
     {
       src: "/images/DVP_9224.JPG",
       title: "Premium Lakeside Canopy Dinner",
-      category: "Dining & BBQ",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -462,7 +470,7 @@ export default function Gallery() {
     {
       src: "/images/DVP_9226.JPG",
       title: "Premium Lakeside Canopy Dinner",
-      category: "Dining & BBQ",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -470,7 +478,7 @@ export default function Gallery() {
     {
       src: "/images/DVP_9227.JPG",
       title: "Luxury Geodesic Dome Vibe",
-      category: "Glamping Dome",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -478,7 +486,7 @@ export default function Gallery() {
     {
       src: "/images/DVP_9228.JPG",
       title: "Luxury Geodesic Dome Vibe",
-      category: "Glamping Dome",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -486,7 +494,7 @@ export default function Gallery() {
     {
       src: "/images/DVP_9229.JPG",
       title: "Luxury Geodesic Dome Vibe",
-      category: "Glamping Dome",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -494,7 +502,7 @@ export default function Gallery() {
     {
       src: "/images/DVP_9231.JPG",
       title: "Luxury Geodesic Dome Vibe",
-      category: "Glamping Dome",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -502,7 +510,7 @@ export default function Gallery() {
     {
       src: "/images/DVP_9232.JPG",
       title: "Luxury Geodesic Dome Vibe",
-      category: "Glamping Dome",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -510,7 +518,7 @@ export default function Gallery() {
     {
       src: "/images/DVP_9237.JPG",
       title: "Palm sitout and lounge deck",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -518,7 +526,7 @@ export default function Gallery() {
     {
       src: "/images/DVP_9245.JPG",
       title: "Palm sitout and lounge deck",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -526,7 +534,7 @@ export default function Gallery() {
     {
       src: "/images/DVP_9248.JPG",
       title: "Lake N Trails Capture",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -534,7 +542,7 @@ export default function Gallery() {
     {
       src: "/images/DVP_9254.JPG",
       title: "Lake N Trails Capture",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -542,7 +550,7 @@ export default function Gallery() {
     {
       src: "/images/DVP_9264.JPG",
       title: "Outdoor Hammock & Palm Vibe",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -550,7 +558,7 @@ export default function Gallery() {
     {
       src: "/images/DVP_9270.JPG",
       title: "Outdoor Hammock & Palm Vibe",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -558,7 +566,7 @@ export default function Gallery() {
     {
       src: "/images/DVP_9272.JPG",
       title: "Outdoor Hammock & Palm Vibe",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -566,7 +574,7 @@ export default function Gallery() {
     {
       src: "/images/ee2c4399-fd9e-4970-ae83-ee1e26ab93f7.mp4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -574,7 +582,7 @@ export default function Gallery() {
     {
       src: "/images/f1befce1-3ab8-4a1a-95ae-bff46417bbcc.mp4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -582,7 +590,7 @@ export default function Gallery() {
     {
       src: "/images/f5a0aeb1-8f36-4c85-b4c8-08028a78b2fd.mp4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -590,7 +598,7 @@ export default function Gallery() {
     {
       src: "/images/f62af5e7-a28e-4a64-b25f-243873cc30c1.mp4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -598,7 +606,7 @@ export default function Gallery() {
     {
       src: "/images/IMG-20260712-WA0152.jpg.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -606,7 +614,7 @@ export default function Gallery() {
     {
       src: "/images/IMG-20260726-WA0037.jpg.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -614,7 +622,7 @@ export default function Gallery() {
     {
       src: "/images/img11.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -622,7 +630,7 @@ export default function Gallery() {
     {
       src: "/images/img12.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -630,7 +638,7 @@ export default function Gallery() {
     {
       src: "/images/img13.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -638,7 +646,7 @@ export default function Gallery() {
     {
       src: "/images/img14.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -646,7 +654,7 @@ export default function Gallery() {
     {
       src: "/images/img15.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -654,7 +662,7 @@ export default function Gallery() {
     {
       src: "/images/img16.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -662,7 +670,7 @@ export default function Gallery() {
     {
       src: "/images/img2_hd.png",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -670,7 +678,7 @@ export default function Gallery() {
     {
       src: "/images/img3.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -678,7 +686,7 @@ export default function Gallery() {
     {
       src: "/images/img4.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -686,7 +694,7 @@ export default function Gallery() {
     {
       src: "/images/img5.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -694,7 +702,7 @@ export default function Gallery() {
     {
       src: "/images/img6.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -702,7 +710,7 @@ export default function Gallery() {
     {
       src: "/images/img7.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -710,7 +718,7 @@ export default function Gallery() {
     {
       src: "/images/img8.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -718,7 +726,7 @@ export default function Gallery() {
     {
       src: "/images/img9.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -726,7 +734,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6569.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -734,7 +742,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6572.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -742,7 +750,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6574.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -750,7 +758,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6576.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -758,7 +766,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6578.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -766,7 +774,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6580.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -774,7 +782,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6582.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -782,7 +790,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6584.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -790,7 +798,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6586.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -798,7 +806,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6589.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -806,7 +814,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6591.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -814,7 +822,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6593.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -822,7 +830,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6594.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -830,7 +838,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6595.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -838,7 +846,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6596.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -846,7 +854,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6597.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -854,7 +862,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6600.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -862,7 +870,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6601.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -870,7 +878,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6602.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -878,7 +886,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6603.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -886,7 +894,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6605.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -894,7 +902,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6607.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -902,7 +910,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6608.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -910,7 +918,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6612.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -918,7 +926,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6614.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -926,7 +934,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6616.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -934,7 +942,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6619.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -942,7 +950,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6620.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -950,7 +958,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6622.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -958,7 +966,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6627.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -966,7 +974,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6628.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -974,7 +982,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6629.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -982,7 +990,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6631.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -990,7 +998,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6634.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -998,7 +1006,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6636.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1006,7 +1014,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6639.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1014,7 +1022,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6640.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1022,7 +1030,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6642.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1030,7 +1038,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6643.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1038,7 +1046,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6645.HEIC",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1046,7 +1054,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6645.jpg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1054,7 +1062,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6646.HEIC",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1062,7 +1070,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6648.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1070,7 +1078,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6649.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1078,7 +1086,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6651.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1086,7 +1094,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6652.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1094,7 +1102,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6653.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1102,7 +1110,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6654.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1110,7 +1118,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6655.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1118,7 +1126,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6660.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1126,7 +1134,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6662.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1134,7 +1142,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6663.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1142,7 +1150,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6664.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1150,7 +1158,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6665.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1158,7 +1166,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6666.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1166,7 +1174,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6667.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1174,7 +1182,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6668.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1182,7 +1190,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6672.HEIC",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1190,7 +1198,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6672.jpg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1198,7 +1206,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6673.HEIC",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1206,7 +1214,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6673.jpg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1214,7 +1222,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6675.HEIC",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1222,7 +1230,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6675.jpg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1230,7 +1238,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6684.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1238,7 +1246,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6686.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1246,7 +1254,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6687.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1254,7 +1262,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6688.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1262,7 +1270,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6689.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1270,7 +1278,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6690.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1278,7 +1286,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6691.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1286,7 +1294,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_6878.MP4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1294,7 +1302,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_8327.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1302,7 +1310,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_8338.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1310,7 +1318,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_8342.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1318,7 +1326,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_8343.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1326,7 +1334,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_8360.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1334,7 +1342,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_8361.mov",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1342,7 +1350,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_8376.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1350,7 +1358,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_8394.MOV",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1358,7 +1366,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_8398.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1366,7 +1374,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_8399.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1374,7 +1382,7 @@ export default function Gallery() {
     {
       src: "/images/IMG_8400.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1382,7 +1390,7 @@ export default function Gallery() {
     {
       src: "/images/lakesideview.jpeg",
       title: "Calm Waters of Adoshi Reservoir",
-      category: "Lakeside View",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1390,7 +1398,7 @@ export default function Gallery() {
     {
       src: "/images/lakesideview2.jpeg",
       title: "Calm Waters of Adoshi Reservoir",
-      category: "Lakeside View",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1398,7 +1406,7 @@ export default function Gallery() {
     {
       src: "/images/lakesideview3.jpeg",
       title: "Calm Waters of Adoshi Reservoir",
-      category: "Lakeside View",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1406,7 +1414,7 @@ export default function Gallery() {
     {
       src: "/images/resort_background_hd_4k.jpg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1526,7 +1534,7 @@ export default function Gallery() {
     {
       src: "/images/VID-20260719-WA0223.mp4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1534,7 +1542,7 @@ export default function Gallery() {
     {
       src: "/images/VID-20260726-WA0041.mp4",
       title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1542,7 +1550,7 @@ export default function Gallery() {
     {
       src: "/images/WhatsApp Image 2026-05-25 at 8.22.49 PM (2).jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1550,7 +1558,7 @@ export default function Gallery() {
     {
       src: "/images/WhatsApp Image 2026-05-25 at 8.22.50 PM (1).jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1558,7 +1566,7 @@ export default function Gallery() {
     {
       src: "/images/WhatsApp Image 2026-05-25 at 8.22.50 PM (2).jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1566,7 +1574,7 @@ export default function Gallery() {
     {
       src: "/images/WhatsApp Image 2026-05-25 at 8.22.50 PM.jpeg",
       title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
+      category: "Others",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"

@@ -25,12 +25,22 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const [bannerIdx, setBannerIdx] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBannerIdx((prev) => (prev === 0 ? 1 : 0));
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   const handleBannerClick = () => {
     const gallerySection = document.getElementById("gallery");
     if (gallerySection) {
       gallerySection.scrollIntoView({ behavior: "smooth" });
+      const targetFilter = bannerIdx === 0 ? "Riders Special" : "Dog's Birthday";
       setTimeout(() => {
-        window.dispatchEvent(new CustomEvent("filter-gallery", { detail: "Riders Special" }));
+        window.dispatchEvent(new CustomEvent("filter-gallery", { detail: targetFilter }));
       }, 100);
     }
   };
@@ -61,7 +71,11 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
           onClick={handleBannerClick}
           className="w-full bg-gradient-to-r from-sunset via-[#fd5e53] to-orange-600 text-[#fcfbf7] py-2.5 px-4 text-center text-[9px] md:text-[10px] tracking-[0.2em] uppercase font-sans font-semibold border-b border-white/10 flex items-center justify-center gap-2 cursor-pointer hover:opacity-95 transition-all duration-300"
         >
-          <span>🏍️ Rider's Special Pitstop & Glamping Package — Click to see snaps and videos! 🏍️</span>
+          {bannerIdx === 0 ? (
+            <span>🏍️ Rider's Special Pitstop & Glamping Package — Click to see snaps and videos! 🏍️</span>
+          ) : (
+            <span>🐶 Dog's Birthday Celebration Lakeside Package — Click to see snaps and videos! 🐶</span>
+          )}
         </div>
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center py-4">
