@@ -310,65 +310,27 @@ export default function PremiumAdditions() {
                   <h3 className="text-2xl md:text-3xl font-serif text-white font-light mt-1">360° Virtual Preview</h3>
                 </div>
 
-                {/* Drag / Rotate simulation container */}
-                <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-sand/15 bg-black/40 group shadow-lg">
-                  {/* Panorama Image viewport simulating drag rotation */}
-                  <motion.div 
-                    className="absolute top-0 bottom-0 flex"
-                    style={{ width: "300%", left: `${tourRotation}%` }}
-                    animate={{ left: `${tourRotation}%` }}
-                    transition={{ type: "spring", damping: 30, stiffness: 120 }}
-                  >
-                    <img 
-                      src="/images/resort_background_hd_4k.jpg" 
-                      alt="360 Pool Panorama" 
-                      className="w-1/3 h-full object-cover"
-                    />
-                    <img 
-                      src="/images/img2_hd.png" 
-                      alt="360 Lake Sunset Panorama" 
-                      className="w-1/3 h-full object-cover"
-                    />
-                    <img 
-                      src="/images/resort_background_hd_4k.jpg" 
-                      alt="360 Tent Panorama" 
-                      className="w-1/3 h-full object-cover"
-                    />
-                  </motion.div>
+                {/* Coming Soon Showcase */}
+                <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-sand/15 bg-black/40 flex flex-col items-center justify-center p-8 text-center group shadow-lg">
+                  {/* Blurred Background image for high-end feel */}
+                  <img 
+                    src="/images/resort_background_hd_4k.jpg" 
+                    alt="360 Tour coming soon preview" 
+                    className="absolute inset-0 w-full h-full object-cover blur-[6px] opacity-40"
+                  />
+                  <div className="absolute inset-0 bg-[#030a16]/80 backdrop-blur-sm pointer-events-none" />
 
-                  {/* Dark transparent gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-
-                  {/* Drag Simulation Controls */}
-                  <div className="absolute inset-x-0 bottom-4 flex justify-between items-center px-4 z-10">
-                    <div className="text-left font-sans text-xs">
-                      <span className="text-[9px] uppercase tracking-widest text-sunset font-semibold block">Infinity Pool & Lake View</span>
-                      <span className="text-white text-[10px]">Use controls below to pan left and right</span>
+                  <div className="relative z-10 space-y-4 max-w-sm">
+                    <div className="w-12 h-12 rounded-full border border-sunset/30 bg-sunset/10 flex items-center justify-center text-sunset mx-auto animate-pulse">
+                      <Compass className="w-6 h-6" />
                     </div>
-
-                    <div className="flex gap-2 font-sans text-[10px] uppercase tracking-widest">
-                      <button 
-                        onClick={() => setTourRotation(prev => Math.min(0, prev + 25))}
-                        disabled={tourRotation === 0}
-                        className="w-8 h-8 rounded-full bg-black/60 border border-sand/20 hover:border-sunset flex items-center justify-center text-white disabled:opacity-20 transition-all cursor-pointer font-bold"
-                      >
-                        ←
-                      </button>
-                      <button 
-                        onClick={() => setTourRotation(prev => Math.max(-150, prev - 25))}
-                        disabled={tourRotation === -150}
-                        className="w-8 h-8 rounded-full bg-black/60 border border-sand/20 hover:border-sunset flex items-center justify-center text-white disabled:opacity-20 transition-all cursor-pointer font-bold"
-                      >
-                        →
-                      </button>
+                    <div className="space-y-1.5">
+                      <span className="text-[10px] font-sans tracking-[0.3em] text-sunset font-bold uppercase">Coming Soon</span>
+                      <h4 className="text-lg font-serif font-light text-white uppercase tracking-wider">360° Immersive Walkthrough</h4>
+                      <p className="text-[10px] text-sand/50 font-sans leading-relaxed">
+                        We are currently capturing our premium geodesic domes, starlit camping decks, and lakeside dining areas in stunning 8K panoramic photography. Stay tuned!
+                      </p>
                     </div>
-                  </div>
-
-                  {/* Highlight feature card overlaid */}
-                  <div className="absolute top-4 left-4 bg-black/55 backdrop-blur-md border border-sand/15 rounded-lg p-2.5 text-left font-sans max-w-[200px]">
-                    <span className="text-[8px] bg-sunset/20 text-sunset px-1.5 py-0.5 rounded uppercase tracking-wider font-semibold font-sans">Bali Vibe</span>
-                    <h5 className="text-[10px] font-bold text-white mt-1">Lakeside Glamping Oasis</h5>
-                    <p className="text-[8px] text-sand/60 mt-0.5 leading-relaxed">Swipe through the panorama render of our tropical infinity deck.</p>
                   </div>
                 </div>
               </motion.div>

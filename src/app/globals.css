@@ -189,13 +189,35 @@ html.light {
 }
 
 html.light body {
-  background-color: #fcfbf7;
-  color: #020c1b;
+  background-color: #fcfbf7 !important;
+  color: #020c1b !important;
+}
+
+html.light .bg-\[\#030a16\] {
+  background-color: #fcfbf7 !important;
+}
+
+html.light .bg-\[\#020612\] {
+  background-color: #f2ede4 !important;
+}
+
+html.light .bg-\[\#030f26\]\/40,
+html.light .bg-\[\#030f26\]\/30,
+html.light .bg-\[\#030f26\]\/20,
+html.light .bg-\[\#030f26\]\/10,
+html.light .bg-\[\#030f26\] {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(59, 44, 22, 0.15) !important;
+}
+
+html.light .bg-\[\#080e1a\]\/95 {
+  background-color: rgba(255, 255, 255, 0.96) !important;
+  border-color: rgba(59, 44, 22, 0.15) !important;
 }
 
 html.light .glass-panel,
 html.light .glass-panel-dark {
-  background: rgba(255, 255, 255, 0.7) !important;
+  background: rgba(255, 255, 255, 0.75) !important;
   backdrop-filter: blur(12px) !important;
   -webkit-backdrop-filter: blur(12px) !important;
   border-color: rgba(59, 44, 22, 0.12) !important;
@@ -203,7 +225,7 @@ html.light .glass-panel-dark {
 }
 
 html.light .glass-nav {
-  background: rgba(252, 251, 247, 0.8) !important;
+  background: rgba(252, 251, 247, 0.85) !important;
   backdrop-filter: blur(12px) !important;
   -webkit-backdrop-filter: blur(12px) !important;
   border-bottom: 1px solid rgba(59, 44, 22, 0.08) !important;
@@ -226,7 +248,8 @@ html.light h3,
 html.light h4,
 html.light h5,
 html.light h6,
-html.light .font-serif {
+html.light .font-serif,
+html.light .text-\[\#fcfbf7\] {
   color: #020c1b !important;
 }
 
@@ -245,25 +268,17 @@ html.light .text-glow-sunset {
   color: #ff6b35 !important;
 }
 
-html.light .bg-\[\#030f26\]\/40,
-html.light .bg-\[\#030f26\]\/30,
-html.light .bg-\[\#030f26\]\/20,
-html.light .bg-\[\#030f26\] {
-  background-color: rgba(255, 255, 255, 0.85) !important;
-  border-color: rgba(59, 44, 22, 0.15) !important;
-}
-
 html.light input,
 html.light select,
 html.light textarea {
   color: #020c1b !important;
   background-color: rgba(255, 255, 255, 0.95) !important;
-  border-color: rgba(59, 44, 22, 0.2) !important;
+  border-color: rgba(59, 44, 22, 0.25) !important;
 }
 
 html.light input::placeholder,
 html.light textarea::placeholder {
-  color: rgba(2, 12, 27, 0.4) !important;
+  color: rgba(2, 12, 27, 0.45) !important;
 }
 
 html.light .border-sand\/15,

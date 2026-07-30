@@ -1060,6 +1060,45 @@ ${formData.name}`;
               </div>
             </div>
 
+            {/* Quick Amenities Grid inside the form card to guarantee visibility */}
+            <div className="pt-4 border-t border-sand/10 space-y-4">
+              <div className="flex justify-between items-center">
+                <div>
+                  <span className="text-[9px] font-sans tracking-[0.25em] text-sunset uppercase font-bold block">
+                    Amenities Included
+                  </span>
+                  <h4 className="text-sm font-serif font-light text-white uppercase tracking-wider mt-0.5">
+                    What's Included in your escape
+                  </h4>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setIsAmenitiesModalOpen(true)}
+                  className="text-[9px] uppercase tracking-widest text-sunset hover:text-white underline transition-colors cursor-pointer font-bold font-sans"
+                >
+                  Show All 25+
+                </button>
+              </div>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                {quickAmenities.map((item, idx) => (
+                  <div key={idx} className="flex gap-3.5 items-start group p-3 rounded-xl bg-white/5 border border-sand/5 hover:border-sunset/30 transition-all duration-300">
+                    <div className="p-2.5 rounded-lg bg-[#030f26]/60 border border-sand/10 group-hover:border-sunset/40 transition-colors duration-300">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-serif font-medium text-white mb-0.5 group-hover:text-sunset transition-colors">
+                        {item.name}
+                      </h4>
+                      <p className="text-[10px] text-sand/50 font-sans leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             {/* Notes textarea */}
             <div>
               <textarea
@@ -1083,43 +1122,6 @@ ${formData.name}`;
             </div>
 
           </form>
-
-          {/* Amenities Grid at the bottom */}
-          <div className="pt-10 border-t border-sand/10 text-left">
-            <span className="text-xs font-sans tracking-[0.3em] text-sunset uppercase mb-2 block font-medium">
-              Amenities Included
-            </span>
-            <h3 className="text-2xl font-serif font-light text-white mb-6 uppercase tracking-wider">
-              What This Place Offers
-            </h3>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
-              {quickAmenities.map((item, idx) => (
-                <div key={idx} className="flex gap-4 items-start group p-3 rounded-xl hover:bg-[#030f26]/30 border border-transparent hover:border-sand/10 transition-all duration-300">
-                  <div className="p-2.5 rounded-lg bg-[#030f26]/60 border border-sand/10 group-hover:border-sunset/40 transition-colors duration-300">
-                    {item.icon}
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-serif font-medium text-white mb-0.5 group-hover:text-sunset transition-colors">
-                      {item.name}
-                    </h4>
-                    <p className="text-[10px] text-sand/50 font-sans leading-relaxed">
-                      {item.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8 flex justify-start">
-              <button
-                onClick={() => setIsAmenitiesModalOpen(true)}
-                className="px-6 py-3 rounded-xl border border-sand/20 hover:border-sunset text-white hover:text-sunset text-[10px] font-sans uppercase tracking-widest font-semibold transition-all duration-300 cursor-pointer bg-white/5 hover:bg-white/10"
-              >
-                Show All 25+ Amenities
-              </button>
-            </div>
-          </div>
 
         </div>
       )}

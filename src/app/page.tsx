@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import Lenis from "lenis";
 
 // Components
@@ -22,9 +23,25 @@ import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
 
 export default function Home() {
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const hasSeen = sessionStorage.getItem("hasSeenLoading");
+      if (hasSeen === "true") {
+        setIsLoading(false);
+      }
+    }
+  }, []);
+
+  const handleLoadingComplete = () => {
+    sessionStorage.setItem("hasSeenLoading", "true");
+    setIsLoading(false);
+  };
+
   const openBooking = (experience: string) => {
-    window.location.href = `/book?experience=${experience}`;
+    router.push(`/book?experience=${experience}`);
   };
 
   useEffect(() => {
@@ -52,7 +69,7 @@ export default function Home() {
 
   return (
     <>
-      <LoadingScreen onComplete={() => setIsLoading(false)} />
+      <LoadingScreen onComplete={handleLoadingComplete} />
 
       {!isLoading && (
         <div className="relative min-h-screen bg-[#030a16] text-[#fcfbf7] overflow-x-hidden selection:bg-sunset selection:text-white">
