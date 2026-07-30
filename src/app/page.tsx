@@ -12,7 +12,6 @@ import LoadingScreen from "@/components/sections/LoadingScreen";
 import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
-import Amenities from "@/components/sections/Amenities";
 import Experiences from "@/components/sections/Experiences";
 import Packages from "@/components/sections/Packages";
 import Gallery from "@/components/sections/Gallery";
@@ -20,16 +19,11 @@ import Testimonials from "@/components/sections/Testimonials";
 import EventShowcase from "@/components/sections/EventShowcase";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
-import BookingModal from "@/components/sections/BookingModal";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
-  const [bookingExperience, setBookingExperience] = useState("camping");
-
   const openBooking = (experience: string) => {
-    setBookingExperience(experience);
-    setIsBookingOpen(true);
+    window.location.href = `/book?experience=${experience}`;
   };
 
   useEffect(() => {
@@ -77,9 +71,6 @@ export default function Home() {
             <Hero onOpenBooking={() => openBooking("camping")} />
             
             <About />
-            
-            <Amenities />
-            
             <Experiences onOpenBooking={openBooking} />
             
             <Packages onOpenBooking={openBooking} />
@@ -88,20 +79,13 @@ export default function Home() {
             
             <Testimonials />
             
-            <EventShowcase onOpenBooking={() => openBooking("corporate")} />
+            <EventShowcase onOpenBooking={() => openBooking("camping")} />
             
             <Contact />
           </main>
 
           {/* Footer */}
           <Footer />
-
-          {/* Booking Modal Sheet */}
-          <BookingModal 
-            isOpen={isBookingOpen} 
-            onClose={() => setIsBookingOpen(false)} 
-            defaultExperience={bookingExperience}
-          />
         </div>
       )}
     </>
