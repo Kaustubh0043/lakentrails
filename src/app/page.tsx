@@ -73,7 +73,7 @@ export default function Home() {
 
           {/* Main Storyteller Layout */}
           <main className="relative z-10 w-full">
-            <Hero onOpenBooking={() => openBooking("wedding")} />
+            <Hero onOpenBooking={() => openBooking("camping")} />
             
             <About />
             

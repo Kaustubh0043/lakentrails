@@ -67,7 +67,7 @@ export default function Footer() {
             </a>
             
             <p className="text-xs text-sand/65 max-w-sm leading-relaxed">
-              Your futuristic tropical lakeside haven. Blending Bali aesthetics with vibrant nightlife, camping under starry skies, water sports, and destination wedding lawns.
+              Your futuristic tropical lakeside haven. Blending Bali aesthetics with vibrant nightlife, camping under starry skies, water sports, and custom group event lawns.
             </p>
 
             <div className="flex gap-4 pt-2">

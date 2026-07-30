@@ -28,10 +28,10 @@ export default function EventShowcase({ onOpenBooking }: EventShowcaseProps) {
       desc: "Gather under stars for live unplugged sessions, acoustic guitar notes, and roasted marshmallows.",
     },
     {
-      icon: <Heart className="w-6 h-6 text-sunset" />,
-      title: "Wedding Ceremonies",
-      tag: "ROMANTIC VOWS",
-      desc: "Host stunning lakeside setups, champagne toasts, and floral gazebos for your special day.",
+      icon: <Sparkles className="w-6 h-6 text-sunset" />,
+      title: "Custom Celebrations",
+      tag: "MEMORABLE EVENTS",
+      desc: "Host breathtaking birthdays, anniversaries, and custom lakeside parties on our lush lawns.",
     },
     {
       icon: <Briefcase className="w-6 h-6 text-sunset" />,

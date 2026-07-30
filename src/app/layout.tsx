@@ -18,7 +18,7 @@ const luxurySans = Inter({
 export const metadata: Metadata = {
   title: "Lake N Trails Exotic Glamping | Luxury Lakeside Tropical Escape Khopoli",
   description:
-    "Experience the ultimate luxury lakeside tropical getaway at Lake N Trails Exotic Glamping in Khopoli. Featuring premium stays, private pool parties, bonfires under the stars, weddings, events, rain dance, and kayaking in a dreamy Bali-inspired tropical vibe.",
+    "Experience the ultimate luxury lakeside tropical getaway at Lake N Trails Exotic Glamping in Khopoli. Featuring premium stays, private pool parties, bonfires under the stars, custom group celebrations, events, rain dance, and kayaking in a dreamy Bali-inspired tropical vibe.",
   keywords: [
     "Lake N Trails",
     "Lake N Trails Exotic Glamping",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     "lakeside resort",
     "tropical resort Maharashtra",
     "luxury lakeside camping",
-    "destination wedding Khopoli",
+    "group events Khopoli",
     "pool party resort",
     "pet-friendly resort Khopoli",
     "kayaking boating Khopoli",

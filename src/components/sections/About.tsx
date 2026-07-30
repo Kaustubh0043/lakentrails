@@ -42,8 +42,8 @@ export default function About() {
     },
     {
       icon: <Sparkles className="w-5 h-5 text-sunset" />,
-      title: "Weddings & Celebrations",
-      desc: "Host breathtaking destination weddings on the scenic shoreline.",
+      title: "Custom Group Events",
+      desc: "Host breathtaking birthday celebrations, reunions, and family get-togethers.",
     },
     {
       icon: <Smile className="w-5 h-5 text-sunset" />,
