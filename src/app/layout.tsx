@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
 
 const luxurySerif = Cormorant_Garamond({
   variable: "--font-luxury-serif",
@@ -71,6 +72,7 @@ export default function RootLayout({
     >
       <body className="font-sans antialiased bg-[#030a16] text-[#fcfbf7] selection:bg-sunset selection:text-white">
         {children}
+        <Analytics />
       </body>
     </html>
   );
