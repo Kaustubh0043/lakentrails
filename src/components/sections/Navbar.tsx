@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Bell } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface NavbarProps {
@@ -11,6 +11,7 @@ interface NavbarProps {
 export default function Navbar({ onOpenBooking }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,6 +42,32 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
       const targetFilter = bannerIdx === 0 ? "Riders Special" : "Dog's Birthday";
       setTimeout(() => {
         window.dispatchEvent(new CustomEvent("filter-gallery", { detail: targetFilter }));
+      }, 100);
+    }
+  };
+
+  const notifications = [
+    {
+      id: "riders",
+      title: "🏍️ Rider's Special Pitstop Active",
+      description: "Breakfast glamping packages & passionate touring gatherings are live. Tap to see media snaps!",
+      tag: "Riders Special"
+    },
+    {
+      id: "dogs",
+      title: "🐶 Dog's Birthday Celebration Active",
+      description: "Lakeside party lawns & pet-friendly stay packages are live. Tap to see media snaps!",
+      tag: "Dog's Birthday"
+    }
+  ];
+
+  const handleNotificationClick = (tag: string) => {
+    setIsNotificationsOpen(false);
+    const gallerySection = document.getElementById("gallery");
+    if (gallerySection) {
+      gallerySection.scrollIntoView({ behavior: "smooth" });
+      setTimeout(() => {
+        window.dispatchEvent(new CustomEvent("filter-gallery", { detail: tag }));
       }, 100);
     }
   };
@@ -121,8 +148,56 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
             ))}
           </div>
 
-          {/* CTA / Booking Button (Desktop) */}
-          <div className="hidden lg:block">
+          {/* CTA & Notification Bell (Desktop) */}
+          <div className="hidden lg:flex items-center gap-4 relative">
+            
+            {/* Bell Icon */}
+            <div className="relative">
+              <button
+                onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
+                className="p-2.5 rounded-full border border-sand/15 text-sand hover:text-sunset hover:border-sunset/50 transition-all cursor-pointer bg-white/5 hover:bg-white/10 relative"
+                aria-label="Notification Center"
+              >
+                <Bell className="w-4 h-4" />
+                {/* Glowing badge dot */}
+                <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-sunset animate-pulse shadow-md shadow-sunset/50" />
+              </button>
+
+              {/* Desktop Notification Panel Dropdown */}
+              <AnimatePresence>
+                {isNotificationsOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 15, scale: 0.95 }}
+                    className="absolute right-0 mt-3 w-80 bg-[#080e1a]/95 backdrop-blur-xl border border-sand/20 rounded-2xl p-4.5 shadow-2xl z-[999] space-y-3 text-left"
+                  >
+                    <div className="flex justify-between items-center border-b border-sand/10 pb-2.5">
+                      <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-sunset">Events & Highlights</span>
+                      <span className="text-[8px] bg-sunset/15 text-sunset px-2 py-0.5 rounded-full font-semibold">2 New</span>
+                    </div>
+
+                    <div className="space-y-3">
+                      {notifications.map((notif) => (
+                        <div
+                          key={notif.id}
+                          onClick={() => handleNotificationClick(notif.tag)}
+                          className="p-3 rounded-xl bg-white/5 border border-sand/10 hover:border-sunset/35 cursor-pointer transition-all duration-300 hover:bg-white/10"
+                        >
+                          <h4 className="text-[11px] font-serif font-bold text-[#fcfbf7] mb-1 leading-snug">
+                            {notif.title}
+                          </h4>
+                          <p className="text-[10px] text-sand/50 font-sans leading-relaxed">
+                            {notif.description}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
             <button
               onClick={onOpenBooking}
               className="px-6 py-2.5 text-[10px] uppercase tracking-[0.2em] font-sans font-medium text-white glass-button rounded-full cursor-pointer"
@@ -131,8 +206,56 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
             </button>
           </div>
 
-          {/* Hamburger Mobile Icon */}
-          <div className="lg:hidden flex items-center">
+          {/* Hamburger Mobile Icon & Notification Bell */}
+          <div className="lg:hidden flex items-center gap-3">
+            
+            {/* Bell Button (Mobile) */}
+            <div className="relative">
+              <button
+                onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
+                className="p-2 rounded-full border border-sand/15 text-sand hover:text-sunset hover:border-sunset/50 transition-all cursor-pointer bg-white/5 hover:bg-white/10 relative"
+                aria-label="Notification Center"
+              >
+                <Bell className="w-5 h-5" />
+                {/* Glowing badge dot */}
+                <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-sunset animate-pulse shadow-md shadow-sunset/50" />
+              </button>
+
+              {/* Mobile Notification Panel Dropdown */}
+              <AnimatePresence>
+                {isNotificationsOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 15, scale: 0.95 }}
+                    className="absolute right-[-3rem] mt-3 w-[290px] bg-[#080e1a]/95 backdrop-blur-xl border border-sand/20 rounded-2xl p-4 shadow-2xl z-[999] space-y-3 text-left"
+                  >
+                    <div className="flex justify-between items-center border-b border-sand/10 pb-2">
+                      <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-sunset">Events & Highlights</span>
+                      <span className="text-[8px] bg-sunset/15 text-sunset px-2 py-0.5 rounded-full font-semibold">2 New</span>
+                    </div>
+
+                    <div className="space-y-2.5">
+                      {notifications.map((notif) => (
+                        <div
+                          key={notif.id}
+                          onClick={() => handleNotificationClick(notif.tag)}
+                          className="p-3 rounded-xl bg-white/5 border border-sand/10 hover:border-sunset/35 cursor-pointer transition-all duration-300 active:bg-white/10"
+                        >
+                          <h4 className="text-[11px] font-serif font-bold text-[#fcfbf7] mb-1 leading-snug">
+                            {notif.title}
+                          </h4>
+                          <p className="text-[9px] text-sand/50 font-sans leading-relaxed">
+                            {notif.description}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-white hover:text-sunset transition-colors p-2"
