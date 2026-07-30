@@ -205,7 +205,7 @@ export default function Experiences({ onOpenBooking }: ExperiencesProps) {
           {experienceData.map((exp) => (
             <div 
               key={exp.id}
-              className="w-[290px] sm:w-[380px] md:w-[780px] flex-shrink-0 snap-center rounded-2xl overflow-hidden glass-panel border border-sand/15 bg-black/10 p-5 md:p-7 flex flex-col md:flex-row gap-5 md:gap-7 relative group hover:border-sunset/30 transition-all duration-500"
+              className="w-[290px] sm:w-[380px] md:w-[780px] flex-shrink-0 snap-center rounded-2xl overflow-hidden glass-panel border border-sand/15 bg-black/10 p-5 md:p-7 flex flex-col-reverse md:flex-row gap-5 md:gap-7 relative group hover:border-sunset/30 transition-all duration-500"
             >
               {/* Content Column */}
               <div className="flex-1 flex flex-col justify-between text-left space-y-4 md:space-y-6">

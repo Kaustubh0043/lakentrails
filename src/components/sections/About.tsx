@@ -65,9 +65,8 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Left Text Column */}
           <motion.div 
-            className="lg:col-span-7 flex flex-col items-start text-left"
+            className="lg:col-span-7 flex flex-col items-start text-left order-2 lg:order-1"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -128,9 +127,8 @@ export default function About() {
             </motion.div>
           </motion.div>
 
-          {/* Right Image/Mesh Column */}
           <motion.div 
-            className="lg:col-span-5 relative w-full aspect-[4/5] sm:aspect-square lg:aspect-[4/5] rounded-2xl overflow-hidden glass-panel border border-sand/20 group cursor-pointer"
+            className="lg:col-span-5 relative w-full aspect-[4/5] sm:aspect-square lg:aspect-[4/5] rounded-2xl overflow-hidden glass-panel border border-sand/20 group cursor-pointer order-1 lg:order-2"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
