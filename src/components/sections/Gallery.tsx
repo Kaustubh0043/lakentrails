@@ -180,38 +180,6 @@ export default function Gallery() {
       rowSpan: "h-[300px] md:h-[350px]"
     },
     {
-      src: "/images/20260719_085827.jpg.jpeg",
-      title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
-      src: "/images/20260719_085841.jpg.jpeg",
-      title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
-      src: "/images/20260719_085847.jpg.jpeg",
-      title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
-      src: "/images/20260719_085850.jpg.jpeg",
-      title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
       src: "/images/20260719_095540.jpg.jpeg",
       title: "Resort Landscape Snapshot",
       category: "Resort Lifestyle",
@@ -280,30 +248,6 @@ export default function Gallery() {
       title: "Lakeside Vibe Video Tour",
       category: "Resort Lifestyle",
       type: "video",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
-      src: "/images/20260719_110050.jpg.jpeg",
-      title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
-      src: "/images/20260719_122956.jpg",
-      title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
-      src: "/images/20260719_123000.jpg.jpeg",
-      title: "Resort Landscape Snapshot",
-      category: "Resort Lifestyle",
-      type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
     },
@@ -615,22 +559,6 @@ export default function Gallery() {
       src: "/images/DVP_9272.JPG",
       title: "Outdoor Hammock & Palm Vibe",
       category: "Resort Lifestyle",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
-      src: "/images/DVP_9279.JPG",
-      title: "Sahyadri Peaks Golden Hour",
-      category: "Sunset Experience",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
-      src: "/images/DVP_9280.JPG",
-      title: "Sahyadri Peaks Golden Hour",
-      category: "Sunset Experience",
       type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
@@ -1092,14 +1020,6 @@ export default function Gallery() {
       rowSpan: "h-[300px] md:h-[350px]"
     },
     {
-      src: "/images/IMG_6641.MOV",
-      title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
-      type: "video",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
       src: "/images/IMG_6642.MOV",
       title: "Lakeside Vibe Video Tour",
       category: "Resort Lifestyle",
@@ -1492,33 +1412,113 @@ export default function Gallery() {
       rowSpan: "h-[300px] md:h-[350px]"
     },
     {
-      src: "/images/VID-20260719-WA0105.mp4",
-      title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      src: "/images/Rider's Special/20260719_085827.jpg.jpeg",
+      title: "Touring Club Lakeside Gathering",
+      category: "Riders Special",
+      type: "image",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]"
+    },
+    {
+      src: "/images/Rider's Special/20260719_085841.jpg.jpeg",
+      title: "Touring Club Lakeside Gathering",
+      category: "Riders Special",
+      type: "image",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]"
+    },
+    {
+      src: "/images/Rider's Special/20260719_085847.jpg.jpeg",
+      title: "Touring Club Lakeside Gathering",
+      category: "Riders Special",
+      type: "image",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]"
+    },
+    {
+      src: "/images/Rider's Special/20260719_085850.jpg.jpeg",
+      title: "Touring Club Lakeside Gathering",
+      category: "Riders Special",
+      type: "image",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]"
+    },
+    {
+      src: "/images/Rider's Special/20260719_110050.jpg.jpeg",
+      title: "Touring Club Lakeside Gathering",
+      category: "Riders Special",
+      type: "image",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]"
+    },
+    {
+      src: "/images/Rider's Special/20260719_122956.jpg",
+      title: "Touring Club Lakeside Gathering",
+      category: "Riders Special",
+      type: "image",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]"
+    },
+    {
+      src: "/images/Rider's Special/20260719_123000.jpg.jpeg",
+      title: "Touring Club Lakeside Gathering",
+      category: "Riders Special",
+      type: "image",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]"
+    },
+    {
+      src: "/images/Rider's Special/DVP_9279.JPG",
+      title: "Touring Club Lakeside Gathering",
+      category: "Riders Special",
+      type: "image",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]"
+    },
+    {
+      src: "/images/Rider's Special/DVP_9280.JPG",
+      title: "Touring Club Lakeside Gathering",
+      category: "Riders Special",
+      type: "image",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]"
+    },
+    {
+      src: "/images/Rider's Special/IMG_6641.MOV",
+      title: "Morning Ride Pitstop Vibe",
+      category: "Riders Special",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
     },
     {
-      src: "/images/VID-20260719-WA0106.mp4",
-      title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      src: "/images/Rider's Special/VID-20260719-WA0105.mp4",
+      title: "Morning Ride Pitstop Vibe",
+      category: "Riders Special",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
     },
     {
-      src: "/images/VID-20260719-WA0108.mp4",
-      title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      src: "/images/Rider's Special/VID-20260719-WA0106.mp4",
+      title: "Morning Ride Pitstop Vibe",
+      category: "Riders Special",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
     },
     {
-      src: "/images/VID-20260719-WA0192.mp4",
-      title: "Lakeside Vibe Video Tour",
-      category: "Resort Lifestyle",
+      src: "/images/Rider's Special/VID-20260719-WA0108.mp4",
+      title: "Morning Ride Pitstop Vibe",
+      category: "Riders Special",
+      type: "video",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]"
+    },
+    {
+      src: "/images/Rider's Special/VID-20260719-WA0192.mp4",
+      title: "Morning Ride Pitstop Vibe",
+      category: "Riders Special",
       type: "video",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
