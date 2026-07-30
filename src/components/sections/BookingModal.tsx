@@ -532,7 +532,7 @@ ${formData.name}`;
 
           {/* Modal Container */}
           <motion.div
-            className="w-full max-w-2xl lg:max-w-4xl glass-panel-dark rounded-2xl relative z-10 border border-sand/20 max-h-[92vh] flex flex-col overflow-hidden"
+            className="w-full max-w-2xl lg:max-w-5xl xl:max-w-6xl glass-panel-dark rounded-2xl relative z-10 border border-sand/20 max-h-[90vh] flex flex-col overflow-hidden"
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -566,11 +566,11 @@ ${formData.name}`;
             <div data-lenis-prevent className="p-4 pt-0 md:p-8 md:pt-0 overflow-y-auto flex-1 pr-2 md:pr-4">
               <form onSubmit={(e) => e.preventDefault()} className="grid grid-cols-12 gap-3 sm:gap-6 md:gap-8 font-sans items-start text-left">
                 {/* Left Column: Input Fields & Submit buttons */}
-                <div className={`col-span-12 lg:col-span-7 space-y-4 ${bookingStep === 1 ? "block" : "hidden lg:block"}`}>
+                <div className={`col-span-12 lg:col-span-7 space-y-6 ${bookingStep === 1 ? "block" : "hidden lg:block"}`}>
                   {/* Name, Email, Phone Grid */}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div className="relative">
-                      <User className="absolute left-3 top-3.5 w-4 h-4 text-sand/40" />
+                      <User className="absolute left-3 top-4.5 w-4 h-4 text-sand/40" />
                       <input
                         type="text"
                         name="name"
@@ -578,11 +578,11 @@ ${formData.name}`;
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full pl-10 pr-4 py-3 bg-[#030f26]/30 border border-sand/15 rounded-lg text-sm text-white focus:outline-none focus:border-sunset focus:ring-1 focus:ring-sunset transition-colors placeholder:text-sand/30"
+                        className="w-full pl-10 pr-4 py-4 bg-[#030f26]/30 border border-sand/15 rounded-lg text-sm text-white focus:outline-none focus:border-sunset focus:ring-1 focus:ring-sunset transition-colors placeholder:text-sand/30"
                       />
                     </div>
                     <div className="relative">
-                      <Mail className="absolute left-3 top-3.5 w-4 h-4 text-sand/40" />
+                      <Mail className="absolute left-3 top-4.5 w-4 h-4 text-sand/40" />
                       <input
                         type="email"
                         name="email"
@@ -590,11 +590,11 @@ ${formData.name}`;
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full pl-10 pr-4 py-3 bg-[#030f26]/30 border border-sand/15 rounded-lg text-sm text-white focus:outline-none focus:border-sunset focus:ring-1 focus:ring-sunset transition-colors placeholder:text-sand/30"
+                        className="w-full pl-10 pr-4 py-4 bg-[#030f26]/30 border border-sand/15 rounded-lg text-sm text-white focus:outline-none focus:border-sunset focus:ring-1 focus:ring-sunset transition-colors placeholder:text-sand/30"
                       />
                     </div>
                     <div className="relative">
-                      <Phone className="absolute left-3 top-3.5 w-4 h-4 text-sand/40" />
+                      <Phone className="absolute left-3 top-4.5 w-4 h-4 text-sand/40" />
                       <input
                         type="tel"
                         name="phone"
@@ -602,7 +602,7 @@ ${formData.name}`;
                         required
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full pl-10 pr-4 py-3 bg-[#030f26]/30 border border-sand/15 rounded-lg text-sm text-white focus:outline-none focus:border-sunset focus:ring-1 focus:ring-sunset transition-colors placeholder:text-sand/30"
+                        className="w-full pl-10 pr-4 py-4 bg-[#030f26]/30 border border-sand/15 rounded-lg text-sm text-white focus:outline-none focus:border-sunset focus:ring-1 focus:ring-sunset transition-colors placeholder:text-sand/30"
                       />
                     </div>
                   </div>
@@ -837,12 +837,12 @@ ${formData.name}`;
                         name="experience"
                         value={formData.experience}
                         onChange={handleChange}
-                        className="w-full pl-4 pr-10 py-3 bg-[#030f26]/30 border border-sand/15 rounded-lg text-sm text-white focus:outline-none focus:border-sunset focus:ring-1 focus:ring-sunset transition-colors appearance-none cursor-pointer"
+                        className="w-full pl-4 pr-10 py-4 bg-[#030f26]/30 border border-sand/15 rounded-lg text-sm text-white focus:outline-none focus:border-sunset focus:ring-1 focus:ring-sunset transition-colors appearance-none cursor-pointer"
                       >
                         <option value="day-outing" className="bg-[#030a16]">Day Outing Package</option>
                         <option value="stay-package" className="bg-[#030a16]">Ultimate Stay Package</option>
                       </select>
-                      <ChevronDown className="absolute right-3 top-3.5 w-4 h-4 text-sand/50 pointer-events-none" />
+                      <ChevronDown className="absolute right-3 top-4.5 w-4 h-4 text-sand/50 pointer-events-none" />
                     </div>
                     <div className="text-[10px] text-sand/50 font-sans mt-1.5 pl-1 italic">
                       {formData.experience === "day-outing"
@@ -859,7 +859,7 @@ ${formData.name}`;
                       rows={3}
                       value={formData.notes}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-[#030f26]/30 border border-sand/15 rounded-lg text-sm text-white focus:outline-none focus:border-sunset focus:ring-1 focus:ring-sunset transition-colors placeholder:text-sand/30 resize-none"
+                      className="w-full px-4 py-4 bg-[#030f26]/30 border border-sand/15 rounded-lg text-sm text-white focus:outline-none focus:border-sunset focus:ring-1 focus:ring-sunset transition-colors placeholder:text-sand/30 resize-none"
                     />
                   </div>
 
@@ -917,7 +917,7 @@ ${formData.name}`;
                 </div>
 
                 {/* Right Column: Pricing Summary Card & Policy */}
-                <div className={`col-span-12 lg:col-span-5 space-y-4 ${bookingStep === 2 ? "block" : "hidden lg:block"}`}>
+                <div className={`col-span-12 lg:col-span-5 space-y-6 ${bookingStep === 2 ? "block" : "hidden lg:block"}`}>
                   {/* Back Button (Mobile Only) */}
                   <button
                     type="button"
@@ -931,7 +931,7 @@ ${formData.name}`;
                   {(() => {
                     const pricing = calculatePricing();
                     return (
-                      <div className="bg-[#030f26]/40 border border-sand/15 rounded-xl p-5 space-y-4 text-left">
+                      <div className="bg-[#030f26]/40 border border-sand/15 rounded-xl p-6 space-y-6 text-left">
                         {/* Package Info */}
                         <div className="flex gap-4">
                           <img
