@@ -117,11 +117,11 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
             {/* Glowing Hotel Branding */}
             <motion.h1
               initial={{ letterSpacing: "0.2em", opacity: 0 }}
-              animate={{ letterSpacing: "0.5em", opacity: 1 }}
+              animate={{ letterSpacing: "0.4em", opacity: 1 }}
               transition={{ duration: 1.2, delay: 0.2 }}
-              className="text-[#fcfbf7] font-serif text-2xl font-light uppercase tracking-[0.5em] mb-2 text-glow-sunset"
+              className="text-[#fcfbf7] font-serif text-2xl font-light uppercase tracking-[0.4em] mb-2 text-glow-sunset"
             >
-              LAKENTRAILS
+              LAKE N TRAILS
             </motion.h1>
 
             <motion.p
@@ -130,7 +130,7 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
               transition={{ duration: 1, delay: 0.6 }}
               className="text-[10px] uppercase font-sans tracking-[0.25em] text-sand/80 mb-8"
             >
-              Lakeside Tropical Escape
+              Exotic Glamping
             </motion.p>
 
             {/* Premium Loading Progress Bar */}

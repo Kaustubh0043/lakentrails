@@ -45,7 +45,7 @@ export default function Footer() {
                 viewBox="0 0 100 100"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-8 h-8 text-sand group-hover:text-sunset transition-colors duration-500 drop-shadow-[0_0_8px_rgba(255,107,53,0.3)]"
+                className="w-9 h-9 text-sand group-hover:text-sunset transition-colors duration-500 drop-shadow-[0_0_8px_rgba(255,107,53,0.3)]"
               >
                 <path
                   d="M15 65 C 25 55, 35 55, 45 65 C 55 75, 65 75, 75 65 C 85 55, 90 58, 95 62"
@@ -62,7 +62,7 @@ export default function Footer() {
                 />
               </svg>
               <span className="font-serif text-md tracking-[0.3em] font-light text-white">
-                LAKENTRAILS
+                LAKE N TRAILS
               </span>
             </a>
             
@@ -113,6 +113,16 @@ export default function Footer() {
                   Contact Us
                 </a>
               </li>
+              <li>
+                <a 
+                  href="/images/brochure.pdf" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-sunset font-medium hover:underline transition-all block mt-1"
+                >
+                  Digital Brochure (PDF)
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -143,7 +153,7 @@ export default function Footer() {
         {/* Copyright info */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-sand/40 text-left">
           <span>
-            &copy; {currentYear} LakeNtrails Resort. All Rights Reserved.
+            &copy; {currentYear} Lake N Trails Exotic Glamping. All Rights Reserved.
           </span>
           <div className="flex gap-4">
             <span className="flex items-center gap-1">

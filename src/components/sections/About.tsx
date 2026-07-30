@@ -92,7 +92,7 @@ export default function About() {
               variants={itemVariants}
               className="text-sand/80 text-sm md:text-base font-sans leading-relaxed mb-6 max-w-xl"
             >
-              LakeNtrails is a futuristic lakeside tropical resort designed for seekers of ultimate luxury and electric vibes. Tucked away near Adoshi Dam, Khopoli, we blend the peaceful, lush green atmosphere of Bali with next-generation party vibes, camping under the starlit skies, and dynamic lake activities. 
+              Lake N Trails Exotic Glamping is a futuristic lakeside tropical resort designed for seekers of ultimate luxury and electric vibes. Tucked away near Adoshi Dam, Khopoli, we blend the peaceful, lush green atmosphere of Bali with next-generation party vibes, camping under the starlit skies, and dynamic lake activities. 
             </motion.p>
 
             {/* Travel Distance Badges */}

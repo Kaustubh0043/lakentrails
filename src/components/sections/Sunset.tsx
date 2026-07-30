@@ -53,7 +53,7 @@ export default function Sunset() {
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.2 }}
           >
-            When the sky catches fire and the lake mirrors the warm colors of dusk, LakeNtrails transforms into a dreamy paradise. It is a moment of pure magic, perfect for quiet reflection, photography, or enjoying high-tea with friends on our sunset decks.
+            When the sky catches fire and the lake mirrors the warm colors of dusk, Lake N Trails Exotic Glamping transforms into a dreamy paradise. It is a moment of pure magic, perfect for quiet reflection, photography, or enjoying high-tea with friends on our sunset decks.
           </motion.p>
         </div>
 

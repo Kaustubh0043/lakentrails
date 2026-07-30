@@ -438,7 +438,7 @@ export default function BookingModal({ isOpen, onClose, defaultExperience = "day
       rateDetailsText = `• Rates (${pricing.isWeekend ? "Weekend" : "Weekday"}):\n  ${parts.join("\n  ")}`;
     }
 
-    const text = `*New Booking Enquiry for LakeNtrails*
+    const text = `*New Booking Enquiry for Lake N Trails*
 -------------------------------
 *Name:* ${formData.name}
 *Email:* ${formData.email}
@@ -486,7 +486,7 @@ _Submitted via website booking request._`;
     }
 
     const subject = `Booking Inquiry: ${formData.name} - ${pricing.packageName}`;
-    const body = `Hi LakeNtrails Team,
+    const body = `Hi Lake N Trails Team,
 
 I would like to inquire about a booking:
 
@@ -558,7 +558,7 @@ ${formData.name}`;
                 Begin Your <span className="text-sunset">Lakeside Escape</span>
               </h2>
               <p className="text-xs text-sand/60 font-sans tracking-wider uppercase border-b border-sand/10 pb-4">
-                Reserve your custom luxury experience at LakeNtrails
+                Reserve your custom luxury experience at Lake N Trails Exotic Glamping
               </p>
             </div>
 
@@ -1210,7 +1210,7 @@ ${formData.name}`;
                     </div>
                     <div>
                       <h4 className="text-[10px] uppercase tracking-widest text-sunset font-semibold mb-1">Pet Policy</h4>
-                      <p>LakeNtrails is pet-friendly! Please inform us in advance if you are traveling with pets. Guests are responsible for cleaning up after their pets and ensuring they do not disturb other guests.</p>
+                      <p>Lake N Trails Exotic Glamping is pet-friendly! Please inform us in advance if you are traveling with pets. Guests are responsible for cleaning up after their pets and ensuring they do not disturb other guests.</p>
                     </div>
                      <div>
                       <h4 className="text-[10px] uppercase tracking-widest text-sunset font-semibold mb-1">Child Policy & Holidays</h4>

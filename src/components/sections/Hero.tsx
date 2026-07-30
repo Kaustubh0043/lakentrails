@@ -56,7 +56,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
               <source src="/images/IMG_8361.MOV" type="video/quicktime" />
               <source src="/images/IMG_8361.MOV" type="video/mp4" />
               <img 
-                src="/images/resort_background_hd_widescreen_v6.webp" 
+                src="/images/resort_background_hd_4k.jpg" 
                 className="w-full h-full object-cover opacity-80" 
                 alt="Resort background fallback" 
               />
@@ -65,7 +65,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
             <div 
               className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-80"
               style={{
-                backgroundImage: "url('/images/resort_background_hd_widescreen_v6.webp')",
+                backgroundImage: "url('/images/resort_background_hd_4k.jpg')",
               }}
             />
           )}
@@ -99,12 +99,15 @@ export default function Hero({ onOpenBooking }: HeroProps) {
         {/* Big Luxury Serif Title */}
         <div className="overflow-hidden mb-4">
           <motion.h1
-            className="text-6xl sm:text-7xl md:text-9xl font-serif font-light text-white tracking-wider leading-[0.95]"
+            className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-serif font-light text-white tracking-wider leading-[0.95] flex flex-col items-center gap-2"
             initial={{ y: "100%", opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] as const, delay: 1.4 }}
           >
-            LakeNtrails
+            <span>Lake N Trails</span>
+            <span className="text-glow-sunset italic font-normal text-sunset text-2xl sm:text-3xl md:text-5xl lg:text-6xl tracking-wide mt-2 font-serif">
+              Exotic Glamping
+            </span>
           </motion.h1>
         </div>
 

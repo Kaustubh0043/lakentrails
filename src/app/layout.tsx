@@ -16,11 +16,12 @@ const luxurySans = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "LakeNtrails | Luxury Lakeside Tropical Escape Khopoli",
+  title: "Lake N Trails Exotic Glamping | Luxury Lakeside Tropical Escape Khopoli",
   description:
-    "Experience the ultimate luxury lakeside tropical getaway at LakeNtrails in Khopoli. Featuring premium stays, private pool parties, bonfires under the stars, weddings, events, rain dance, and kayaking in a dreamy Bali-inspired tropical vibe.",
+    "Experience the ultimate luxury lakeside tropical getaway at Lake N Trails Exotic Glamping in Khopoli. Featuring premium stays, private pool parties, bonfires under the stars, weddings, events, rain dance, and kayaking in a dreamy Bali-inspired tropical vibe.",
   keywords: [
-    "LakeNtrails",
+    "Lake N Trails",
+    "Lake N Trails Exotic Glamping",
     "Khopoli resort",
     "lakeside resort",
     "tropical resort Maharashtra",
@@ -31,30 +32,30 @@ export const metadata: Metadata = {
     "kayaking boating Khopoli",
     "Adoshi Dam resort",
   ],
-  authors: [{ name: "LakeNtrails Resort" }],
+  authors: [{ name: "Lake N Trails Exotic Glamping" }],
   openGraph: {
-    title: "LakeNtrails | Luxury Lakeside Tropical Escape",
+    title: "Lake N Trails Exotic Glamping | Luxury Lakeside Tropical Escape",
     description:
       "Your lakeside escape begins here. Immerse yourself in a luxurious tropical Bali vibe with dynamic nightlife, kayaking, pool parties, and stargazing.",
     url: "https://lakentrails.in",
-    siteName: "LakeNtrails",
+    siteName: "Lake N Trails Exotic Glamping",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://lakentrails.in/images/img2_hd.png",
+        url: "https://lakentrails.in/images/resort_background_hd_4k.jpg",
         width: 1200,
         height: 630,
-        alt: "LakeNtrails Luxury Lakeside Escape",
+        alt: "Lake N Trails Exotic Glamping",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "LakeNtrails | Luxury Lakeside Tropical Escape",
+    title: "Lake N Trails Exotic Glamping | Luxury Lakeside Tropical Escape",
     description:
       "Your lakeside escape begins here. Immerse yourself in a luxurious tropical Bali vibe with dynamic nightlife, kayaking, pool parties, and stargazing.",
-    images: ["https://lakentrails.in/images/img2_hd.png"],
+    images: ["https://lakentrails.in/images/resort_background_hd_4k.jpg"],
   },
 };
 

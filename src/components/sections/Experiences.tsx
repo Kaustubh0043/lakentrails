@@ -110,8 +110,8 @@ export default function Experiences({ onOpenBooking }: ExperiencesProps) {
       category: "Golden Hour Magic",
       title: "The Sunset",
       titleAccent: "Experience",
-      description: "When the sky catches fire and the lake mirrors the warm colors of dusk, LakeNtrails transforms into a dreamy paradise. It is a moment of pure magic, perfect for quiet reflection, photography, or enjoying high-tea with friends on our sunset decks.",
-      image: "/images/img2_hd.png", // Sunset image
+      description: "When the sky catches fire and the lake mirrors the warm colors of dusk, Lake N Trails Exotic Glamping transforms into a dreamy paradise. It is a moment of pure magic, perfect for quiet reflection, photography, or enjoying high-tea with friends on our sunset decks.",
+      image: "/images/lakesideview2.jpeg", // Sunset image
       imageLabel: "Daily Sunset Ritual",
       imageDesc: "Gaze at the crimson and gold of the departing sun reflecting on the calm lake reservoir.",
       ctaLabel: "Book Sunset Stay",

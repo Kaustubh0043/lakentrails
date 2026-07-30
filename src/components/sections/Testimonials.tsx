@@ -18,7 +18,7 @@ export default function Testimonials() {
     {
       name: "Rahul Krshirsagar",
       role: "Weekend Traveler",
-      text: "LakeNtrails is an absolute gem. The lakeside camping under the stars combined with the neon pool party in the evening is unmatched. It feels like a high-end luxury resort in Bali, but it's right near Khopoli!",
+      text: "Lake N Trails is an absolute gem. The lakeside camping under the stars combined with the neon pool party in the evening is unmatched. It feels like a high-end luxury resort in Bali, but it's right near Khopoli!",
       rating: 5,
       delay: 0,
       floatDuration: 5,

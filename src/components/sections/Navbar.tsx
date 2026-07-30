@@ -31,6 +31,7 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
     { name: "Packages", href: "#packages" },
     { name: "Gallery", href: "#gallery" },
     { name: "Contact", href: "#contact" },
+    { name: "Brochure", href: "/images/brochure.pdf", isExternal: true },
   ];
 
   return (
@@ -43,10 +44,10 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
         }`}
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <div className="w-full px-6 md:px-12 lg:px-16 flex items-center justify-between">
-          {/* Logo Brand */}
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+          {/* Logo / Branding */}
           <a href="#" className="flex items-center gap-3 group">
             <svg
               viewBox="0 0 100 100"
@@ -69,7 +70,7 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
               />
             </svg>
             <span className="font-serif text-lg tracking-[0.3em] font-light text-white group-hover:text-glow-sunset transition-all duration-500">
-              LAKENTRAILS
+              LAKE N TRAILS
             </span>
           </a>
 
@@ -79,6 +80,8 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
               <a
                 key={link.name}
                 href={link.href}
+                target={link.isExternal ? "_blank" : undefined}
+                rel={link.isExternal ? "noopener noreferrer" : undefined}
                 className="text-xs uppercase tracking-widest text-sand/70 hover:text-sunset transition-colors duration-300 font-sans"
               >
                 {link.name}
@@ -127,6 +130,8 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
                 <motion.a
                   key={link.name}
                   href={link.href}
+                  target={link.isExternal ? "_blank" : undefined}
+                  rel={link.isExternal ? "noopener noreferrer" : undefined}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="font-serif text-2xl font-light uppercase tracking-widest text-white/80 hover:text-sunset transition-all duration-300"
                   initial={{ opacity: 0, y: 15 }}

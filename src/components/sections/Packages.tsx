@@ -43,13 +43,35 @@ export default function Packages({ onOpenBooking }: PackagesProps) {
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
         {/* Logo Banner */}
-        <div className="flex justify-center mb-8">
-          <img 
-            src="/images/logo.png" 
-            alt="Lake N Trails Logo" 
-            loading="lazy"
-            className="w-32 h-32 md:w-40 md:h-40 object-contain drop-shadow-[0_0_15px_rgba(255,107,53,0.15)]"
-          />
+        <div className="flex justify-center mb-10">
+          <div className="flex flex-col items-center gap-3 group">
+            <svg
+              viewBox="0 0 100 100"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-20 h-20 text-sand group-hover:text-sunset transition-colors duration-500 drop-shadow-[0_0_12px_rgba(255,107,53,0.25)]"
+            >
+              <path
+                d="M15 65 C 25 55, 35 55, 45 65 C 55 75, 65 75, 75 65 C 85 55, 90 58, 95 62"
+                stroke="currentColor"
+                strokeWidth="3.5"
+                strokeLinecap="round"
+              />
+              <path
+                d="M50 20 L75 60 H25 L50 20 Z"
+                stroke="#ff6b35"
+                strokeWidth="3"
+                strokeLinejoin="round"
+                strokeLinecap="round"
+              />
+            </svg>
+            <span className="font-serif text-2xl tracking-[0.3em] font-light text-white group-hover:text-glow-sunset transition-all duration-500 uppercase">
+              LAKE N TRAILS
+            </span>
+            <span className="text-[9px] font-sans tracking-[0.4em] font-semibold text-sunset uppercase -mt-1 block">
+              Exotic Glamping
+            </span>
+          </div>
         </div>
 
         {/* Section Header */}
@@ -270,7 +292,7 @@ export default function Packages({ onOpenBooking }: PackagesProps) {
 
         {/* Common Inclusions Footer Banner */}
         <motion.div 
-          className="max-w-5xl mx-auto rounded-2xl glass-panel border border-sand/10 p-8 text-center relative bg-[#030f26]/20 mb-16"
+          className="max-w-5xl mx-auto rounded-2xl glass-panel border border-sand/10 p-8 text-center relative bg-[#030f26]/20 mb-12"
           initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -292,6 +314,52 @@ export default function Packages({ onOpenBooking }: PackagesProps) {
                 <span className="text-xs font-sans text-sand/85 font-medium">{item.label}</span>
               </div>
             ))}
+          </div>
+        </motion.div>
+
+        {/* Digital Brochure Banner Section */}
+        <motion.div 
+          className="max-w-5xl mx-auto rounded-2xl border border-sunset/20 p-8 md:p-12 text-center relative bg-gradient-to-r from-sunset/5 via-transparent to-sunset/5 overflow-hidden mb-16 shadow-xl shadow-sunset/5"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          {/* Subtle glow background element */}
+          <div className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full bg-sunset/10 blur-3xl pointer-events-none" />
+          <div className="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-sunset/10 blur-3xl pointer-events-none" />
+
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 text-left">
+            <div className="max-w-xl">
+              <span className="text-[10px] font-sans uppercase tracking-[0.3em] text-sunset font-semibold mb-3 block">
+                Digital Brochure
+              </span>
+              <h3 className="text-2xl md:text-3xl font-serif font-light text-white mb-4 uppercase tracking-wider">
+                Download Our Complete Guide
+              </h3>
+              <p className="text-sand/80 text-xs md:text-sm font-sans leading-relaxed">
+                Planning a corporate getaway, an exotic destination wedding, or a weekend group stay? Get all details about Lake N Trails Exotic Glamping in a handy PDF. Features amenities, package inclusions, and custom event menus.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+              <a 
+                href="/images/brochure.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3.5 rounded-full border border-sand/30 hover:border-sunset text-white hover:text-sunset text-[10px] font-sans uppercase tracking-[0.2em] font-medium transition-all duration-300 flex items-center justify-center gap-2 bg-[#030a16]/40 cursor-pointer shadow-lg hover:shadow-sunset/10"
+              >
+                <Eye className="w-4 h-4" />
+                <span>View Online</span>
+              </a>
+              <a 
+                href="/images/brochure.pdf"
+                download="Lake_N_Trails_Exotic_Glamping_Brochure.pdf"
+                className="px-6 py-3.5 rounded-full bg-sunset hover:bg-[#fd5e53] text-white text-[10px] font-sans uppercase tracking-[0.2em] font-medium transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-sunset/15 hover:shadow-sunset/25 hover:-translate-y-0.5"
+              >
+                <Download className="w-4 h-4" />
+                <span>Download PDF</span>
+              </a>
+            </div>
           </div>
         </motion.div>
 

@@ -62,7 +62,7 @@ export default function Weddings({ onOpenBooking }: WeddingsProps) {
               <span className="text-glow-sunset italic font-normal text-sunset">& Elite Celebrations</span>
             </h2>
             <p className="text-sand/80 text-sm md:text-base font-sans leading-relaxed mb-8 max-w-xl">
-              From fairy-tale lakeside vows to high-energy corporate galas, LakeNtrails provides the perfect blend of natural beauty and top-tier hospitality. Our expansive lawn accommodates grand outdoor weddings, pre-wedding photography sessions, corporate retreats, team building outings, and custom event structures designed to leave a lasting impression.
+              From fairy-tale lakeside vows to high-energy corporate galas, Lake N Trails Exotic Glamping provides the perfect blend of natural beauty and top-tier hospitality. Our expansive lawn accommodates grand outdoor weddings, pre-wedding photography sessions, corporate retreats, team building outings, and custom event structures designed to leave a lasting impression.
             </p>
 
             {/* List details */}

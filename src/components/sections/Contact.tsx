@@ -27,7 +27,7 @@ export default function Contact() {
   };
 
   const handleWhatsAppChat = () => {
-    const text = `Hi LakeNtrails team, I am interested in booking/getting details about your resort. My name is [Your Name].`;
+    const text = `Hi Lake N Trails team, I am interested in booking/getting details about your resort. My name is [Your Name].`;
     window.open(`https://wa.me/917058434645?text=${encodeURIComponent(text)}`, "_blank");
   };
 
@@ -224,7 +224,7 @@ export default function Contact() {
             style={{ border: 0, filter: "invert(90%) hue-rotate(180deg) brightness(95%) contrast(90%) opacity(0.85)" }}
             allowFullScreen={false}
             loading="lazy"
-            title="LakeNtrails Location Map - Adoshi Dam"
+            title="Lake N Trails Location Map - Adoshi Dam"
           ></iframe>
           
           {/* Overlay Map Badge */}
