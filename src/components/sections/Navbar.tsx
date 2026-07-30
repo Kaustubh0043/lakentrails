@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, X, Bell } from "lucide-react";
+import { Menu, X, Bell, Sun, Moon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface NavbarProps {
@@ -12,6 +12,24 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
+
+  useEffect(() => {
+    const active = document.documentElement.classList.contains("light") ? "light" : "dark";
+    setTheme(active);
+  }, []);
+
+  const toggleTheme = () => {
+    const next = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    if (next === "light") {
+      document.documentElement.classList.add("light");
+      localStorage.setItem("theme", "light");
+    } else {
+      document.documentElement.classList.remove("light");
+      localStorage.setItem("theme", "dark");
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -151,6 +169,15 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
           {/* CTA & Notification Bell (Desktop) */}
           <div className="hidden lg:flex items-center gap-4 relative">
             
+            {/* Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              className="p-2.5 rounded-full border border-sand/15 text-sand hover:text-sunset hover:border-sunset/50 transition-all cursor-pointer bg-white/5 hover:bg-white/10 relative"
+              aria-label="Toggle Theme Mode"
+            >
+              {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            </button>
+
             {/* Bell Icon */}
             <div className="relative">
               <button
@@ -255,6 +282,15 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
                 )}
               </AnimatePresence>
             </div>
+
+            {/* Mobile Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 mr-1 text-white hover:text-sunset transition-colors cursor-pointer"
+              aria-label="Toggle Theme Mode"
+            >
+              {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </button>
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

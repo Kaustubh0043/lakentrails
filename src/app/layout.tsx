@@ -70,6 +70,24 @@ export default function RootLayout({
       lang="en"
       className={`${luxurySerif.variable} ${luxurySans.variable} scroll-smooth`}
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const saved = localStorage.getItem('theme');
+                  if (saved === 'light') {
+                    document.documentElement.classList.add('light');
+                  } else {
+                    document.documentElement.classList.remove('light');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
       <body className="font-sans antialiased bg-[#030a16] text-[#fcfbf7] selection:bg-sunset selection:text-white">
         {children}
         <Analytics />

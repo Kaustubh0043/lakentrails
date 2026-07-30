@@ -28,7 +28,9 @@ import {
   X, 
   Check, 
   ShieldAlert,
-  Star
+  Star,
+  Sun,
+  Moon
 } from "lucide-react";
 
 // Booking Form & Logic
@@ -1486,6 +1488,25 @@ ${formData.name}`;
 
 // Suspense-wrapped Page Export
 export default function BookingPage() {
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
+
+  useEffect(() => {
+    const active = document.documentElement.classList.contains("light") ? "light" : "dark";
+    setTheme(active);
+  }, []);
+
+  const toggleTheme = () => {
+    const next = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    if (next === "light") {
+      document.documentElement.classList.add("light");
+      localStorage.setItem("theme", "light");
+    } else {
+      document.documentElement.classList.remove("light");
+      localStorage.setItem("theme", "dark");
+    }
+  };
+
   return (
     <div className="bg-[#030a16] text-[#fcfbf7] min-h-screen relative overflow-hidden">
       
@@ -1524,9 +1545,18 @@ export default function BookingPage() {
               Lake N Trails
             </span>
           </Link>
-          <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-sand/40">
-            Booking Portal
-          </span>
+          <div className="flex items-center gap-4">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full border border-sand/15 text-sand hover:text-sunset hover:border-sunset/50 transition-all cursor-pointer bg-white/5 hover:bg-white/10"
+              aria-label="Toggle Theme Mode"
+            >
+              {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            </button>
+            <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-sand/40">
+              Booking Portal
+            </span>
+          </div>
         </div>
       </header>
 

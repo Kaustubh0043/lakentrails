@@ -17,6 +17,7 @@ import Packages from "@/components/sections/Packages";
 import Gallery from "@/components/sections/Gallery";
 import Testimonials from "@/components/sections/Testimonials";
 import EventShowcase from "@/components/sections/EventShowcase";
+import PremiumAdditions from "@/components/sections/PremiumAdditions";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
 
@@ -80,6 +81,9 @@ export default function Home() {
             <Testimonials />
             
             <EventShowcase onOpenBooking={() => openBooking("camping")} />
+
+            {/* Premium Additions: Checklist, Weather, Attractions & 360 Tour */}
+            <PremiumAdditions />
             
             <Contact />
           </main>
