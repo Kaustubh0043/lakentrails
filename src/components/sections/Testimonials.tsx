@@ -199,9 +199,9 @@ export default function Testimonials() {
                           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <h4 className="text-lg font-serif font-light text-white uppercase tracking-wide">Submission Received!</h4>
-                      <p className="text-xs text-sand/75 max-w-xs leading-relaxed">
-                        Thank you for sharing your experience. Your review has been submitted for moderation and will be live once approved.
+                      <h4 className="text-lg font-serif font-light text-white uppercase tracking-wide">Thank You!</h4>
+                      <p className="text-xs text-sand/75 max-w-xs leading-relaxed font-serif italic text-glow-sunset">
+                        Thank you for your valuable feedback!
                       </p>
                     </motion.div>
                   ) : (
