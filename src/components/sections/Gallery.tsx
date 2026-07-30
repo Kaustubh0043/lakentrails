@@ -233,7 +233,7 @@ export default function Gallery() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.5 }}
-                className={`${item.colSpan || "md:col-span-1"} ${item.rowSpan || "h-[300px]"} rounded-2xl overflow-hidden glass-panel border border-sand/15 relative group cursor-pointer`}
+                className="md:col-span-1 h-[300px] md:h-[350px] rounded-2xl overflow-hidden glass-panel border border-sand/15 relative group cursor-pointer"
                 onClick={() => setActiveIdx(idx)}
               >
                 {/* Media Element */}
