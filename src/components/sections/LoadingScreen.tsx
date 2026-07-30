@@ -7,9 +7,19 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
   const [progress, setProgress] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [bypassed, setBypassed] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+    
+    if (typeof window !== "undefined") {
+      const hasSeen = sessionStorage.getItem("hasSeenLoading");
+      if (hasSeen === "true") {
+        setBypassed(true);
+        onComplete();
+        return;
+      }
+    }
     
     const timer = setInterval(() => {
       setProgress((prev) => {
@@ -31,7 +41,7 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
   }, [onComplete]);
 
   // Prevent hydration mismatch by returning null during server prerendering
-  if (!mounted) return null;
+  if (!mounted || bypassed) return null;
 
   return (
     <AnimatePresence>

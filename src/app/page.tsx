@@ -25,12 +25,15 @@ import Footer from "@/components/sections/Footer";
 export default function Home() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
+  const [showLoader, setShowLoader] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       const hasSeen = sessionStorage.getItem("hasSeenLoading");
       if (hasSeen === "true") {
         setIsLoading(false);
+      } else {
+        setShowLoader(true);
       }
     }
   }, []);
@@ -69,46 +72,46 @@ export default function Home() {
 
   return (
     <>
-      <LoadingScreen onComplete={handleLoadingComplete} />
-
-      {!isLoading && (
-        <div className="relative min-h-screen bg-[#030a16] text-[#fcfbf7] overflow-x-hidden selection:bg-sunset selection:text-white">
-          {/* Custom Animated Mouse Cursor */}
-          <CustomCursor />
-
-          {/* Persistent Ambient Sound Controller */}
-          <BackgroundAudio />
-
-          {/* Background styled with modern CSS ambient glows */}
-
-          {/* Header Navigation */}
-          <Navbar onOpenBooking={() => openBooking("camping")} />
-
-          {/* Main Storyteller Layout */}
-          <main className="relative z-10 w-full">
-            <Hero onOpenBooking={() => openBooking("camping")} />
-            
-            <About />
-            <Experiences onOpenBooking={openBooking} />
-            
-            <Packages onOpenBooking={openBooking} />
-            
-            <Gallery />
-            
-            <Testimonials />
-            
-            <EventShowcase onOpenBooking={() => openBooking("camping")} />
-
-            {/* Premium Additions: Checklist, Weather, Attractions & 360 Tour */}
-            <PremiumAdditions />
-            
-            <Contact />
-          </main>
-
-          {/* Footer */}
-          <Footer />
-        </div>
+      {isLoading && (
+        <LoadingScreen onComplete={handleLoadingComplete} />
       )}
+
+      <div className="relative min-h-screen bg-[#030a16] text-[#fcfbf7] overflow-x-hidden selection:bg-sunset selection:text-white">
+        {/* Custom Animated Mouse Cursor */}
+        <CustomCursor />
+
+        {/* Persistent Ambient Sound Controller */}
+        <BackgroundAudio />
+
+        {/* Background styled with modern CSS ambient glows */}
+
+        {/* Header Navigation */}
+        <Navbar onOpenBooking={() => openBooking("camping")} />
+
+        {/* Main Storyteller Layout */}
+        <main className="relative z-10 w-full">
+          <Hero onOpenBooking={() => openBooking("camping")} />
+          
+          <About />
+          <Experiences onOpenBooking={openBooking} />
+          
+          <Packages onOpenBooking={openBooking} />
+          
+          <Gallery />
+          
+          <Testimonials />
+          
+          <EventShowcase onOpenBooking={() => openBooking("camping")} />
+
+          {/* Premium Additions: Checklist, Weather, Attractions & 360 Tour */}
+          <PremiumAdditions />
+          
+          <Contact />
+        </main>
+
+        {/* Footer */}
+        <Footer />
+      </div>
     </>
   );
 }

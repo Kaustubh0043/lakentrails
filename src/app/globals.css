@@ -193,66 +193,55 @@ html.light body {
   color: #020c1b !important;
 }
 
-html.light .bg-\[\#030a16\] {
+/* Base structural tags background override */
+html.light section,
+html.light main,
+html.light [class*="bg-[#030a16]"] {
   background-color: #fcfbf7 !important;
 }
 
-html.light .bg-\[\#020612\] {
+/* Secondary alternate sections for design contrast */
+html.light section#testimonials,
+html.light section#dining,
+html.light section#weddings,
+html.light footer,
+html.light [class*="bg-[#020612]"] {
   background-color: #f2ede4 !important;
 }
 
-html.light .bg-\[\#030f26\]\/40,
-html.light .bg-\[\#030f26\]\/30,
-html.light .bg-\[\#030f26\]\/20,
-html.light .bg-\[\#030f26\]\/10,
-html.light .bg-\[\#030f26\] {
-  background-color: rgba(255, 255, 255, 0.9) !important;
+/* Navbars, headers, and floating widgets */
+html.light nav,
+html.light header,
+html.light [class*="bg-[#030a16]/40"],
+html.light [class*="bg-[#080e1a]"] {
+  background-color: rgba(252, 251, 247, 0.9) !important;
   border-color: rgba(59, 44, 22, 0.15) !important;
 }
 
-html.light .bg-\[\#080e1a\]\/95 {
-  background-color: rgba(255, 255, 255, 0.96) !important;
-  border-color: rgba(59, 44, 22, 0.15) !important;
-}
-
+/* Cards & panels override using class wildcard attribute matching */
 html.light .glass-panel,
-html.light .glass-panel-dark {
-  background: rgba(255, 255, 255, 0.75) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  border-color: rgba(59, 44, 22, 0.12) !important;
+html.light .glass-panel-dark,
+html.light [class*="bg-[#030f26]"] {
+  background-color: #ffffff !important;
+  border-color: rgba(59, 44, 22, 0.15) !important;
   box-shadow: 0 8px 32px 0 rgba(59, 44, 22, 0.08) !important;
 }
 
-html.light .glass-nav {
-  background: rgba(252, 251, 247, 0.85) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  border-bottom: 1px solid rgba(59, 44, 22, 0.08) !important;
-}
-
-html.light .glass-button {
-  background: rgba(0, 0, 0, 0.02) !important;
-  border-color: rgba(59, 44, 22, 0.2) !important;
-}
-
-html.light .glass-button:hover {
-  background: rgba(255, 107, 53, 0.08) !important;
-}
-
-html.light text-white,
-html.light .text-white,
+/* Text overrides preserving color accents */
 html.light h1,
 html.light h2,
 html.light h3,
 html.light h4,
 html.light h5,
 html.light h6,
-html.light .font-serif,
-html.light .text-\[\#fcfbf7\] {
+html.light p,
+html.light li,
+html.light span:not(.text-sunset):not(.text-glow-sunset):not(.text-luxury-teal):not(.text-emerald-400),
+html.light a:not(.text-sunset):not(.text-glow-sunset) {
   color: #020c1b !important;
 }
 
+/* Subtle secondary texts */
 html.light .text-sand\/80,
 html.light .text-sand\/70,
 html.light .text-sand\/65,
@@ -268,11 +257,12 @@ html.light .text-glow-sunset {
   color: #ff6b35 !important;
 }
 
+/* Input fields overrides */
 html.light input,
 html.light select,
 html.light textarea {
   color: #020c1b !important;
-  background-color: rgba(255, 255, 255, 0.95) !important;
+  background-color: #ffffff !important;
   border-color: rgba(59, 44, 22, 0.25) !important;
 }
 
@@ -281,6 +271,7 @@ html.light textarea::placeholder {
   color: rgba(2, 12, 27, 0.45) !important;
 }
 
+/* Borders adjustment */
 html.light .border-sand\/15,
 html.light .border-sand\/10,
 html.light .border-sand\/5 {
