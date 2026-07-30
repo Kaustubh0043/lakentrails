@@ -25,6 +25,16 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleBannerClick = () => {
+    const gallerySection = document.getElementById("gallery");
+    if (gallerySection) {
+      gallerySection.scrollIntoView({ behavior: "smooth" });
+      setTimeout(() => {
+        window.dispatchEvent(new CustomEvent("filter-gallery", { detail: "Riders Special" }));
+      }, 100);
+    }
+  };
+
   const navLinks = [
     { name: "About", href: "#about" },
     { name: "Experiences", href: "#experiences" },
@@ -48,10 +58,10 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
       >
         {/* Top Promo Banner */}
         <div 
-          onClick={onOpenBooking}
+          onClick={handleBannerClick}
           className="w-full bg-gradient-to-r from-sunset via-[#fd5e53] to-orange-600 text-[#fcfbf7] py-2.5 px-4 text-center text-[9px] md:text-[10px] tracking-[0.2em] uppercase font-sans font-semibold border-b border-white/10 flex items-center justify-center gap-2 cursor-pointer hover:opacity-95 transition-all duration-300"
         >
-          <span>🏍️ Rider's Special Pitstop & Glamping Package — Click to book your route! 🏍️</span>
+          <span>🏍️ Rider's Special Pitstop & Glamping Package — Click to see snaps and videos! 🏍️</span>
         </div>
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center py-4">

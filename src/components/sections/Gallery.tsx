@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Maximize2, ChevronLeft, ChevronRight, Play } from "lucide-react";
 
@@ -1581,8 +1581,21 @@ export default function Gallery() {
     "Lakeside View",
     "Sunset Experience",
     "Dining & BBQ",
+    "Riders Special",
     "Resort Lifestyle",
   ];
+
+  // Listen for global custom events to change filter categories dynamically (e.g. from the top banner)
+  useEffect(() => {
+    const handleFilterEvent = (e: Event) => {
+      const customEvent = e as CustomEvent<string>;
+      if (customEvent.detail) {
+        setActiveCategory(customEvent.detail);
+      }
+    };
+    window.addEventListener("filter-gallery", handleFilterEvent);
+    return () => window.removeEventListener("filter-gallery", handleFilterEvent);
+  }, []);
 
   // Apply filters
   const filteredItems = galleryItems.filter((item) => {
