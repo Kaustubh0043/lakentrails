@@ -135,7 +135,7 @@ export default function Experiences({ onOpenBooking }: ExperiencesProps) {
       title: "Breakfast Ride for",
       titleAccent: "Passionate Riders",
       description: "Gear up for a scenic morning cruise along the winding roads to Adoshi Dam. Every weekend, we host a special Complimentary Breakfast Ride for riding groups and solo motor enthusiasts. Park your bikes in our dedicated secure spaces, stretch out on our lakeside lawns, and enjoy a piping-hot, hearty complimentary breakfast with fellow riders overlooking the calm reservoir.",
-      image: "/images/20260719_123000.jpg.jpeg", // Rider image
+      image: "/images/Rider's Special/20260719_122956.jpg", // Rider image
       imageLabel: "Lakeside Riding Destination",
       imageDesc: "Connect with the community, park along the scenic lawns, and recharge with a hearty breakfast.",
       ctaLabel: "Register for Ride",
