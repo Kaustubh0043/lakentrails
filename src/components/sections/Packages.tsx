@@ -122,8 +122,8 @@ export default function Packages({ onOpenBooking }: PackagesProps) {
               </div>
 
               {/* Pricing Breakdown Grid */}
-              <div className="grid grid-cols-2 gap-4 bg-[#030f26]/40 border border-sand/10 rounded-xl p-4 mb-6 text-xs text-sand/80">
-                <div className="border-r border-sand/10 pr-2">
+              <div className="grid grid-cols-1 xs:grid-cols-2 gap-4 bg-[#030f26]/40 border border-sand/10 rounded-xl p-4 mb-6 text-xs text-sand/80 divide-y xs:divide-y-0 xs:divide-x divide-sand/10">
+                <div className="pb-3 xs:pb-0 xs:pr-3">
                   <span className="text-[10px] uppercase tracking-wider text-pink-400 font-semibold block mb-1">Weekdays</span>
                   <div className="space-y-1">
                     <div className="flex justify-between"><span>Adult:</span><span className="text-white font-medium">₹1,300</span></div>
@@ -131,7 +131,7 @@ export default function Packages({ onOpenBooking }: PackagesProps) {
                     <div className="flex justify-between"><span>Under 5:</span><span className="text-emerald-400 font-medium">Complimentary</span></div>
                   </div>
                 </div>
-                <div className="pl-2">
+                <div className="pt-3 xs:pt-0 xs:pl-3">
                   <span className="text-[10px] uppercase tracking-wider text-pink-400 font-semibold block mb-1">Weekends</span>
                   <div className="space-y-1">
                     <div className="flex justify-between"><span>Adult:</span><span className="text-white font-medium">₹1,600</span></div>
@@ -221,8 +221,8 @@ export default function Packages({ onOpenBooking }: PackagesProps) {
               </div>
 
               {/* Pricing Breakdown Grid */}
-              <div className="grid grid-cols-2 gap-4 bg-[#030f26]/40 border border-sand/10 rounded-xl p-4 mb-6 text-xs text-sand/80">
-                <div className="border-r border-sand/10 pr-2">
+              <div className="grid grid-cols-1 xs:grid-cols-2 gap-4 bg-[#030f26]/40 border border-sand/10 rounded-xl p-4 mb-6 text-xs text-sand/80 divide-y xs:divide-y-0 xs:divide-x divide-sand/10">
+                <div className="pb-3 xs:pb-0 xs:pr-3">
                   <span className="text-[10px] uppercase tracking-wider text-blue-400 font-semibold block mb-1">Weekdays</span>
                   <div className="space-y-1">
                     <div className="flex justify-between"><span>Adult:</span><span className="text-white font-medium">₹2,200</span></div>
@@ -230,7 +230,7 @@ export default function Packages({ onOpenBooking }: PackagesProps) {
                     <div className="flex justify-between"><span>Under 5:</span><span className="text-emerald-400 font-medium">Complimentary</span></div>
                   </div>
                 </div>
-                <div className="pl-2">
+                <div className="pt-3 xs:pt-0 xs:pl-3">
                   <span className="text-[10px] uppercase tracking-wider text-blue-400 font-semibold block mb-1">Weekends</span>
                   <div className="space-y-1">
                     <div className="flex justify-between"><span>Adult:</span><span className="text-white font-medium">₹2,800</span></div>

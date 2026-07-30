@@ -1,7 +1,8 @@
 "use client";
 
 import { Suspense, useState, useEffect, useRef } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import CustomCursor from "@/components/CustomCursor";
 import { 
@@ -33,6 +34,7 @@ import {
 // Booking Form & Logic
 function BookingContent() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const rawExperience = searchParams.get("experience") || "camping";
   
   let defaultExp = "stay-package";
@@ -644,7 +646,7 @@ ${formData.name}`;
             if (step === "confirm") {
               setStep("form");
             } else {
-              window.location.href = "/";
+              router.push("/");
             }
           }}
           className="flex items-center gap-2.5 text-xs font-sans uppercase tracking-widest font-semibold text-sand/60 hover:text-sunset transition-colors group cursor-pointer"
@@ -1139,12 +1141,12 @@ ${formData.name}`;
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             
-            {/* Left Column: Checkout Inputs & Agreements */}
-            <div className="lg:col-span-7 space-y-8">
+            {/* Left Column: Checkout Inputs & Price Summary */}
+            <div className="lg:col-span-7 space-y-6">
               
               {/* Trip Selection Details */}
-              <div className="border-b border-sand/10 pb-6 space-y-4">
-                <h3 className="text-lg font-serif font-light text-white uppercase tracking-wider">Your Trip Details</h3>
+              <div className="bg-[#030f26]/40 border border-sand/15 rounded-2xl p-6 md:p-8 space-y-4 shadow-2xl">
+                <h3 className="text-lg font-serif font-light text-white uppercase tracking-wider border-b border-sand/10 pb-3">Your Trip Details</h3>
                 
                 <div className="space-y-4 text-xs font-sans">
                   
@@ -1182,8 +1184,8 @@ ${formData.name}`;
               </div>
 
               {/* Personal Info summary */}
-              <div className="border-b border-sand/10 pb-6 space-y-4 font-sans text-xs">
-                <h3 className="text-lg font-serif font-light text-white uppercase tracking-wider">Contact Information</h3>
+              <div className="bg-[#030f26]/40 border border-sand/15 rounded-2xl p-6 md:p-8 space-y-4 shadow-2xl font-sans text-xs">
+                <h3 className="text-lg font-serif font-light text-white uppercase tracking-wider border-b border-sand/10 pb-3">Contact Information</h3>
                 <div className="space-y-3.5 text-sand/60">
                   <div className="flex flex-wrap justify-between items-center py-2 border-b border-sand/5">
                     <span className="text-[9px] uppercase tracking-widest text-sand/40 font-bold">Guest Name</span>
@@ -1206,66 +1208,11 @@ ${formData.name}`;
                 )}
               </div>
 
-              {/* Booking Process info note */}
-              <div className="border-b border-sand/10 pb-6 space-y-3 font-sans text-xs">
-                <h3 className="text-lg font-serif font-light text-white uppercase tracking-wider">Booking Process</h3>
-                <p className="text-sand/60 leading-relaxed">
-                  Your enquiry will be sent directly to our reservation desk. Once dates are verified, our booking team will contact you via WhatsApp/Email to confirm slot availability and assist with the booking confirmation.
-                </p>
-              </div>
-
-              {/* Policy Consent Agreement Checkbox */}
-              <div className="flex items-start gap-3 text-xs font-sans text-sand/60 leading-relaxed">
-                <input
-                  type="checkbox"
-                  id="agreeTerms"
-                  checked={isAgreedToTerms}
-                  onChange={(e) => setIsAgreedToTerms(e.target.checked)}
-                  className="w-4.5 h-4.5 text-sunset focus:ring-sunset border-sand/20 rounded bg-[#030f26] cursor-pointer accent-sunset mt-0.5"
-                />
-                <label htmlFor="agreeTerms" className="cursor-pointer select-none">
-                  By checking this box, I agree to the{" "}
-                  <span 
-                    onClick={() => setIsPoliciesModalOpen(true)}
-                    className="text-white underline font-semibold cursor-pointer hover:text-sunset transition-colors"
-                  >
-                    booking terms & policies
-                  </span>
-                  , veg/non-veg kitchen split rules, and mandatory safety guidelines (wearing life jackets during lake sports).
-                </label>
-              </div>
-
-              {/* Submit Buttons */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
-                <button
-                  type="submit"
-                  onClick={handleWhatsAppSubmit}
-                  className="w-full py-4.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-sans uppercase tracking-widest font-bold text-xs transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-emerald-600/25"
-                >
-                  Confirm & Pay (WhatsApp)
-                </button>
-                <button
-                  type="submit"
-                  onClick={handleEmailSubmit}
-                  className="w-full py-4.5 rounded-xl bg-sunset hover:bg-[#fd5e53] text-white font-sans uppercase tracking-widest font-bold text-xs transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-sunset/20"
-                >
-                  Confirm & Pay (Email)
-                </button>
-              </div>
-              
-              <p className="text-[10px] text-sand/40 font-sans text-center">
-                * Note: Your slot is locked instantly upon submission of this payment request.
-              </p>
-
-            </div>
-
-            {/* Right Column: Calculations & Combined Policies */}
-            <div className="lg:col-span-5 space-y-6">
-              
+              {/* STAY INFO AND PRICING DETAILS CARD (MOVED HERE TO SHOW FIRST!) */}
               {(() => {
                 const pricing = calculatePricing();
                 return (
-                  <div className="bg-[#030f26]/40 border border-sand/15 rounded-2xl p-6 md:p-8 space-y-6 shadow-2xl">
+                  <div className="bg-[#030f26]/40 border border-sand/15 rounded-2xl p-6 md:p-8 space-y-6 shadow-2xl text-xs font-sans text-left">
                     
                     {/* Stay Info Card */}
                     <div className="flex gap-4 items-center border-b border-sand/10 pb-5">
@@ -1285,7 +1232,7 @@ ${formData.name}`;
                     </div>
 
                     {/* Price Details */}
-                    <div className="space-y-4 font-sans text-xs">
+                    <div className="space-y-4">
                       <h4 className="text-xs font-serif font-bold uppercase tracking-wider text-white">Price Details</h4>
                       
                       {guestCounts.isLargeEvent ? (
@@ -1329,27 +1276,88 @@ ${formData.name}`;
                       )}
                     </div>
 
-                    {/* Combined old & new policies list */}
-                    <div className="border-t border-sand/15 pt-5 space-y-3">
-                      <h4 className="text-[10px] font-bold uppercase tracking-wider text-sunset flex items-center gap-1.5">
-                        <ShieldAlert className="w-3.5 h-3.5" /> Resort Policies
-                      </h4>
-                      <ul className="text-[10px] text-sand/50 space-y-2 font-sans leading-relaxed list-disc pl-4">
-                        <li>Complimentary cancellation up to 7 days before check-in.</li>
-                        <li>Cancellation is non-refundable within 7 days of stay.</li>
-                        <li>Refund terms are different during long weekends & holiday periods.</li>
-                        <li>Check-in: 3:00 PM | Check-out: 11:00 AM next day (overnight stays).</li>
-                        <li>Strict segregation of Veg & Non-Veg kitchens.</li>
-                        <li>NO Palm Oil used in any meals prepared.</li>
-                        <li>Mandatory life jacket rules for kayaking & lake sports.</li>
-                        <li>Infinity pool access hours: 4:00 PM - 9:00 PM.</li>
-                        <li>Safe, secured parking space inside premises.</li>
-                      </ul>
-                    </div>
-
                   </div>
                 );
               })()}
+
+            </div>
+
+            {/* Right Column: Resort Policies & Consent Action (MODIFIED TO BE AT THE BOTTOM!) */}
+            <div className="lg:col-span-5 space-y-6">
+              
+              {/* Dedicated Resort Policies Card */}
+              <div className="bg-[#030f26]/40 border border-sand/15 rounded-2xl p-6 md:p-8 space-y-4 shadow-2xl">
+                <h4 className="text-xs font-serif font-bold uppercase tracking-wider text-sunset flex items-center gap-1.5 border-b border-sand/10 pb-3">
+                  <ShieldAlert className="w-4 h-4" /> Resort Policies
+                </h4>
+                <ul className="text-[10px] text-sand/50 space-y-2.5 font-sans leading-relaxed list-disc pl-4">
+                  <li>Complimentary cancellation up to 7 days before check-in.</li>
+                  <li>Cancellation is non-refundable within 7 days of stay.</li>
+                  <li>Refund terms are different during long weekends & holiday periods.</li>
+                  <li>Check-in: 3:00 PM | Check-out: 11:00 AM next day (overnight stays).</li>
+                  <li>Strict segregation of Veg & Non-Veg kitchens.</li>
+                  <li>NO Palm Oil used in any meals prepared.</li>
+                  <li>Mandatory life jacket rules for kayaking & lake sports.</li>
+                  <li>Infinity pool access hours: 4:00 PM - 9:00 PM.</li>
+                  <li>Safe, secured parking space inside premises.</li>
+                </ul>
+              </div>
+
+              {/* Agreement & Submit Actions */}
+              <div className="bg-[#030f26]/40 border border-sand/15 rounded-2xl p-6 md:p-8 space-y-6 shadow-2xl font-sans text-xs">
+                
+                {/* Booking Process info note */}
+                <div className="space-y-2.5 border-b border-sand/10 pb-5">
+                  <h4 className="font-semibold text-white uppercase tracking-wider text-[11px] font-serif">Booking Process</h4>
+                  <p className="text-sand/65 leading-relaxed text-[11px]">
+                    Your enquiry will be sent directly to our reservation desk. Once dates are verified, our booking team will contact you via WhatsApp/Email to confirm slot availability and assist with the booking confirmation.
+                  </p>
+                </div>
+
+                {/* Policy Consent Agreement Checkbox */}
+                <div className="flex items-start gap-3 text-sand/65 leading-relaxed">
+                  <input
+                    type="checkbox"
+                    id="agreeTerms"
+                    checked={isAgreedToTerms}
+                    onChange={(e) => setIsAgreedToTerms(e.target.checked)}
+                    className="w-4.5 h-4.5 text-sunset focus:ring-sunset border-sand/20 rounded bg-[#030f26] cursor-pointer accent-sunset mt-0.5"
+                  />
+                  <label htmlFor="agreeTerms" className="cursor-pointer select-none">
+                    By checking this box, I agree to the{" "}
+                    <span 
+                      onClick={() => setIsPoliciesModalOpen(true)}
+                      className="text-white underline font-semibold cursor-pointer hover:text-sunset transition-colors"
+                    >
+                      booking terms & policies
+                    </span>
+                    , veg/non-veg kitchen split rules, and mandatory safety guidelines (wearing life jackets during lake sports).
+                  </label>
+                </div>
+
+                {/* Submit Buttons */}
+                <div className="space-y-3 pt-2">
+                  <button
+                    type="submit"
+                    onClick={handleWhatsAppSubmit}
+                    className="w-full py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-sans uppercase tracking-widest font-bold text-xs transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-emerald-600/25 h-12"
+                  >
+                    Confirm & Pay (WhatsApp)
+                  </button>
+                  <button
+                    type="submit"
+                    onClick={handleEmailSubmit}
+                    className="w-full py-4 rounded-xl bg-sunset hover:bg-[#fd5e53] text-[#fcfbf7] font-sans uppercase tracking-widest font-bold text-xs transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-sunset/20 h-12"
+                  >
+                    Confirm & Pay (Email)
+                  </button>
+                </div>
+                
+                <p className="text-[9px] text-sand/40 text-center">
+                  * Note: Your slot is locked instantly upon submission of this payment request.
+                </p>
+
+              </div>
 
             </div>
 
@@ -1491,18 +1499,31 @@ export default function BookingPage() {
       {/* Booking Header */}
       <header className="relative z-10 w-full border-b border-sand/5 bg-[#030a16]/40 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-5 flex justify-between items-center">
-          <a href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center gap-3 group">
             <svg
-              className="w-6 h-6 stroke-sunset fill-none group-hover:rotate-6 transition-transform duration-300"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
+              viewBox="0 0 100 100"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-7 h-7 text-sand group-hover:text-sunset transition-colors duration-500 drop-shadow-[0_0_8px_rgba(255,107,53,0.3)]"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9s2.015-9 4.5-9yM3 9h18M3 15h18" />
+              <path
+                d="M15 65 C 25 55, 35 55, 45 65 C 55 75, 65 75, 75 65 C 85 55, 90 58, 95 62"
+                stroke="currentColor"
+                strokeWidth="3.5"
+                strokeLinecap="round"
+              />
+              <path
+                d="M50 20 L75 60 H25 L50 20 Z"
+                stroke="#ff6b35"
+                strokeWidth="3"
+                strokeLinejoin="round"
+                strokeLinecap="round"
+              />
             </svg>
             <span className="text-sm font-serif uppercase tracking-[0.35em] text-[#fcfbf7] font-semibold">
               Lake N Trails
             </span>
-          </a>
+          </Link>
           <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.2em] text-sand/40">
             Booking Portal
           </span>
