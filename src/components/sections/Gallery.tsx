@@ -1576,13 +1576,10 @@ export default function Gallery() {
   // Filtering Categories list
   const categories = [
     "All",
-    "Glamping Dome",
-    "Swimming Pool Vibe",
-    "Lakeside View",
-    "Sunset Experience",
-    "Dining & BBQ",
+    "Photos",
+    "Videos",
     "Riders Special",
-    "Resort Lifestyle",
+    "Dog's Birthday",
   ];
 
   // Listen for global custom events to change filter categories dynamically (e.g. from the top banner)
@@ -1600,6 +1597,8 @@ export default function Gallery() {
   // Apply filters
   const filteredItems = galleryItems.filter((item) => {
     if (activeCategory === "All") return true;
+    if (activeCategory === "Photos") return item.type === "image";
+    if (activeCategory === "Videos") return item.type === "video";
     return item.category === activeCategory;
   });
 

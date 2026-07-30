@@ -12,6 +12,7 @@ import LoadingScreen from "@/components/sections/LoadingScreen";
 import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
+import Amenities from "@/components/sections/Amenities";
 import Experiences from "@/components/sections/Experiences";
 import Packages from "@/components/sections/Packages";
 import Gallery from "@/components/sections/Gallery";
@@ -76,6 +77,8 @@ export default function Home() {
             <Hero onOpenBooking={() => openBooking("camping")} />
             
             <About />
+            
+            <Amenities />
             
             <Experiences onOpenBooking={openBooking} />
             
