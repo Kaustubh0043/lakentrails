@@ -3,6 +3,7 @@
 import { Suspense, useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import CustomCursor from "@/components/CustomCursor";
 import { 
   Calendar, 
   Users, 
@@ -1184,6 +1185,8 @@ ${formData.name}`;
 export default function BookingPage() {
   return (
     <div className="bg-[#030a16] text-[#fcfbf7] min-h-screen relative overflow-hidden">
+      {/* Custom Animated Mouse Cursor */}
+      <CustomCursor />
       
       {/* Background Soft Glows */}
       <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-sunset/5 blur-[150px] pointer-events-none" />
