@@ -293,3 +293,23 @@ html.light .custom-cursor-ring {
 html.light .custom-cursor-dot {
   background-color: #ff6b35 !important;
 }
+
+/* Force elements inside .dark-force containers to stay white/light */
+html.light .dark-force,
+html.light .dark-force h1,
+html.light .dark-force h2,
+html.light .dark-force h3,
+html.light .dark-force h4,
+html.light .dark-force h5,
+html.light .dark-force h6,
+html.light .dark-force p,
+html.light .dark-force span,
+html.light .dark-force div,
+html.light .dark-force svg {
+  color: #ffffff !important;
+}
+
+/* Force mobile menu drawer background to light sand on smartphones */
+html.light .fixed.z-40.lg\:hidden {
+  background-color: rgba(252, 251, 247, 0.98) !important;
+}

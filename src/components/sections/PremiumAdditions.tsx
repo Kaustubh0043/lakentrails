@@ -311,7 +311,7 @@ export default function PremiumAdditions() {
                 </div>
 
                 {/* Coming Soon Showcase */}
-                <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-sand/15 bg-black/40 flex flex-col items-center justify-center p-8 text-center group shadow-lg">
+                <div className="relative w-full aspect-[4/3] sm:aspect-video rounded-xl overflow-hidden border border-sand/15 bg-[#030a16] flex flex-col items-center justify-center p-5 sm:p-8 text-center group shadow-lg dark-force">
                   {/* Blurred Background image for high-end feel */}
                   <img 
                     src="/images/resort_background_hd_4k.jpg" 
@@ -320,14 +320,14 @@ export default function PremiumAdditions() {
                   />
                   <div className="absolute inset-0 bg-[#030a16]/80 backdrop-blur-sm pointer-events-none" />
 
-                  <div className="relative z-10 space-y-4 max-w-sm">
-                    <div className="w-12 h-12 rounded-full border border-sunset/30 bg-sunset/10 flex items-center justify-center text-sunset mx-auto animate-pulse">
-                      <Compass className="w-6 h-6" />
+                  <div className="relative z-10 space-y-3 sm:space-y-4 max-w-sm">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-sunset/30 bg-sunset/10 flex items-center justify-center text-sunset mx-auto animate-pulse">
+                      <Compass className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <div className="space-y-1.5">
-                      <span className="text-[10px] font-sans tracking-[0.3em] text-sunset font-bold uppercase">Coming Soon</span>
-                      <h4 className="text-lg font-serif font-light text-white uppercase tracking-wider">360° Immersive Walkthrough</h4>
-                      <p className="text-[10px] text-sand/50 font-sans leading-relaxed">
+                      <span className="text-[9px] sm:text-[10px] font-sans tracking-[0.3em] text-sunset font-bold uppercase">Coming Soon</span>
+                      <h4 className="text-sm sm:text-lg font-serif font-light text-white uppercase tracking-wider">360° Immersive Walkthrough</h4>
+                      <p className="text-[9px] sm:text-[10px] text-white/70 font-sans leading-relaxed">
                         We are currently capturing our premium geodesic domes, starlit camping decks, and lakeside dining areas in stunning 8K panoramic photography. Stay tuned!
                       </p>
                     </div>

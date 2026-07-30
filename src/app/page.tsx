@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import Lenis from "lenis";
 
 // Components
-import CustomCursor from "@/components/CustomCursor";
 import BackgroundAudio from "@/components/BackgroundAudio";
 
 // Sections
@@ -77,9 +76,6 @@ export default function Home() {
       )}
 
       <div className="relative min-h-screen bg-[#030a16] text-[#fcfbf7] overflow-x-hidden selection:bg-sunset selection:text-white">
-        {/* Custom Animated Mouse Cursor */}
-        <CustomCursor />
-
         {/* Persistent Ambient Sound Controller */}
         <BackgroundAudio />
 

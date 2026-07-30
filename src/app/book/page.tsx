@@ -4,7 +4,6 @@ import { Suspense, useState, useEffect, useRef } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import CustomCursor from "@/components/CustomCursor";
 import { 
   Calendar, 
   Users, 
@@ -1371,118 +1370,108 @@ ${formData.name}`;
       )}
 
       {/* Full Detailed Amenities Modal */}
-      <AnimatePresence>
-        {isAmenitiesModalOpen && (
-          <div className="fixed inset-0 z-[999] flex items-center justify-center p-4">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsAmenitiesModalOpen(false)}
-              className="absolute inset-0 bg-black/85 backdrop-blur-md"
-            />
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 15 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 15 }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="w-full max-w-3xl bg-[#030a16] border border-sand/20 rounded-2xl relative z-10 max-h-[92vh] md:max-h-[85vh] flex flex-col overflow-hidden text-left"
-            >
-              <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-sunset via-orange-500 to-amber-500" />
-              <button
-                onClick={() => setIsAmenitiesModalOpen(false)}
-                className="absolute top-4 right-4 text-sand/65 hover:text-sunset transition-colors p-2 cursor-pointer z-30"
-              >
-                <X className="w-5 h-5" />
-              </button>
-              <div className="p-6 pb-4 border-b border-sand/10 flex-shrink-0">
-                <h3 className="text-xl md:text-2xl font-serif font-light text-white uppercase tracking-wider">
-                  What this place <span className="text-sunset italic font-normal">Offers</span>
-                </h3>
-                <p className="text-[10px] text-sand/40 font-sans uppercase tracking-widest mt-1">
-                  Full amenities list & terms as per official brochure
-                </p>
-              </div>
-              <div className="p-6 overflow-y-auto flex-1 space-y-8 pr-4 scrollbar-thin scrollbar-thumb-sand/20">
-                {detailedAmenities.map((group, groupIdx) => (
-                  <div key={groupIdx} className="space-y-3.5">
-                    <h4 className="text-xs font-sans font-bold uppercase tracking-wider text-sunset border-b border-sand/5 pb-1">
-                      {group.category}
-                    </h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-                      {group.items.map((item, itemIdx) => (
-                        <div key={itemIdx} className="flex gap-2.5 items-start">
-                          <Check className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
-                          <span className="text-xs text-sand/80 font-sans leading-relaxed">
-                            {item}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+      <div 
+        className={`fixed inset-0 z-[999] flex items-center justify-center p-4 transition-all duration-300 ${
+          isAmenitiesModalOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <div
+          onClick={() => setIsAmenitiesModalOpen(false)}
+          className="absolute inset-0 bg-black/85 backdrop-blur-md"
+        />
+        <div
+          className={`w-full max-w-3xl bg-[#030a16] border border-sand/20 rounded-2xl relative z-10 max-h-[92vh] md:max-h-[85vh] flex flex-col overflow-hidden text-left transition-all duration-300 transform ${
+            isAmenitiesModalOpen ? "scale-100 translate-y-0" : "scale-95 translate-y-4"
+          }`}
+        >
+          <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-sunset via-orange-500 to-amber-500" />
+          <button
+            onClick={() => setIsAmenitiesModalOpen(false)}
+            className="absolute top-4 right-4 text-sand/65 hover:text-sunset transition-colors p-2 cursor-pointer z-30"
+          >
+            <X className="w-5 h-5" />
+          </button>
+          <div className="p-6 pb-4 border-b border-sand/10 flex-shrink-0">
+            <h3 className="text-xl md:text-2xl font-serif font-light text-white uppercase tracking-wider">
+              What this place <span className="text-sunset italic font-normal">Offers</span>
+            </h3>
+            <p className="text-[10px] text-sand/40 font-sans uppercase tracking-widest mt-1">
+              Full amenities list & terms as per official brochure
+            </p>
           </div>
-        )}
-      </AnimatePresence>
+          <div className="p-6 overflow-y-auto flex-1 space-y-8 pr-4 scrollbar-thin scrollbar-thumb-sand/20">
+            {detailedAmenities.map((group, groupIdx) => (
+              <div key={groupIdx} className="space-y-3.5">
+                <h4 className="text-xs font-sans font-bold uppercase tracking-wider text-sunset border-b border-sand/5 pb-1">
+                  {group.category}
+                </h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                  {group.items.map((item, itemIdx) => (
+                    <div key={itemIdx} className="flex gap-2.5 items-start">
+                      <Check className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-xs text-sand/80 font-sans leading-relaxed">
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* Full Detailed Policies Modal */}
-      <AnimatePresence>
-        {isPoliciesModalOpen && (
-          <div className="fixed inset-0 z-[999] flex items-center justify-center p-4">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsPoliciesModalOpen(false)}
-              className="absolute inset-0 bg-black/85 backdrop-blur-md"
-            />
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 15 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 15 }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="w-full max-w-3xl bg-[#030a16] border border-sand/20 rounded-2xl relative z-10 max-h-[92vh] md:max-h-[85vh] flex flex-col overflow-hidden text-left"
-            >
-              <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-sunset via-orange-500 to-amber-500" />
-              <button
-                onClick={() => setIsPoliciesModalOpen(false)}
-                className="absolute top-4 right-4 text-sand/65 hover:text-sunset transition-colors p-2 cursor-pointer z-30"
-              >
-                <X className="w-5 h-5" />
-              </button>
-              <div className="p-6 pb-4 border-b border-sand/10 flex-shrink-0">
-                <h3 className="text-xl md:text-2xl font-serif font-light text-white uppercase tracking-wider">
-                  Resort Terms & <span className="text-sunset italic font-normal">Policies</span>
-                </h3>
-                <p className="text-[10px] text-sand/40 font-sans uppercase tracking-widest mt-1">
-                  Full rules, safety mandates & cancellation guidelines
-                </p>
-              </div>
-              <div className="p-6 overflow-y-auto flex-1 space-y-8 pr-4 scrollbar-thin scrollbar-thumb-sand/20">
-                {detailedPolicies.map((group, groupIdx) => (
-                  <div key={groupIdx} className="space-y-3.5">
-                    <h4 className="text-xs font-sans font-bold uppercase tracking-wider text-sunset border-b border-sand/5 pb-1">
-                      {group.category}
-                    </h4>
-                    <div className="space-y-2.5">
-                      {group.items.map((item, itemIdx) => (
-                        <div key={itemIdx} className="flex gap-2.5 items-start">
-                          <Check className="w-4 h-4 text-sunset flex-shrink-0 mt-0.5" />
-                          <span className="text-xs text-sand/80 font-sans leading-relaxed">
-                            {item}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+      <div 
+        className={`fixed inset-0 z-[999] flex items-center justify-center p-4 transition-all duration-300 ${
+          isPoliciesModalOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <div
+          onClick={() => setIsPoliciesModalOpen(false)}
+          className="absolute inset-0 bg-black/85 backdrop-blur-md"
+        />
+        <div
+          className={`w-full max-w-3xl bg-[#030a16] border border-sand/20 rounded-2xl relative z-10 max-h-[92vh] md:max-h-[85vh] flex flex-col overflow-hidden text-left transition-all duration-300 transform ${
+            isPoliciesModalOpen ? "scale-100 translate-y-0" : "scale-95 translate-y-4"
+          }`}
+        >
+          <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-sunset via-orange-500 to-amber-500" />
+          <button
+            onClick={() => setIsPoliciesModalOpen(false)}
+            className="absolute top-4 right-4 text-sand/65 hover:text-sunset transition-colors p-2 cursor-pointer z-30"
+          >
+            <X className="w-5 h-5" />
+          </button>
+          <div className="p-6 pb-4 border-b border-sand/10 flex-shrink-0">
+            <h3 className="text-xl md:text-2xl font-serif font-light text-white uppercase tracking-wider">
+              Resort Terms & <span className="text-sunset italic font-normal">Policies</span>
+            </h3>
+            <p className="text-[10px] text-sand/40 font-sans uppercase tracking-widest mt-1">
+              Full rules, safety mandates & cancellation guidelines
+            </p>
           </div>
-        )}
-      </AnimatePresence>
+          <div className="p-6 overflow-y-auto flex-1 space-y-8 pr-4 scrollbar-thin scrollbar-thumb-sand/20">
+            {detailedPolicies.map((group, groupIdx) => (
+              <div key={groupIdx} className="space-y-3.5">
+                <h4 className="text-xs font-sans font-bold uppercase tracking-wider text-sunset border-b border-sand/5 pb-1">
+                  {group.category}
+                </h4>
+                <div className="space-y-2.5">
+                  {group.items.map((item, itemIdx) => (
+                    <div key={itemIdx} className="flex gap-2.5 items-start">
+                      <Check className="w-4 h-4 text-sunset flex-shrink-0 mt-0.5" />
+                      <span className="text-xs text-sand/80 font-sans leading-relaxed">
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
     </div>
   );
@@ -1511,9 +1500,6 @@ export default function BookingPage() {
 
   return (
     <div className="bg-[#030a16] text-[#fcfbf7] min-h-screen relative overflow-hidden">
-      
-      {/* Custom Animated Mouse Cursor */}
-      <CustomCursor />
       
       {/* Background Soft Glows */}
       <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-sunset/5 blur-[150px] pointer-events-none" />
