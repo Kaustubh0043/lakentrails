@@ -1034,7 +1034,7 @@ ${formData.name}`;
                 <div className="flex-1 min-w-[120px]">
                   <span className="block text-[8px] uppercase tracking-widest text-sunset font-bold mb-1">Kids (5-12y)</span>
                   <span className="text-xs font-semibold text-white block">Half Price Tariff</span>
-                  <span className="text-[9px] text-sand/40">(Under 5y stay free!)</span>
+                  <span className="text-[9px] text-sand/40">(Under 5y is complimentary)</span>
                 </div>
               </div>
             </div>
