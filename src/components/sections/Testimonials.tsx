@@ -50,38 +50,73 @@ export default function Testimonials() {
     rating: 5,
   });
   const [hoverRating, setHoverRating] = useState<number | null>(null);
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
-  // Load reviews from local storage on load
+  // Load reviews from MongoDB API + default reviews
   useEffect(() => {
-    const stored = localStorage.getItem("lakentrails_reviews");
-    if (stored) {
-      setReviews([...defaultReviews, ...JSON.parse(stored)]);
-    } else {
-      setReviews(defaultReviews);
-    }
+    const fetchReviews = async () => {
+      try {
+        const response = await fetch("/api/reviews");
+        if (response.ok) {
+          const data = await response.json();
+          const mappedReviews = data.map((r: Review, idx: number) => ({
+            ...r,
+            delay: 0.1 * (idx % 5),
+            floatDuration: 4.5 + Math.random() * 2,
+          }));
+          setReviews([...defaultReviews, ...mappedReviews]);
+        } else {
+          setReviews(defaultReviews);
+        }
+      } catch (err) {
+        console.error("Failed to load reviews:", err);
+        setReviews(defaultReviews);
+      }
+    };
+    fetchReviews();
   }, []);
 
-  const handleSubmitReview = (e: React.FormEvent) => {
+  const handleSubmitReview = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!newReview.name || !newReview.text) return;
 
-    const submittedReview: Review = {
-      name: newReview.name,
-      role: newReview.role || "Resort Guest",
-      text: newReview.text,
-      rating: newReview.rating,
-      delay: 0.1,
-      floatDuration: 4.8 + Math.random() * 1.5,
-    };
+    setIsSubmitting(true);
+    setSubmitError(null);
 
-    const stored = localStorage.getItem("lakentrails_reviews");
-    const customList = stored ? JSON.parse(stored) : [];
-    const updatedCustom = [submittedReview, ...customList];
-    localStorage.setItem("lakentrails_reviews", JSON.stringify(updatedCustom));
+    try {
+      const response = await fetch("/api/reviews", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: newReview.name,
+          role: newReview.role || "Resort Guest",
+          text: newReview.text,
+          rating: newReview.rating,
+        }),
+      });
 
-    setReviews([submittedReview, ...reviews]);
-    setNewReview({ name: "", role: "", text: "", rating: 5 });
-    setIsFormOpen(false);
+      if (response.ok) {
+        setSubmitSuccess(true);
+        setNewReview({ name: "", role: "", text: "", rating: 5 });
+        setTimeout(() => {
+          setIsFormOpen(false);
+          setSubmitSuccess(false);
+        }, 3500);
+      } else {
+        const errData = await response.json();
+        setSubmitError(errData.error || "Failed to submit review. Please try again.");
+      }
+    } catch (err) {
+      console.error("Submit review error:", err);
+      setSubmitError("Network error. Please check your internet connection.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleRatingClick = (rate: number) => {
@@ -153,93 +188,119 @@ export default function Testimonials() {
                     <p className="text-[10px] text-sand/40 uppercase tracking-widest font-sans mt-0.5">Let us know how your lakeside escape went</p>
                   </div>
 
-                  <form onSubmit={handleSubmitReview} className="space-y-4 font-sans">
-                    {/* Name input */}
-                    <div className="space-y-1">
-                      <label className="block text-[10px] uppercase tracking-widest text-sand/40">Full Name</label>
-                      <input
-                        type="text"
-                        required
-                        value={newReview.name}
-                        onChange={(e) => setNewReview((prev) => ({ ...prev, name: e.target.value }))}
-                        placeholder="John Doe"
-                        className="w-full px-4 py-3 bg-[#030f26]/30 border border-sand/15 rounded-lg text-sm text-white focus:outline-none focus:border-sunset focus:ring-1 focus:ring-sunset transition-colors placeholder:text-sand/30"
-                      />
-                    </div>
-
-                    {/* Role / Tag input */}
-                    <div className="space-y-1">
-                      <label className="block text-[10px] uppercase tracking-widest text-sand/40">Stay Tag (e.g. Glamping Guest, Family outing)</label>
-                      <input
-                        type="text"
-                        value={newReview.role}
-                        onChange={(e) => setNewReview((prev) => ({ ...prev, role: e.target.value }))}
-                        placeholder="Family Vacationer"
-                        className="w-full px-4 py-3 bg-[#030f26]/30 border border-sand/15 rounded-lg text-sm text-white focus:outline-none focus:border-sunset focus:ring-1 focus:ring-sunset transition-colors placeholder:text-sand/30"
-                      />
-                    </div>
-
-                    {/* Interactive Star Picker */}
-                    <div className="space-y-1">
-                      <label className="block text-[10px] uppercase tracking-widest text-sand/40">Star Rating</label>
-                      <div className="flex gap-2 py-1 items-center">
-                        {[1, 2, 3, 4, 5].map((rate) => {
-                          const isLit = hoverRating !== null ? rate <= hoverRating : rate <= newReview.rating;
-                          return (
-                            <button
-                              key={rate}
-                              type="button"
-                              onClick={() => handleRatingClick(rate)}
-                              onMouseEnter={() => setHoverRating(rate)}
-                              onMouseLeave={() => setHoverRating(null)}
-                              className="focus:outline-none transition-transform active:scale-90"
-                            >
-                              <Star
-                                className={`w-6 h-6 cursor-pointer transition-all ${
-                                  isLit 
-                                    ? "fill-sunset text-sunset drop-shadow-[0_0_5px_rgba(255,107,53,0.3)]" 
-                                    : "text-sand/20"
-                                }`}
-                              />
-                            </button>
-                          );
-                        })}
-                        <span className="text-xs text-sand/50 font-medium ml-2 uppercase tracking-widest">
-                          {newReview.rating} Star{newReview.rating > 1 ? "s" : ""}
-                        </span>
+                  {submitSuccess ? (
+                    <motion.div 
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="py-12 flex flex-col items-center justify-center text-center space-y-4 font-sans"
+                    >
+                      <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/35 flex items-center justify-center text-emerald-400">
+                        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
                       </div>
-                    </div>
+                      <h4 className="text-lg font-serif font-light text-white uppercase tracking-wide">Submission Received!</h4>
+                      <p className="text-xs text-sand/75 max-w-xs leading-relaxed">
+                        Thank you for sharing your experience. Your review has been submitted for moderation and will be live once approved.
+                      </p>
+                    </motion.div>
+                  ) : (
+                    <form onSubmit={handleSubmitReview} className="space-y-4 font-sans">
+                      {/* Name input */}
+                      <div className="space-y-1">
+                        <label className="block text-[10px] uppercase tracking-widest text-sand/40">Full Name</label>
+                        <input
+                          type="text"
+                          required
+                          value={newReview.name}
+                          onChange={(e) => setNewReview((prev) => ({ ...prev, name: e.target.value }))}
+                          placeholder="John Doe"
+                          className="w-full px-4 py-3 bg-[#030f26]/30 border border-sand/15 rounded-lg text-sm text-white focus:outline-none focus:border-sunset focus:ring-1 focus:ring-sunset transition-colors placeholder:text-sand/30"
+                        />
+                      </div>
 
-                    {/* Review content */}
-                    <div className="space-y-1">
-                      <label className="block text-[10px] uppercase tracking-widest text-sand/40">Your Review</label>
-                      <textarea
-                        required
-                        rows={3}
-                        value={newReview.text}
-                        onChange={(e) => setNewReview((prev) => ({ ...prev, text: e.target.value }))}
-                        placeholder="Detail your experience, food, stay, pool vibe, or service..."
-                        className="w-full px-4 py-3 bg-[#030f26]/30 border border-sand/15 rounded-lg text-sm text-white focus:outline-none focus:border-sunset focus:ring-1 focus:ring-sunset transition-colors placeholder:text-sand/30 resize-none"
-                      />
-                    </div>
+                      {/* Role / Tag input */}
+                      <div className="space-y-1">
+                        <label className="block text-[10px] uppercase tracking-widest text-sand/40">Stay Tag (e.g. Glamping Guest, Family outing)</label>
+                        <input
+                          type="text"
+                          value={newReview.role}
+                          onChange={(e) => setNewReview((prev) => ({ ...prev, role: e.target.value }))}
+                          placeholder="Family Vacationer"
+                          className="w-full px-4 py-3 bg-[#030f26]/30 border border-sand/15 rounded-lg text-sm text-white focus:outline-none focus:border-sunset focus:ring-1 focus:ring-sunset transition-colors placeholder:text-sand/30"
+                        />
+                      </div>
 
-                    {/* Submit buttons */}
-                    <div className="flex gap-3 pt-2">
-                      <button
-                        type="button"
-                        onClick={() => setIsFormOpen(false)}
-                        className="w-1/3 py-3.5 border border-sand/15 hover:border-white text-sand/70 hover:text-white rounded-lg text-xs uppercase tracking-wider transition-colors cursor-pointer"
-                      >
-                        Cancel
-                      </button>
-                      <button
-                        type="submit"
-                        className="w-2/3 py-3.5 bg-sunset hover:bg-[#fd5e53] text-white font-medium text-xs uppercase tracking-widest rounded-lg transition-all shadow-lg shadow-sunset/15 cursor-pointer"
-                      >
-                        Post Review
-                      </button>
-                    </div>
-                  </form>
+                      {/* Interactive Star Picker */}
+                      <div className="space-y-1">
+                        <label className="block text-[10px] uppercase tracking-widest text-sand/40">Star Rating</label>
+                        <div className="flex gap-2 py-1 items-center">
+                          {[1, 2, 3, 4, 5].map((rate) => {
+                            const isLit = hoverRating !== null ? rate <= hoverRating : rate <= newReview.rating;
+                            return (
+                              <button
+                                key={rate}
+                                type="button"
+                                onClick={() => handleRatingClick(rate)}
+                                onMouseEnter={() => setHoverRating(rate)}
+                                onMouseLeave={() => setHoverRating(null)}
+                                className="focus:outline-none transition-transform active:scale-90"
+                              >
+                                <Star
+                                  className={`w-6 h-6 cursor-pointer transition-all ${
+                                    isLit 
+                                      ? "fill-sunset text-sunset drop-shadow-[0_0_5px_rgba(255,107,53,0.3)]" 
+                                      : "text-sand/20"
+                                  }`}
+                                />
+                              </button>
+                            );
+                          })}
+                          <span className="text-xs text-sand/50 font-medium ml-2 uppercase tracking-widest">
+                            {newReview.rating} Star{newReview.rating > 1 ? "s" : ""}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Review content */}
+                      <div className="space-y-1">
+                        <label className="block text-[10px] uppercase tracking-widest text-sand/40">Your Review</label>
+                        <textarea
+                          required
+                          rows={3}
+                          value={newReview.text}
+                          onChange={(e) => setNewReview((prev) => ({ ...prev, text: e.target.value }))}
+                          placeholder="Detail your experience, food, stay, pool vibe, or service..."
+                          className="w-full px-4 py-3 bg-[#030f26]/30 border border-sand/15 rounded-lg text-sm text-white focus:outline-none focus:border-sunset focus:ring-1 focus:ring-sunset transition-colors placeholder:text-sand/30 resize-none"
+                        />
+                      </div>
+
+                      {submitError && (
+                        <div className="text-xs text-red-400 bg-red-950/20 border border-red-900/35 p-3 rounded-lg">
+                          {submitError}
+                        </div>
+                      )}
+
+                      {/* Submit buttons */}
+                      <div className="flex gap-3 pt-2">
+                        <button
+                          type="button"
+                          disabled={isSubmitting}
+                          onClick={() => setIsFormOpen(false)}
+                          className="w-1/3 py-3.5 border border-sand/15 hover:border-white text-sand/70 hover:text-white rounded-lg text-xs uppercase tracking-wider transition-colors cursor-pointer disabled:opacity-50"
+                        >
+                          Cancel
+                        </button>
+                        <button
+                          type="submit"
+                          disabled={isSubmitting}
+                          className="w-2/3 py-3.5 bg-sunset hover:bg-[#fd5e53] text-white font-medium text-xs uppercase tracking-widest rounded-lg transition-all shadow-lg shadow-sunset/15 cursor-pointer disabled:opacity-75 flex items-center justify-center gap-2"
+                        >
+                          {isSubmitting ? "Posting..." : "Post Review"}
+                        </button>
+                      </div>
+                    </form>
+                  )}
                 </div>
               </motion.div>
             </motion.div>
