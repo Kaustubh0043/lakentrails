@@ -17,43 +17,12 @@ export default function Hero({ onOpenBooking }: HeroProps) {
 
   return (
     <section className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-[#030a16]">
-      {/* Video/Image background */}
-      <div 
-        className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0 bg-[#030a16]"
-        style={{
-          maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%)",
-          WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%)"
-        }}
-      >
-        {mounted ? (
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover opacity-60"
-          >
-            <source src="/images/IMG_8361.MOV" type="video/quicktime" />
-            <source src="/images/IMG_8361.MOV" type="video/mp4" />
-            <img 
-              src="/images/resort_background_hd_4k.jpg" 
-              className="w-full h-full object-cover opacity-80" 
-              alt="Resort background fallback" 
-            />
-          </video>
-        ) : (
-          <div 
-            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-80"
-            style={{
-              backgroundImage: "url('/images/resort_background_hd_4k.jpg')",
-            }}
-          />
-        )}
-      </div>
+      {/* Simple Color Background */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none z-0 bg-[#030a16]" />
 
       {/* Luxury Dark Radial Vignette & Gradient Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#030a16]/60 via-transparent to-[#030a16] z-[1] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(3,10,22,0)_20%,rgba(3,10,22,0.85)_100%)] z-[1] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#030a16]/60 via-transparent to-[#030a16] z-[1] pointer-events-none hero-overlay" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(3,10,22,0)_20%,rgba(3,10,22,0.85)_100%)] z-[1] pointer-events-none hero-radial" />
 
       {/* Ambient Lens Flare Effect */}
       <div className="absolute top-[20%] right-[10%] w-[350px] h-[350px] rounded-full bg-sunset/5 blur-[120px] pointer-events-none z-[1] animate-pulse-slow" />

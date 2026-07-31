@@ -169,15 +169,7 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
-/* Hide default cursor on desktop devices with hover support */
-@media (hover: hover) and (pointer: fine) {
-  body {
-    cursor: none;
-  }
-  a, button, select, input, textarea, [role="button"] {
-    cursor: none;
-  }
-}
+
 
 /* Light Theme Overrides */
 html.light {
@@ -237,7 +229,8 @@ html.light h6,
 html.light p,
 html.light li,
 html.light span:not(.text-sunset):not(.text-glow-sunset):not(.text-luxury-teal):not(.text-emerald-400),
-html.light a:not(.text-sunset):not(.text-glow-sunset) {
+html.light a:not(.text-sunset):not(.text-glow-sunset),
+html.light button:not(.bg-sunset):not(.bg-\[\#ff385c\]):not(.bg-emerald-500):not(.bg-emerald-600) {
   color: #020c1b !important;
 }
 
@@ -312,4 +305,10 @@ html.light .dark-force svg {
 /* Force mobile menu drawer background to light sand on smartphones */
 html.light .fixed.z-40.lg\:hidden {
   background-color: rgba(252, 251, 247, 0.98) !important;
+}
+
+/* Hide dark overlay gradients in hero section in light mode */
+html.light .hero-overlay,
+html.light .hero-radial {
+  display: none !important;
 }
