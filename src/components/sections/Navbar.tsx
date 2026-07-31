@@ -128,7 +128,7 @@ export default function Navbar({ onOpenBooking }: NavbarProps) {
           <a href="#" className="flex items-center gap-3 group">
             <img 
               src="/images/logo.png" 
-              className="w-10 h-10 object-contain group-hover:scale-105 transition-transform duration-500" 
+              className="w-10 h-10 object-contain rounded-full group-hover:scale-105 transition-transform duration-500" 
               alt="Lake N Trails Logo" 
             />
             <span className="font-serif text-lg tracking-[0.3em] font-light text-white group-hover:text-glow-sunset transition-all duration-500">

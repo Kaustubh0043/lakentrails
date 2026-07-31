@@ -94,7 +94,7 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
             >
               <img 
                 src="/images/logo.png" 
-                className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(255,107,53,0.4)]" 
+                className="w-full h-full object-contain rounded-full drop-shadow-[0_0_15px_rgba(255,107,53,0.4)]" 
                 alt="Lake N Trails Logo" 
               />
             </motion.div>

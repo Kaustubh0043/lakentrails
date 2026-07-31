@@ -47,7 +47,7 @@ export default function Packages({ onOpenBooking }: PackagesProps) {
           <div className="flex flex-col items-center gap-3 group">
             <img 
               src="/images/logo.png" 
-              className="w-20 h-20 object-contain group-hover:scale-105 transition-transform duration-500" 
+              className="w-20 h-20 object-contain rounded-full group-hover:scale-105 transition-transform duration-500" 
               alt="Lake N Trails Logo" 
             />
             <span className="font-serif text-2xl tracking-[0.3em] font-light text-white group-hover:text-glow-sunset transition-all duration-500 uppercase">
@@ -112,7 +112,7 @@ export default function Packages({ onOpenBooking }: PackagesProps) {
                   <span className="text-[10px] uppercase tracking-wider text-pink-400 font-semibold block mb-1">Weekdays</span>
                   <div className="space-y-1">
                     <div className="flex justify-between"><span>Adult:</span><span className="text-white font-medium">₹1,500</span></div>
-                    <div className="flex justify-between"><span>5–12 yrs:</span><span className="text-white font-medium">₹750</span></div>
+                    <div className="flex justify-between"><span>5–12 yrs:</span><span className="text-white font-medium">₹700</span></div>
                     <div className="flex justify-between"><span>Under 5:</span><span className="text-emerald-400 font-medium">Complimentary</span></div>
                   </div>
                 </div>
@@ -120,7 +120,7 @@ export default function Packages({ onOpenBooking }: PackagesProps) {
                   <span className="text-[10px] uppercase tracking-wider text-pink-400 font-semibold block mb-1">Weekends</span>
                   <div className="space-y-1">
                     <div className="flex justify-between"><span>Adult:</span><span className="text-white font-medium">₹1,800</span></div>
-                    <div className="flex justify-between"><span>5–12 yrs:</span><span className="text-white font-medium">₹900</span></div>
+                    <div className="flex justify-between"><span>5–12 yrs:</span><span className="text-white font-medium">₹800</span></div>
                     <div className="flex justify-between"><span>Under 5:</span><span className="text-emerald-400 font-medium">Complimentary</span></div>
                   </div>
                 </div>

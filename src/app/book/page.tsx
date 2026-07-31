@@ -282,10 +282,10 @@ function BookingContent() {
       packageName = "Day Outing Package";
       if (isWeekendDay) {
         adultRate = 1800;
-        childRate = 900;
+        childRate = 800;
       } else {
         adultRate = 1500;
-        childRate = 750;
+        childRate = 700;
       }
     }
 
@@ -1507,7 +1507,7 @@ export default function BookingPage() {
           <Link href="/" className="flex items-center gap-3 group">
             <img 
               src="/images/logo.png" 
-              className="w-7 h-7 object-contain group-hover:scale-105 transition-transform duration-500" 
+              className="w-7 h-7 object-contain rounded-full group-hover:scale-105 transition-transform duration-500" 
               alt="Lake N Trails Logo" 
             />
             <span className="text-sm font-serif uppercase tracking-[0.35em] text-[#fcfbf7] font-semibold">

@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Maximize2, ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { X, Maximize2, ChevronLeft, ChevronRight, Play, Volume2, VolumeX } from "lucide-react";
 
 interface GalleryItem {
   src: string;
@@ -26,6 +26,110 @@ export default function Gallery() {
       type: "video",
       colSpan: "md:col-span-2",
       rowSpan: "h-[300px] md:h-[450px]"
+    },
+    {
+      src: "/images/IMG_6574.MOV",
+      title: "Lakeside Vibe Video Tour",
+      category: "Others",
+      type: "video",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]"
+    },
+    {
+      src: "/images/IMG_6591.MOV",
+      title: "Lakeside Vibe Video Tour",
+      category: "Others",
+      type: "video",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]"
+    },
+    {
+      src: "/images/IMG_6595.MOV",
+      title: "Lakeside Vibe Video Tour",
+      category: "Others",
+      type: "video",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]"
+    },
+    {
+      src: "/images/IMG_6608.MOV",
+      title: "Lakeside Vibe Video Tour",
+      category: "Others",
+      type: "video",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]"
+    },
+    {
+      src: "/images/IMG_6648.MOV",
+      title: "Lakeside Vibe Video Tour",
+      category: "Others",
+      type: "video",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]"
+    },
+    {
+      src: "/images/IMG_6649.MOV",
+      title: "Lakeside Vibe Video Tour",
+      category: "Others",
+      type: "video",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]"
+    },
+    {
+      src: "/images/IMG_6651.MOV",
+      title: "Lakeside Vibe Video Tour",
+      category: "Others",
+      type: "video",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]"
+    },
+    {
+      src: "/images/IMG_6653.MOV",
+      title: "Lakeside Vibe Video Tour",
+      category: "Others",
+      type: "video",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]"
+    },
+    {
+      src: "/images/IMG_6654.MOV",
+      title: "Lakeside Vibe Video Tour",
+      category: "Others",
+      type: "video",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]"
+    },
+    {
+      src: "/images/20260712_184521.jpg.jpeg",
+      title: "Resort Landscape Snapshot",
+      category: "Others",
+      type: "image",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]"
+    },
+    {
+      src: "/images/20260715_191708.jpg.jpeg",
+      title: "Resort Landscape Snapshot",
+      category: "Others",
+      type: "image",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]"
+    },
+    {
+      src: "/images/IMG_6667.MOV",
+      title: "Lakeside Vibe Video Tour",
+      category: "Others",
+      type: "video",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]"
+    },
+    {
+      src: "/images/IMG_6622.MOV",
+      title: "Lakeside Vibe Video Tour",
+      category: "Others",
+      type: "video",
+      colSpan: "md:col-span-1",
+      rowSpan: "h-[300px] md:h-[350px]"
     },
     {
       src: "/images/20260709_113356.jpg.jpeg",
@@ -92,26 +196,10 @@ export default function Gallery() {
       rowSpan: "h-[300px] md:h-[350px]"
     },
     {
-      src: "/images/20260712_184521.jpg.jpeg",
-      title: "Resort Landscape Snapshot",
-      category: "Others",
-      type: "image",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
       src: "/images/20260715_181522.mp4",
       title: "Lakeside Vibe Video Tour",
       category: "Others",
       type: "video",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
-      src: "/images/20260715_191708.jpg.jpeg",
-      title: "Resort Landscape Snapshot",
-      category: "Others",
-      type: "image",
       colSpan: "md:col-span-1",
       rowSpan: "h-[300px] md:h-[350px]"
     },
@@ -516,14 +604,6 @@ export default function Gallery() {
       rowSpan: "h-[300px] md:h-[350px]"
     },
     {
-      src: "/images/IMG_6574.MOV",
-      title: "Lakeside Vibe Video Tour",
-      category: "Others",
-      type: "video",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
       src: "/images/IMG_6576.MOV",
       title: "Lakeside Vibe Video Tour",
       category: "Others",
@@ -556,31 +636,7 @@ export default function Gallery() {
       rowSpan: "h-[300px] md:h-[350px]"
     },
     {
-      src: "/images/IMG_6584.MOV",
-      title: "Lakeside Vibe Video Tour",
-      category: "Others",
-      type: "video",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
       src: "/images/IMG_6586.MOV",
-      title: "Lakeside Vibe Video Tour",
-      category: "Others",
-      type: "video",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
-      src: "/images/IMG_6589.MOV",
-      title: "Lakeside Vibe Video Tour",
-      category: "Others",
-      type: "video",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
-      src: "/images/IMG_6591.MOV",
       title: "Lakeside Vibe Video Tour",
       category: "Others",
       type: "video",
@@ -597,14 +653,6 @@ export default function Gallery() {
     },
     {
       src: "/images/IMG_6594.MOV",
-      title: "Lakeside Vibe Video Tour",
-      category: "Others",
-      type: "video",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
-      src: "/images/IMG_6595.MOV",
       title: "Lakeside Vibe Video Tour",
       category: "Others",
       type: "video",
@@ -676,14 +724,6 @@ export default function Gallery() {
       rowSpan: "h-[300px] md:h-[350px]"
     },
     {
-      src: "/images/IMG_6608.MOV",
-      title: "Lakeside Vibe Video Tour",
-      category: "Others",
-      type: "video",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
       src: "/images/IMG_6612.MOV",
       title: "Lakeside Vibe Video Tour",
       category: "Others",
@@ -708,46 +748,6 @@ export default function Gallery() {
       rowSpan: "h-[300px] md:h-[350px]"
     },
     {
-      src: "/images/IMG_6622.MOV",
-      title: "Lakeside Vibe Video Tour",
-      category: "Others",
-      type: "video",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
-      src: "/images/IMG_6627.MOV",
-      title: "Lakeside Vibe Video Tour",
-      category: "Others",
-      type: "video",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
-      src: "/images/IMG_6628.MOV",
-      title: "Lakeside Vibe Video Tour",
-      category: "Others",
-      type: "video",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
-      src: "/images/IMG_6629.MOV",
-      title: "Lakeside Vibe Video Tour",
-      category: "Others",
-      type: "video",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
-      src: "/images/IMG_6631.MOV",
-      title: "Lakeside Vibe Video Tour",
-      category: "Others",
-      type: "video",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
       src: "/images/IMG_6634.MOV",
       title: "Lakeside Vibe Video Tour",
       category: "Others",
@@ -757,14 +757,6 @@ export default function Gallery() {
     },
     {
       src: "/images/IMG_6639.MOV",
-      title: "Lakeside Vibe Video Tour",
-      category: "Others",
-      type: "video",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
-      src: "/images/IMG_6640.MOV",
       title: "Lakeside Vibe Video Tour",
       category: "Others",
       type: "video",
@@ -812,47 +804,7 @@ export default function Gallery() {
       rowSpan: "h-[300px] md:h-[350px]"
     },
     {
-      src: "/images/IMG_6648.MOV",
-      title: "Lakeside Vibe Video Tour",
-      category: "Others",
-      type: "video",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
-      src: "/images/IMG_6649.MOV",
-      title: "Lakeside Vibe Video Tour",
-      category: "Others",
-      type: "video",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
-      src: "/images/IMG_6651.MOV",
-      title: "Lakeside Vibe Video Tour",
-      category: "Others",
-      type: "video",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
       src: "/images/IMG_6652.MOV",
-      title: "Lakeside Vibe Video Tour",
-      category: "Others",
-      type: "video",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
-      src: "/images/IMG_6653.MOV",
-      title: "Lakeside Vibe Video Tour",
-      category: "Others",
-      type: "video",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
-      src: "/images/IMG_6654.MOV",
       title: "Lakeside Vibe Video Tour",
       category: "Others",
       type: "video",
@@ -901,22 +853,6 @@ export default function Gallery() {
     },
     {
       src: "/images/IMG_6666.MOV",
-      title: "Lakeside Vibe Video Tour",
-      category: "Others",
-      type: "video",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
-      src: "/images/IMG_6667.MOV",
-      title: "Lakeside Vibe Video Tour",
-      category: "Others",
-      type: "video",
-      colSpan: "md:col-span-1",
-      rowSpan: "h-[300px] md:h-[350px]"
-    },
-    {
-      src: "/images/IMG_6668.MOV",
       title: "Lakeside Vibe Video Tour",
       category: "Others",
       type: "video",
@@ -1124,6 +1060,15 @@ export default function Gallery() {
 
   const displayedItems = filteredItems.slice(0, visibleCount);
 
+  const [isMuted, setIsMuted] = useState(true);
+
+  useEffect(() => {
+    if (activeIdx !== null && filteredItems && filteredItems[activeIdx]) {
+      const isIntro = filteredItems[activeIdx].src.toLowerCase().includes("img_6878");
+      setIsMuted(!isIntro);
+    }
+  }, [activeIdx, filteredItems]);
+
   // Navigation handlers for Lightbox
   const handleNext = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -1279,7 +1224,7 @@ export default function Gallery() {
                   src={filteredItems[activeIdx].src}
                   controls
                   autoPlay
-                  muted={!filteredItems[activeIdx].src.toLowerCase().includes("img_6878")}
+                  muted={isMuted}
                   className="w-full h-full object-contain max-h-[80vh] rounded-2xl shadow-2xl bg-black"
                 />
               ) : (
@@ -1288,6 +1233,20 @@ export default function Gallery() {
                   alt={filteredItems[activeIdx].title}
                   className="w-full h-full object-contain max-h-[80vh] rounded-2xl shadow-2xl"
                 />
+              )}
+
+              {/* Mute/Unmute Toggle Button */}
+              {(filteredItems[activeIdx].src.toLowerCase().endsWith(".mp4") || filteredItems[activeIdx].src.toLowerCase().endsWith(".mov")) && (
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsMuted(!isMuted);
+                  }}
+                  className="absolute bottom-4 right-4 text-white/70 hover:text-sunset transition-colors duration-300 p-2.5 glass-panel rounded-full border border-sand/20 cursor-pointer bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center shadow-lg"
+                  aria-label={isMuted ? "Unmute video" : "Mute video"}
+                >
+                  {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+                </button>
               )}
 
               {/* Top Banner Info */}
@@ -1303,7 +1262,7 @@ export default function Gallery() {
               {/* Close Button */}
               <button
                 onClick={() => setActiveIdx(null)}
-                className="absolute top-4 right-4 text-white/70 hover:text-sunset transition-colors duration-300 p-2.5 glass-panel rounded-full border border-sand/20 cursor-pointer bg-black/40 backdrop-blur-sm"
+                className="absolute top-4 right-4 text-white/70 hover:text-sunset transition-colors duration-300 p-2.5 glass-panel rounded-full border border-sand/20 cursor-pointer bg-black/40 backdrop-blur-sm z-50"
                 aria-label="Close preview"
               >
                 <X className="w-5 h-5" />
@@ -1312,14 +1271,14 @@ export default function Gallery() {
               {/* Navigation Left / Right */}
               <button
                 onClick={handlePrev}
-                className="absolute left-4 p-3.5 glass-panel rounded-full border border-sand/20 text-white/70 hover:text-sunset hover:border-sunset transition-all cursor-pointer bg-black/40 backdrop-blur-sm"
+                className="absolute left-4 p-3.5 glass-panel rounded-full border border-sand/20 text-white/70 hover:text-sunset hover:border-sunset transition-all cursor-pointer bg-black/40 backdrop-blur-sm z-50"
                 aria-label="Previous image"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={handleNext}
-                className="absolute right-4 p-3.5 glass-panel rounded-full border border-sand/20 text-white/70 hover:text-sunset hover:border-sunset transition-all cursor-pointer bg-black/40 backdrop-blur-sm"
+                className="absolute right-4 p-3.5 glass-panel rounded-full border border-sand/20 text-white/70 hover:text-sunset hover:border-sunset transition-all cursor-pointer bg-black/40 backdrop-blur-sm z-50"
                 aria-label="Next image"
               >
                 <ChevronRight className="w-5 h-5" />
