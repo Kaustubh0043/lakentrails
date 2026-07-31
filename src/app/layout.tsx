@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Lake N Trails Exotic Glamping | Luxury Lakeside Tropical Escape",
     description:
-      "Your lakeside escape begins here. Immerse yourself in a luxurious tropical Bali vibe with dynamic nightlife, kayaking, pool parties, and stargazing.",
+      "Escape Ordinary, Experience Exotic. Immerse yourself in a luxurious tropical Bali vibe with dynamic nightlife, kayaking, pool parties, and stargazing.",
     url: "https://lakentrails.in",
     siteName: "Lake N Trails Exotic Glamping",
     locale: "en_US",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Lake N Trails Exotic Glamping | Luxury Lakeside Tropical Escape",
     description:
-      "Your lakeside escape begins here. Immerse yourself in a luxurious tropical Bali vibe with dynamic nightlife, kayaking, pool parties, and stargazing.",
+      "Escape Ordinary, Experience Exotic. Immerse yourself in a luxurious tropical Bali vibe with dynamic nightlife, kayaking, pool parties, and stargazing.",
     images: ["https://lakentrails.in/images/resort_background_hd_4k.jpg"],
   },
 };

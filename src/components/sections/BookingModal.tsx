@@ -846,7 +846,7 @@ ${formData.name}`;
                     </div>
                     <div className="text-[10px] text-sand/50 font-sans mt-1.5 pl-1 italic">
                       {formData.experience === "day-outing"
-                        ? "* Tariff: ₹1,300 Weekday / ₹1,600 Weekend per person"
+                        ? "* Tariff: ₹1,500 Weekday / ₹1,800 Weekend per person"
                         : "* Tariff: ₹2,200 Weekday / ₹2,800 Weekend per person"}
                     </div>
                   </div>

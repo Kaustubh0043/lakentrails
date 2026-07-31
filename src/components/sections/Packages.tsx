@@ -45,26 +45,11 @@ export default function Packages({ onOpenBooking }: PackagesProps) {
         {/* Logo Banner */}
         <div className="flex justify-center mb-10">
           <div className="flex flex-col items-center gap-3 group">
-            <svg
-              viewBox="0 0 100 100"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-20 h-20 text-sand group-hover:text-sunset transition-colors duration-500 drop-shadow-[0_0_12px_rgba(255,107,53,0.25)]"
-            >
-              <path
-                d="M15 65 C 25 55, 35 55, 45 65 C 55 75, 65 75, 75 65 C 85 55, 90 58, 95 62"
-                stroke="currentColor"
-                strokeWidth="3.5"
-                strokeLinecap="round"
-              />
-              <path
-                d="M50 20 L75 60 H25 L50 20 Z"
-                stroke="#ff6b35"
-                strokeWidth="3"
-                strokeLinejoin="round"
-                strokeLinecap="round"
-              />
-            </svg>
+            <img 
+              src="/images/logo.png" 
+              className="w-20 h-20 object-contain group-hover:scale-105 transition-transform duration-500" 
+              alt="Lake N Trails Logo" 
+            />
             <span className="font-serif text-2xl tracking-[0.3em] font-light text-white group-hover:text-glow-sunset transition-all duration-500 uppercase">
               LAKE N TRAILS
             </span>
@@ -113,7 +98,7 @@ export default function Packages({ onOpenBooking }: PackagesProps) {
                 </div>
                 <div className="text-right">
                   <div className="text-2xl md:text-3xl font-sans font-semibold text-pink-400">
-                    ₹1,300<span className="text-xs text-sand/50 font-normal"> / Person</span>
+                    ₹1,500<span className="text-xs text-sand/50 font-normal"> / Person</span>
                   </div>
                   <div className="text-[8px] md:text-[9px] text-sand/40 uppercase tracking-widest font-medium mt-0.5">
                     Weekday Starting Rate
@@ -126,16 +111,16 @@ export default function Packages({ onOpenBooking }: PackagesProps) {
                 <div className="pb-3 xs:pb-0 xs:pr-3">
                   <span className="text-[10px] uppercase tracking-wider text-pink-400 font-semibold block mb-1">Weekdays</span>
                   <div className="space-y-1">
-                    <div className="flex justify-between"><span>Adult:</span><span className="text-white font-medium">₹1,300</span></div>
-                    <div className="flex justify-between"><span>5–12 yrs:</span><span className="text-white font-medium">₹700</span></div>
+                    <div className="flex justify-between"><span>Adult:</span><span className="text-white font-medium">₹1,500</span></div>
+                    <div className="flex justify-between"><span>5–12 yrs:</span><span className="text-white font-medium">₹750</span></div>
                     <div className="flex justify-between"><span>Under 5:</span><span className="text-emerald-400 font-medium">Complimentary</span></div>
                   </div>
                 </div>
                 <div className="pt-3 xs:pt-0 xs:pl-3">
                   <span className="text-[10px] uppercase tracking-wider text-pink-400 font-semibold block mb-1">Weekends</span>
                   <div className="space-y-1">
-                    <div className="flex justify-between"><span>Adult:</span><span className="text-white font-medium">₹1,600</span></div>
-                    <div className="flex justify-between"><span>5–12 yrs:</span><span className="text-white font-medium">₹800</span></div>
+                    <div className="flex justify-between"><span>Adult:</span><span className="text-white font-medium">₹1,800</span></div>
+                    <div className="flex justify-between"><span>5–12 yrs:</span><span className="text-white font-medium">₹900</span></div>
                     <div className="flex justify-between"><span>Under 5:</span><span className="text-emerald-400 font-medium">Complimentary</span></div>
                   </div>
                 </div>

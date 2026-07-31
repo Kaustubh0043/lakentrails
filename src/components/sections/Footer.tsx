@@ -41,26 +41,11 @@ export default function Footer() {
           {/* Column 1: Brand & Description */}
           <div className="md:col-span-2 space-y-4 text-left">
             <a href="#" className="flex items-center gap-3 group">
-              <svg
-                viewBox="0 0 100 100"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-9 h-9 text-sand group-hover:text-sunset transition-colors duration-500 drop-shadow-[0_0_8px_rgba(255,107,53,0.3)]"
-              >
-                <path
-                  d="M15 65 C 25 55, 35 55, 45 65 C 55 75, 65 75, 75 65 C 85 55, 90 58, 95 62"
-                  stroke="currentColor"
-                  strokeWidth="3.5"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M50 20 L75 60 H25 L50 20 Z"
-                  stroke="#ff6b35"
-                  strokeWidth="3"
-                  strokeLinejoin="round"
-                  strokeLinecap="round"
-                />
-              </svg>
+              <img 
+                src="/images/logo.png" 
+                className="w-9 h-9 object-contain group-hover:scale-105 transition-transform duration-500" 
+                alt="Lake N Trails Logo" 
+              />
               <span className="font-serif text-md tracking-[0.3em] font-light text-white">
                 LAKE N TRAILS
               </span>

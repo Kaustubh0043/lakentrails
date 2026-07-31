@@ -92,36 +92,11 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
               transition={{ duration: 1, ease: "easeOut" }}
               className="w-24 h-24 mb-6 text-sand flex items-center justify-center"
             >
-              <svg
-                viewBox="0 0 100 100"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-full h-full drop-shadow-[0_0_15px_rgba(255,107,53,0.4)]"
-              >
-                {/* Wave Path */}
-                <path
-                  d="M15 65 C 25 55, 35 55, 45 65 C 55 75, 65 75, 75 65 C 85 55, 90 58, 95 62"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M20 73 C 30 65, 40 65, 50 73 C 60 81, 70 81, 80 73"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeOpacity="0.5"
-                  strokeLinecap="round"
-                />
-                {/* Tree / Trail Triangle Concept */}
-                <path
-                  d="M50 20 L75 60 H25 L50 20 Z"
-                  stroke="#ff6b35"
-                  strokeWidth="2"
-                  strokeLinejoin="round"
-                  strokeLinecap="round"
-                />
-                <circle cx="50" cy="15" r="3" fill="#ff6b35" className="animate-pulse" />
-              </svg>
+              <img 
+                src="/images/logo.png" 
+                className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(255,107,53,0.4)]" 
+                alt="Lake N Trails Logo" 
+              />
             </motion.div>
 
             {/* Glowing Hotel Branding */}

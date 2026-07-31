@@ -281,11 +281,11 @@ function BookingContent() {
     } else {
       packageName = "Day Outing Package";
       if (isWeekendDay) {
-        adultRate = 1600;
-        childRate = 800;
+        adultRate = 1800;
+        childRate = 900;
       } else {
-        adultRate = 1300;
-        childRate = 700;
+        adultRate = 1500;
+        childRate = 750;
       }
     }
 
@@ -1017,7 +1017,7 @@ ${formData.name}`;
                 <div className="flex-1 min-w-[120px]">
                   <span className="block text-[8px] uppercase tracking-widest text-sand/40 font-bold mb-1">Weekday Rate</span>
                   <span className="text-xl font-serif text-white font-bold">
-                    {formData.experience === "day-outing" ? "₹1,300" : "₹2,200"}
+                    {formData.experience === "day-outing" ? "₹1,500" : "₹2,200"}
                   </span>
                   <span className="text-[10px] text-sand/50"> / {formData.experience === "day-outing" ? "person" : "night"}</span>
                 </div>
@@ -1025,7 +1025,7 @@ ${formData.name}`;
                 <div className="flex-1 min-w-[120px]">
                   <span className="block text-[8px] uppercase tracking-widest text-sand/40 font-bold mb-1">Weekend Rate</span>
                   <span className="text-xl font-serif text-white font-bold">
-                    {formData.experience === "day-outing" ? "₹1,600" : "₹2,800"}
+                    {formData.experience === "day-outing" ? "₹1,800" : "₹2,800"}
                   </span>
                   <span className="text-[10px] text-sand/50"> / {formData.experience === "day-outing" ? "person" : "night"}</span>
                 </div>
@@ -1505,26 +1505,11 @@ export default function BookingPage() {
       <header className="relative z-10 w-full border-b border-sand/5 bg-[#030a16]/40 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-5 flex justify-between items-center">
           <Link href="/" className="flex items-center gap-3 group">
-            <svg
-              viewBox="0 0 100 100"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-7 h-7 text-sand group-hover:text-sunset transition-colors duration-500 drop-shadow-[0_0_8px_rgba(255,107,53,0.3)]"
-            >
-              <path
-                d="M15 65 C 25 55, 35 55, 45 65 C 55 75, 65 75, 75 65 C 85 55, 90 58, 95 62"
-                stroke="currentColor"
-                strokeWidth="3.5"
-                strokeLinecap="round"
-              />
-              <path
-                d="M50 20 L75 60 H25 L50 20 Z"
-                stroke="#ff6b35"
-                strokeWidth="3"
-                strokeLinejoin="round"
-                strokeLinecap="round"
-              />
-            </svg>
+            <img 
+              src="/images/logo.png" 
+              className="w-7 h-7 object-contain group-hover:scale-105 transition-transform duration-500" 
+              alt="Lake N Trails Logo" 
+            />
             <span className="text-sm font-serif uppercase tracking-[0.35em] text-[#fcfbf7] font-semibold">
               Lake N Trails
             </span>

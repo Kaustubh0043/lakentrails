@@ -104,7 +104,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] as const, delay: 1.6 }}
           >
-            “Your Lakeside Escape Begins Here”
+            “Escape Ordinary, Experience Exotic”
           </motion.p>
         </div>
 
