@@ -1507,7 +1507,7 @@ export default function BookingPage() {
           <Link href="/" className="flex items-center gap-3 group">
             <img 
               src="/images/logo.png" 
-              className="w-7 h-7 object-contain rounded-full group-hover:scale-105 transition-transform duration-500" 
+              className="w-11 h-11 object-contain rounded-full group-hover:scale-105 transition-transform duration-500" 
               alt="Lake N Trails Logo" 
             />
             <span className="text-sm font-serif uppercase tracking-[0.35em] text-[#fcfbf7] font-semibold">
