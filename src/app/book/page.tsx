@@ -641,21 +641,17 @@ ${formData.name}`;
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-10 md:py-16 relative z-10 text-[#fcfbf7]">
       
       {/* Back button */}
-      <div className="mb-8 flex justify-start">
-        <button
-          onClick={() => {
-            if (step === "confirm") {
-              setStep("form");
-            } else {
-              router.push("/");
-            }
-          }}
-          className="flex items-center gap-2.5 text-xs font-sans uppercase tracking-widest font-semibold text-sand/60 hover:text-sunset transition-colors group cursor-pointer"
-        >
-          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-          {step === "confirm" ? "Back To Form" : "Back To Home"}
-        </button>
-      </div>
+      {step === "form" && (
+        <div className="mb-8 flex justify-start">
+          <button
+            onClick={() => router.push("/")}
+            className="flex items-center gap-2.5 text-xs font-sans uppercase tracking-widest font-semibold text-sand/60 hover:text-sunset transition-colors group cursor-pointer"
+          >
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+            Back To Home
+          </button>
+        </div>
+      )}
 
       {/* STEP 1: ORIGINAL SPACIOUS FORM LAYOUT */}
       {step === "form" && (
