@@ -10,15 +10,52 @@ interface HeroProps {
 
 export default function Hero({ onOpenBooking }: HeroProps) {
   const [mounted, setMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+    const checkMobile = () => {
+      const mobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      );
+      setIsMobile(window.innerWidth < 1024 || mobileUA);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   return (
     <section className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-[#030a16]">
-      {/* Simple Color Background */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none z-0 bg-[#030a16]" />
+      {/* Simple Color Background for Desktop, Video background for Mobile */}
+      {mounted && isMobile ? (
+        <div 
+          className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0 bg-[#030a16]"
+          style={{
+            maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%)",
+            WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%)"
+          }}
+        >
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-60"
+          >
+            <source src="/images/IMG_8361.MOV" type="video/quicktime" />
+            <source src="/images/IMG_8361.MOV" type="video/mp4" />
+            <img 
+              src="/images/resort_background_hd_4k.jpg" 
+              className="w-full h-full object-cover opacity-80" 
+              alt="Resort background fallback" 
+            />
+          </video>
+        </div>
+      ) : (
+        <div className="absolute inset-0 w-full h-full pointer-events-none z-0 bg-[#030a16]" />
+      )}
 
       {/* Luxury Dark Radial Vignette & Gradient Overlays */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#030a16]/60 via-transparent to-[#030a16] z-[1] pointer-events-none hero-overlay" />
