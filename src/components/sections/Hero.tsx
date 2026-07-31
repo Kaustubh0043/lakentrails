@@ -81,6 +81,20 @@ export default function Hero({ onOpenBooking }: HeroProps) {
           </span>
         </motion.div>
 
+        {/* Brand Circular Logo Accent */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 1.3 }}
+          className="mb-8"
+        >
+          <img
+            src="/images/logo.png"
+            className="w-24 h-24 object-contain rounded-full border border-sand/15 shadow-[0_0_20px_rgba(255,107,53,0.15)]"
+            alt="Lake N Trails Logo"
+          />
+        </motion.div>
+
         {/* Big Luxury Serif Title */}
         <div className="overflow-hidden mb-4">
           <motion.h1
