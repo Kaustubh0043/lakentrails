@@ -312,3 +312,28 @@ html.light .hero-overlay,
 html.light .hero-radial {
   display: none !important;
 }
+
+/* Explicitly override navigation bar buttons in light mode */
+html.light nav button:not(.bg-sunset),
+html.light nav button:not(.bg-sunset) *,
+html.light header button:not(.bg-sunset),
+html.light header button:not(.bg-sunset) * {
+  color: #020c1b !important;
+}
+
+/* Explicitly override companion guides buttons in light mode */
+html.light #companion button {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(59, 44, 22, 0.15) !important;
+  color: #020c1b !important;
+}
+
+html.light #companion button.bg-sunset {
+  background-color: #ff6b35 !important;
+  border-color: #ff6b35 !important;
+  color: #ffffff !important;
+}
+
+html.light #companion button.bg-sunset * {
+  color: #ffffff !important;
+}
