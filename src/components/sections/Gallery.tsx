@@ -1236,11 +1236,11 @@ export default function Gallery() {
               )}
 
               {/* Top Banner Info */}
-              <div className="absolute top-4 left-4 z-20 text-left glass-panel py-2.5 px-4 rounded-xl border border-sand/15 bg-black/40 backdrop-blur-sm">
-                <span className="text-[10px] font-sans uppercase tracking-[0.2em] text-sunset font-semibold block">
+              <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 text-center w-[70%] md:left-4 md:-translate-x-0 md:text-left md:w-auto glass-panel py-2 px-3 md:px-4 rounded-xl border border-sand/15 bg-black/50 backdrop-blur-sm">
+                <span className="text-[9px] md:text-[10px] font-sans uppercase tracking-[0.2em] text-sunset font-semibold block">
                   {filteredItems[activeIdx].category}
                 </span>
-                <h3 className="text-sm md:text-base font-serif font-light text-white leading-normal">
+                <h3 className="text-xs md:text-base font-serif font-light text-white leading-normal">
                   {filteredItems[activeIdx].title}
                 </h3>
               </div>
