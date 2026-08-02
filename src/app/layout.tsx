@@ -69,6 +69,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${luxurySerif.variable} ${luxurySans.variable} scroll-smooth`}
+      suppressHydrationWarning
     >
       <head>
         <script
