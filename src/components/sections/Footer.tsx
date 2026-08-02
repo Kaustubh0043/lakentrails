@@ -121,8 +121,11 @@ export default function Footer() {
                 Adoshi Dam, Mandad Atkargaon, Khopoli 410203 India
               </li>
               <li>
-                <a href="tel:+917058434645" className="hover:text-sunset transition-colors">
+                <a href="tel:+917058434645" className="hover:text-sunset transition-colors block">
                   +91 7058434645
+                </a>
+                <a href="tel:+919769040883" className="hover:text-sunset transition-colors block mt-1">
+                  +91 97690 40883
                 </a>
               </li>
               <li>

@@ -91,6 +91,9 @@ export default function Contact() {
                     <a href="tel:+917058434645" className="text-sm text-white hover:text-sunset transition-colors block">
                       +91 7058434645
                     </a>
+                    <a href="tel:+919769040883" className="text-sm text-white hover:text-sunset transition-colors block">
+                      +91 97690 40883
+                    </a>
                   </div>
                 </div>
               </div>
