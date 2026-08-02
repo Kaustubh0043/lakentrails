@@ -85,7 +85,7 @@ export default function Home() {
         <Navbar onOpenBooking={() => openBooking("camping")} />
 
         {/* Main Storyteller Layout */}
-        <main className="relative z-10 w-full">
+        <main className="relative w-full">
           <Hero onOpenBooking={() => openBooking("camping")} />
           
           <About />
