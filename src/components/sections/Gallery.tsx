@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Maximize2, ChevronLeft, ChevronRight, Play, Volume2, VolumeX } from "lucide-react";
+import { X, Maximize2, ChevronLeft, ChevronRight, Play } from "lucide-react";
 
 interface GalleryItem {
   src: string;
@@ -1060,14 +1060,7 @@ export default function Gallery() {
 
   const displayedItems = filteredItems.slice(0, visibleCount);
 
-  const [isMuted, setIsMuted] = useState(true);
 
-  useEffect(() => {
-    if (activeIdx !== null && filteredItems && filteredItems[activeIdx]) {
-      const isIntro = filteredItems[activeIdx].src.toLowerCase().includes("img_6878");
-      setIsMuted(!isIntro);
-    }
-  }, [activeIdx, filteredItems]);
 
   // Navigation handlers for Lightbox
   const handleNext = (e: React.MouseEvent) => {
@@ -1224,7 +1217,14 @@ export default function Gallery() {
                   src={filteredItems[activeIdx].src}
                   controls
                   autoPlay
-                  muted={isMuted}
+                  muted={!filteredItems[activeIdx].src.toLowerCase().includes("img_6878")}
+                  onVolumeChange={(e) => {
+                    const video = e.currentTarget;
+                    if (!video.src.toLowerCase().includes("img_6878")) {
+                      video.muted = true;
+                      video.volume = 0;
+                    }
+                  }}
                   className="w-full h-full object-contain max-h-[80vh] rounded-2xl shadow-2xl bg-black"
                 />
               ) : (
@@ -1233,20 +1233,6 @@ export default function Gallery() {
                   alt={filteredItems[activeIdx].title}
                   className="w-full h-full object-contain max-h-[80vh] rounded-2xl shadow-2xl"
                 />
-              )}
-
-              {/* Mute/Unmute Toggle Button */}
-              {(filteredItems[activeIdx].src.toLowerCase().endsWith(".mp4") || filteredItems[activeIdx].src.toLowerCase().endsWith(".mov")) && (
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setIsMuted(!isMuted);
-                  }}
-                  className="absolute bottom-4 right-4 text-white/70 hover:text-sunset transition-colors duration-300 p-2.5 glass-panel rounded-full border border-sand/20 cursor-pointer bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center shadow-lg"
-                  aria-label={isMuted ? "Unmute video" : "Mute video"}
-                >
-                  {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
-                </button>
               )}
 
               {/* Top Banner Info */}
