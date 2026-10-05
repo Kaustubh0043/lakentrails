@@ -17,6 +17,7 @@ const luxurySans = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://lakentrails.in"),
   title: "Lake N Trails Exotic Glamping | Luxury Lakeside Tropical Escape Khopoli",
   description:
     "Experience the ultimate luxury lakeside tropical getaway at Lake N Trails Exotic Glamping in Khopoli. Featuring premium stays, private pool parties, bonfires under the stars, custom group celebrations, events, rain dance, and kayaking in a dreamy Bali-inspired tropical vibe.",
@@ -34,6 +35,19 @@ export const metadata: Metadata = {
     "Adoshi Dam resort",
   ],
   authors: [{ name: "Lake N Trails Exotic Glamping" }],
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/icon-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512x512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
     title: "Lake N Trails Exotic Glamping | Luxury Lakeside Tropical Escape",
     description:

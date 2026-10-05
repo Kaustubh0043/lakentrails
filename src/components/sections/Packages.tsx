@@ -28,7 +28,7 @@ interface PackagesProps {
 
 export default function Packages({ onOpenBooking }: PackagesProps) {
   const inclusionsAll = [
-    { icon: Waves, label: "Kayaking" },
+    { icon: Waves, label: "Swimming Pool" },
     { icon: Map, label: "Nature Trails" },
     { icon: Gamepad2, label: "Indoor/Outdoor Games" },
     { icon: Camera, label: "Photography Spots" },
