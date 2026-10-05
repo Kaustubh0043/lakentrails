@@ -35,6 +35,9 @@ export const metadata: Metadata = {
     "Adoshi Dam resort",
   ],
   authors: [{ name: "Lake N Trails Exotic Glamping" }],
+  alternates: {
+    canonical: "https://lakentrails.in",
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
