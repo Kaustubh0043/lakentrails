@@ -72,6 +72,9 @@ export const metadata: Metadata = {
       "Escape Ordinary, Experience Exotic. Immerse yourself in a luxurious tropical Bali vibe with dynamic nightlife, kayaking, pool parties, and stargazing.",
     images: ["https://lakentrails.in/images/resort_background_hd_4k.jpg"],
   },
+  verification: {
+    google: "Jm4LCwh6HmhUZP4TU4nz61oxx5Vx5uFqbKizgFmat1o",
+  },
 };
 
 export default function RootLayout({
@@ -86,6 +89,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        <meta name="google-site-verification" content="Jm4LCwh6HmhUZP4TU4nz61oxx5Vx5uFqbKizgFmat1o" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
